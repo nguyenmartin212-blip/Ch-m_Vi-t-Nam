@@ -1,0 +1,2818 @@
+[
+  {
+    "id": "hoi-an",
+    "name": "Hội An",
+    "category": "Điểm đến",
+    "region": "central",
+    "description": "Một điểm đến để đi chậm: từ những con phố vàng đến bữa ăn địa phương và những làng nghề ven sông.",
+    "tags": "Văn hóa Ẩm thực Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "pho-co-hoi-an",
+        "label": "Có di sản"
+      },
+      {
+        "id": "cao-lau",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "lang-gom-thanh-ha",
+        "label": "Có làng nghề"
+      },
+      {
+        "id": "lang-moc-kim-bong",
+        "label": "Có làng nghề"
+      },
+      {
+        "id": "den-long-hoi-an",
+        "label": "Gắn với văn hóa"
+      },
+      {
+        "id": "thanh-dia-my-son",
+        "label": "Kết nối lân cận"
+      },
+      {
+        "id": "dap-xe-vung-ven-hoi-an",
+        "label": "Có trải nghiệm"
+      },
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Cùng chủ đề"
+      },
+      {
+        "id": "com-ga-hoi-an",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "bai-bien-an-bang",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "lang-rau-tra-que",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "ben-thuyen-song-thu-bon",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "cao-lau-thanh",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "com-ga-ba-buoi",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "banh-mi-phuong",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Hội An",
+        "url": "https://whc.unesco.org/en/list/948"
+      },
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [
+      "Hội An từng là thương cảng hoạt động từ thế kỷ XV đến XIX. Kiến trúc và cấu trúc đô thị phản ánh sự gặp gỡ giữa văn hóa bản địa với các ảnh hưởng bên ngoài. Tham chiếu: UNESCO · Hội An"
+    ],
+    "maps": null
+  },
+  {
+    "id": "ha-giang",
+    "name": "Hà Giang",
+    "category": "Điểm đến",
+    "region": "north",
+    "description": "Những cung đường uốn quanh núi đá và thung lũng mở ra một cách khám phá rất khác về miền Bắc.",
+    "tags": "Thiên nhiên Khám phá Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "3–4 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "cao-nguyen-da-dong-van",
+        "label": "Có cảnh quan"
+      },
+      {
+        "id": "ma-pi-leng",
+        "label": "Có cảnh quan"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hà Giang",
+        "url": "https://vietnam.travel/places-to-go/northern-midlands-mountains/ha-giang"
+      }
+    ],
+    "narrative": [
+      "Đồng Văn và Mã Pí Lèng là các điểm khám phá cảnh quan được giới thiệu trong cẩm nang vùng cao Hà Giang. Tham chiếu: Vietnam Tourism · Hà Giang"
+    ],
+    "maps": null
+  },
+  {
+    "id": "trang-an",
+    "name": "Tràng An",
+    "category": "Thiên nhiên",
+    "region": "north",
+    "description": "Dòng nước len qua thung lũng và các núi đá vôi. Cảnh quan nơi đây lưu giữ cả dấu vết thiên nhiên lẫn đời sống con người.",
+    "tags": "Thiên nhiên Di sản Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "Nửa ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "di-thuyen-trang-an",
+        "label": "Có trải nghiệm"
+      },
+      {
+        "id": "ha-long",
+        "label": "Cùng chủ đề"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Tràng An",
+        "url": "https://whc.unesco.org/en/list/1438"
+      }
+    ],
+    "narrative": [
+      "Hệ núi đá vôi và hang động ở Tràng An đi cùng những dấu vết cư trú của con người qua hàng chục nghìn năm. Đây là nơi có cả giá trị văn hóa và thiên nhiên. Tham chiếu: UNESCO · Tràng An"
+    ],
+    "maps": null
+  },
+  {
+    "id": "hue",
+    "name": "Huế",
+    "category": "Điểm đến",
+    "region": "central",
+    "description": "Một hành trình nối kiến trúc cung đình, nghệ thuật và những món ăn mang dấu ấn địa phương.",
+    "tags": "Văn hóa Di sản Ẩm thực",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "dai-noi-hue",
+        "label": "Có di sản"
+      },
+      {
+        "id": "bun-bo-hue",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "nha-nhac-cung-dinh",
+        "label": "Gắn với văn hóa"
+      },
+      {
+        "id": "hoi-an",
+        "label": "Cùng chủ đề"
+      },
+      {
+        "id": "banh-khoai-hue",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "cau-truong-tien",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "khong-gian-ven-song-huong",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "chua-thien-mu",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-dong-ba",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "quan-lac-thien",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "quan-hanh-hue",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      },
+      {
+        "label": "Vietnam Tourism · Khám phá Huế",
+        "url": "https://vietnam.travel/places-to-go/north-central-coast/hue"
+      }
+    ],
+    "narrative": [
+      "Một hành trình nối kiến trúc cung đình, nghệ thuật và những món ăn mang dấu ấn địa phương. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "can-tho",
+    "name": "Cần Thơ",
+    "category": "Điểm đến",
+    "region": "south",
+    "description": "Tìm nhịp sống sông nước qua buổi chợ sớm, một bữa ăn trên thuyền và những khu vườn địa phương.",
+    "tags": "Ẩm thực Văn hóa Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 ngày",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "cho-noi-cai-rang",
+        "label": "Có trải nghiệm"
+      },
+      {
+        "id": "hu-tieu-tren-song",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "don-ca-tai-tu",
+        "label": "Gắn với văn hóa"
+      },
+      {
+        "id": "banh-dan-gian-mien-tay",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "ben-ninh-kieu",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "nha-co-binh-thuy",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "con-son",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-dem-can-tho",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "lang-hu-tieu-can-tho",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ",
+        "url": "https://vietnam.travel/vi/places-to-go/southern-vietnam/can-tho"
+      }
+    ],
+    "narrative": [
+      "Cẩm nang Cần Thơ gợi ý khám phá chợ nổi và thưởng thức hủ tiếu trên mặt nước vào buổi sớm. Tham chiếu: Vietnam Tourism · Cần Thơ"
+    ],
+    "maps": null
+  },
+  {
+    "id": "ha-long",
+    "name": "Hạ Long",
+    "category": "Điểm đến",
+    "region": "north",
+    "description": "Một điểm khởi đầu để tìm hiểu cảnh quan biển đảo và hệ di sản Hạ Long – Cát Bà.",
+    "tags": "Thiên nhiên Di sản",
+    "placeType": "",
+    "address": "",
+    "duration": "2 ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "trang-an",
+        "label": "Liên kết từ · Cùng chủ đề"
+      },
+      {
+        "id": "cat-ba",
+        "label": "Gắn với"
+      },
+      {
+        "id": "cheo-kayak-tren-vinh",
+        "label": "Có trải nghiệm"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "ha-noi",
+    "name": "Hà Nội",
+    "category": "Điểm đến",
+    "region": "north",
+    "description": "Khám phá những lớp đời sống đô thị qua di sản, món ăn, phố nhỏ và những làng nghề ở vùng ven.",
+    "tags": "Văn hóa Ẩm thực",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoang-thanh-thang-long",
+        "label": "Có di sản"
+      },
+      {
+        "id": "pho-ha-noi",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "lang-gom-bat-trang",
+        "label": "Có làng nghề"
+      },
+      {
+        "id": "bun-cha-ha-noi",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "ca-phe-trung",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "ho-hoan-kiem",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "nha-hat-mua-roi-nuoc-thang-long",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "x-space-immersive",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "ca-phe-giang",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "bun-cha-huong-lien",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "pho-gia-truyen-bat-dan",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/11-must-see-attractions-ha-noi"
+      }
+    ],
+    "narrative": [
+      "Khám phá những lớp đời sống đô thị qua di sản, món ăn, phố nhỏ và những làng nghề ở vùng ven. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "da-lat",
+    "name": "Đà Lạt",
+    "category": "Điểm đến",
+    "region": "central",
+    "description": "Một hành trình cao nguyên dành cho nhịp sống chậm, không gian xanh và câu chuyện về cà phê.",
+    "tags": "Thiên nhiên Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ca-phe-cao-nguyen",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "ho-xuan-huong",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "ho-tuyen-lam",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "thac-datanla",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "la-viet-coffee",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "cafe-tung",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "cho-da-lat",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [
+      "Một hành trình cao nguyên dành cho nhịp sống chậm, không gian xanh và câu chuyện về cà phê. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "pho-co-hoi-an",
+    "name": "Phố cổ Hội An",
+    "category": "Di sản",
+    "region": "central",
+    "description": "Di sản thể hiện sự giao thoa văn hóa trong một thương cảng Đông Nam Á từ thế kỷ XV đến XIX.",
+    "tags": "Văn hóa Di sản Lịch sử",
+    "placeType": "",
+    "address": "",
+    "duration": "Nửa ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có di sản"
+      },
+      {
+        "id": "den-long-hoi-an",
+        "label": "Gắn với"
+      },
+      {
+        "id": "cao-lau",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Hội An",
+        "url": "https://whc.unesco.org/en/list/948"
+      }
+    ],
+    "narrative": [
+      "Di sản thể hiện sự giao thoa văn hóa trong một thương cảng Đông Nam Á từ thế kỷ XV đến XIX. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "thanh-dia-my-son",
+    "name": "Thánh địa Mỹ Sơn",
+    "category": "Di sản",
+    "region": "central",
+    "description": "Một điểm di sản trong hành trình tìm hiểu văn hóa Chăm ở miền Trung.",
+    "tags": "Văn hóa Di sản Lịch sử",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Kết nối lân cận"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "dai-noi-hue",
+    "name": "Đại Nội Huế",
+    "category": "Di sản",
+    "region": "central",
+    "description": "Điểm khám phá kiến trúc cung đình trong hành trình đến quần thể di tích Cố đô Huế.",
+    "tags": "Văn hóa Di sản Lịch sử",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có di sản"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "hoang-thanh-thang-long",
+    "name": "Hoàng thành Thăng Long",
+    "category": "Di sản",
+    "region": "north",
+    "description": "Một kết nối di sản để tìm hiểu chiều sâu lịch sử tại Hà Nội.",
+    "tags": "Văn hóa Di sản Lịch sử",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có di sản"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "ma-pi-leng",
+    "name": "Mã Pí Lèng",
+    "category": "Thiên nhiên",
+    "region": "north",
+    "description": "Cung đèo trên vùng cao Hà Giang mở ra góc nhìn xuống sông Nho Quế và các dãy núi.",
+    "tags": "Thiên nhiên Khám phá",
+    "placeType": "",
+    "address": "",
+    "duration": "Nửa ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-giang",
+        "label": "Liên kết từ · Có cảnh quan"
+      },
+      {
+        "id": "song-nho-que",
+        "label": "Nhìn xuống"
+      },
+      {
+        "id": "cao-nguyen-da-dong-van",
+        "label": "Liên kết từ · Kết nối lân cận"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hà Giang",
+        "url": "https://vietnam.travel/places-to-go/northern-midlands-mountains/ha-giang"
+      }
+    ],
+    "narrative": [
+      "Cung đèo trên vùng cao Hà Giang mở ra góc nhìn xuống sông Nho Quế và các dãy núi. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "cao-nguyen-da-dong-van",
+    "name": "Cao nguyên đá Đồng Văn",
+    "category": "Thiên nhiên",
+    "region": "north",
+    "description": "Cảnh quan núi đá và các thung lũng là nền tảng của nhiều hành trình khám phá vùng cao.",
+    "tags": "Thiên nhiên Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "2 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-giang",
+        "label": "Liên kết từ · Có cảnh quan"
+      },
+      {
+        "id": "ma-pi-leng",
+        "label": "Kết nối lân cận"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hà Giang",
+        "url": "https://vietnam.travel/places-to-go/northern-midlands-mountains/ha-giang"
+      }
+    ],
+    "narrative": [
+      "Cảnh quan núi đá và các thung lũng là nền tảng của nhiều hành trình khám phá vùng cao. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "song-nho-que",
+    "name": "Sông Nho Quế",
+    "category": "Thiên nhiên",
+    "region": "north",
+    "description": "Một lớp cảnh quan gắn với vùng núi Mã Pí Lèng.",
+    "tags": "Thiên nhiên Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ma-pi-leng",
+        "label": "Liên kết từ · Nhìn xuống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hà Giang",
+        "url": "https://vietnam.travel/places-to-go/northern-midlands-mountains/ha-giang"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "cat-ba",
+    "name": "Cát Bà",
+    "category": "Thiên nhiên",
+    "region": "north",
+    "description": "Một kết nối biển đảo trong hệ di sản Vịnh Hạ Long – Quần đảo Cát Bà.",
+    "tags": "Thiên nhiên Di sản",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-long",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Di sản Việt Nam",
+        "url": "https://whc.unesco.org/en/statesparties/VN"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "cao-lau",
+    "name": "Cao lầu",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Món ăn địa phương giúp mở thêm một góc nhìn về Hội An ngoài những công trình kiến trúc.",
+    "tags": "Ẩm thực Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "pho-co-hoi-an",
+        "label": "Gắn với"
+      },
+      {
+        "id": "cao-lau-thanh",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [
+      "Món ăn địa phương giúp mở thêm một góc nhìn về Hội An ngoài những công trình kiến trúc. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "bun-bo-hue",
+    "name": "Bún bò Huế",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Một điểm dừng ẩm thực trong bộ dữ liệu mẫu về Huế.",
+    "tags": "Ẩm thực Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Món ăn Huế",
+        "url": "https://vietnam.travel/things-to-do/hue-best-to-eat-palace-street"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "pho-ha-noi",
+    "name": "Phở Hà Nội",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Gợi ý khám phá đời sống địa phương qua một bữa sáng trong thành phố.",
+    "tags": "Ẩm thực Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "pho-gia-truyen-bat-dan",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ẩm thực Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/famous-hanoi-food-and-international-fine-dining"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "hu-tieu-tren-song",
+    "name": "Hủ tiếu trên sông",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Một bữa sáng nóng hổi trên mặt nước là trải nghiệm được nhắc đến trong cẩm nang Cần Thơ.",
+    "tags": "Ẩm thực Văn hóa",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "cho-noi-cai-rang",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "lang-hu-tieu-can-tho",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ",
+        "url": "https://vietnam.travel/vi/places-to-go/southern-vietnam/can-tho"
+      }
+    ],
+    "narrative": [
+      "Một bữa sáng nóng hổi trên mặt nước là trải nghiệm được nhắc đến trong cẩm nang Cần Thơ. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "ca-phe-cao-nguyen",
+    "name": "Cà phê cao nguyên",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Chủ đề mẫu kết nối thức uống, không gian và nhịp sống cao nguyên.",
+    "tags": "Ẩm thực Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "la-viet-coffee",
+        "label": "Liên kết từ · Gắn với món"
+      },
+      {
+        "id": "cafe-tung",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "lang-gom-thanh-ha",
+    "name": "Làng gốm Thanh Hà",
+    "category": "Làng nghề",
+    "region": "central",
+    "description": "Một kết nối làng nghề để khám phá bàn tay người thợ và đời sống vùng ven Hội An.",
+    "tags": "Văn hóa Làng nghề Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có làng nghề"
+      },
+      {
+        "id": "thu-lam-gom",
+        "label": "Có trải nghiệm"
+      },
+      {
+        "id": "lang-moc-kim-bong",
+        "label": "Cùng chủ đề"
+      },
+      {
+        "id": "lang-gom-bat-trang",
+        "label": "Liên kết từ · Cùng chủ đề"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "lang-gom-bat-trang",
+    "name": "Làng gốm Bát Tràng",
+    "category": "Làng nghề",
+    "region": "north",
+    "description": "Điểm khám phá làng nghề trong hành trình mở rộng từ Hà Nội.",
+    "tags": "Văn hóa Làng nghề",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có làng nghề"
+      },
+      {
+        "id": "lang-gom-thanh-ha",
+        "label": "Cùng chủ đề"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "lang-moc-kim-bong",
+    "name": "Làng mộc Kim Bồng",
+    "category": "Làng nghề",
+    "region": "central",
+    "description": "Chủ đề mẫu để kết nối nghề mộc với câu chuyện kiến trúc và đời sống Hội An.",
+    "tags": "Văn hóa Làng nghề",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có làng nghề"
+      },
+      {
+        "id": "lang-gom-thanh-ha",
+        "label": "Liên kết từ · Cùng chủ đề"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "den-long-hoi-an",
+    "name": "Đèn lồng Hội An",
+    "category": "Văn hóa",
+    "region": "central",
+    "description": "Khi trời tối, ánh đèn lồng tạo nên một lớp trải nghiệm khác cho những con phố và dòng sông.",
+    "tags": "Văn hóa Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Gắn với văn hóa"
+      },
+      {
+        "id": "pho-co-hoi-an",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [
+      "Khi trời tối, ánh đèn lồng tạo nên một lớp trải nghiệm khác cho những con phố và dòng sông. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "nha-nhac-cung-dinh",
+    "name": "Nhã nhạc cung đình",
+    "category": "Văn hóa",
+    "region": "central",
+    "description": "Một nút tri thức mẫu để khám phá nghệ thuật biểu diễn trong hành trình văn hóa Huế.",
+    "tags": "Văn hóa Nghệ thuật",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Gắn với văn hóa"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "don-ca-tai-tu",
+    "name": "Đờn ca tài tử",
+    "category": "Văn hóa",
+    "region": "south",
+    "description": "Một chủ đề nghệ thuật được đưa vào bộ dữ liệu mẫu cho hành trình miền Tây.",
+    "tags": "Văn hóa Nghệ thuật",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Gắn với văn hóa"
+      }
+    ],
+    "sources": [],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "cho-noi-cai-rang",
+    "name": "Chợ nổi Cái Răng",
+    "category": "Trải nghiệm",
+    "region": "south",
+    "description": "Khám phá một buổi chợ trên sông để hiểu thêm đời sống và hoạt động giao thương vùng Cần Thơ.",
+    "tags": "Văn hóa Ẩm thực Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có trải nghiệm"
+      },
+      {
+        "id": "hu-tieu-tren-song",
+        "label": "Khám phá ẩm thực"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ",
+        "url": "https://vietnam.travel/vi/places-to-go/southern-vietnam/can-tho"
+      }
+    ],
+    "narrative": [
+      "Khám phá một buổi chợ trên sông để hiểu thêm đời sống và hoạt động giao thương vùng Cần Thơ. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "di-thuyen-trang-an",
+    "name": "Đi thuyền Tràng An",
+    "category": "Trải nghiệm",
+    "region": "north",
+    "description": "Một trải nghiệm mẫu giúp liên kết cảnh quan karst với cách khám phá bằng đường thủy.",
+    "tags": "Thiên nhiên Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "trang-an",
+        "label": "Liên kết từ · Có trải nghiệm"
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNESCO · Tràng An",
+        "url": "https://whc.unesco.org/en/list/1438"
+      }
+    ],
+    "narrative": [
+      "Một trải nghiệm mẫu giúp liên kết cảnh quan karst với cách khám phá bằng đường thủy. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "dap-xe-vung-ven-hoi-an",
+    "name": "Đạp xe vùng ven Hội An",
+    "category": "Trải nghiệm",
+    "region": "central",
+    "description": "Đi bằng xe đạp qua những con đường vùng ven là một cách tiếp cận đời sống ngoài phố cổ.",
+    "tags": "Thiên nhiên Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "Nửa ngày",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có trải nghiệm"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [
+      "Đi bằng xe đạp qua những con đường vùng ven là một cách tiếp cận đời sống ngoài phố cổ. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "thu-lam-gom",
+    "name": "Thử làm gốm",
+    "category": "Trải nghiệm",
+    "region": "central",
+    "description": "Một trải nghiệm giả lập để đánh giá luồng kết nối từ làng nghề sang hoạt động cho du khách.",
+    "tags": "Văn hóa Làng nghề",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "lang-gom-thanh-ha",
+        "label": "Liên kết từ · Có trải nghiệm"
+      }
+    ],
+    "sources": [],
+    "narrative": [
+      "Một trải nghiệm giả lập để đánh giá luồng kết nối từ làng nghề sang hoạt động cho du khách. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "cheo-kayak-tren-vinh",
+    "name": "Chèo kayak trên vịnh",
+    "category": "Trải nghiệm",
+    "region": "north",
+    "description": "Một hoạt động mẫu cho hành trình biển đảo. Cần kiểm tra khu vực và điều kiện vận hành trước chuyến đi.",
+    "tags": "Thiên nhiên Khám phá",
+    "placeType": "",
+    "address": "",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-long",
+        "label": "Liên kết từ · Có trải nghiệm"
+      }
+    ],
+    "sources": [],
+    "narrative": [
+      "Một hoạt động mẫu cho hành trình biển đảo. Cần kiểm tra khu vực và điều kiện vận hành trước chuyến đi. Có nội dung biên tập mẫu, chưa thẩm định."
+    ],
+    "maps": null
+  },
+  {
+    "id": "tp-hcm",
+    "name": "TP.HCM",
+    "category": "Điểm đến",
+    "region": "south",
+    "description": "Khám phá phố đi bộ, những điểm tham quan và ẩm thực đường phố.",
+    "tags": "Văn hóa Ẩm thực Khám phá",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "com-tam-sai-gon",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "pho-di-bo-nguyen-hue",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "thao-cam-vien-sai-gon",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "buu-dien-trung-tam-sai-gon",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "pho-am-thuc-ho-thi-ky",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "pho-am-thuc-vinh-khanh",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "banh-mi-huynh-hoa",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá TP.HCM",
+        "url": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc"
+      }
+    ],
+    "narrative": [
+      "Khám phá phố đi bộ, những điểm tham quan và ẩm thực đường phố. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "da-nang",
+    "name": "Đà Nẵng",
+    "category": "Điểm đến",
+    "region": "central",
+    "description": "Kết nối bãi biển, sông Hàn, quán cà phê và món miền Trung.",
+    "tags": "Thiên nhiên Ẩm thực Khám phá",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "mi-quang",
+        "label": "Khám phá ẩm thực"
+      },
+      {
+        "id": "bai-bien-my-khe",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "sun-world-ba-na-hills",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "duong-bach-dang-ven-song-han",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-con",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "cho-bac-my-an",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "ca-phe-long",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [
+      "Kết nối bãi biển, sông Hàn, quán cà phê và món miền Trung. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "phu-quoc",
+    "name": "Phú Quốc",
+    "category": "Điểm đến",
+    "region": "south",
+    "description": "Một hành trình giữa biển đảo, khu vui chơi và bữa ăn địa phương.",
+    "tags": "Thiên nhiên Ẩm thực Đi chậm",
+    "placeType": "",
+    "address": "",
+    "duration": "2–3 ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "bai-sao",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "sun-world-hon-thom",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "vinwonders-phu-quoc",
+        "label": "Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-dem-phu-quoc",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "ink-360",
+        "label": "Có địa điểm ăn uống"
+      },
+      {
+        "id": "pink-pearl-by-olivier-e",
+        "label": "Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Phú Quốc",
+        "url": "https://vietnam.travel/things-to-do/explore-phu-quoc-island-3-days-2-nights"
+      }
+    ],
+    "narrative": [
+      "Một hành trình giữa biển đảo, khu vui chơi và bữa ăn địa phương. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "bun-cha-ha-noi",
+    "name": "Bún chả Hà Nội",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Thịt nướng, bún và rau tạo nên một món ăn đặc trưng Hà Nội.",
+    "tags": "Ẩm thực Hà Nội",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "bun-cha-huong-lien",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ẩm thực Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/famous-hanoi-food-and-international-fine-dining"
+      }
+    ],
+    "narrative": [
+      "Thịt nướng, bún và rau tạo nên một món ăn đặc trưng Hà Nội. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "ca-phe-trung",
+    "name": "Cà phê trứng",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Thức uống cà phê với lớp kem trứng được nhắc trong cẩm nang Hà Nội.",
+    "tags": "Ẩm thực Hà Nội",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "ca-phe-giang",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Văn hóa cà phê Hà Nội",
+        "url": "https://vietnam.travel/node/1703"
+      }
+    ],
+    "narrative": [
+      "Thức uống cà phê với lớp kem trứng được nhắc trong cẩm nang Hà Nội. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "com-tam-sai-gon",
+    "name": "Cơm tấm Sài Gòn",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Món cơm gắn với đời sống ẩm thực TP.HCM.",
+    "tags": "Ẩm thực TP.HCM",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Phố ăn uống TP.HCM",
+        "url": "https://vietnam.travel/things-to-do/ho-chi-minh-city-cuisine-street-eats-fine-dining"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "mi-quang",
+    "name": "Mì Quảng",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Món mì miền Trung trong hành trình ẩm thực Đà Nẵng.",
+    "tags": "Ẩm thực Đà Nẵng",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [
+      "Món mì miền Trung trong hành trình ẩm thực Đà Nẵng. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "com-ga-hoi-an",
+    "name": "Cơm gà Hội An",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Món cơm gà với rau và đồ ăn kèm địa phương.",
+    "tags": "Ẩm thực Hội An",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "com-ga-ba-buoi",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn uống Hội An",
+        "url": "https://vietnam.travel/things-to-do/explore-food-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "banh-khoai-hue",
+    "name": "Bánh khoái Huế",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Một món bánh trong danh sách ẩm thực Huế.",
+    "tags": "Ẩm thực Huế",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "quan-lac-thien",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Món ăn Huế",
+        "url": "https://vietnam.travel/things-to-do/hue-best-to-eat-palace-street"
+      }
+    ],
+    "narrative": [],
+    "maps": null
+  },
+  {
+    "id": "banh-dan-gian-mien-tay",
+    "name": "Bánh dân gian miền Tây",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Chủ đề kết nối món bánh với trải nghiệm làm bánh tại Cồn Sơn.",
+    "tags": "Ẩm thực Cần Thơ",
+    "placeType": "",
+    "address": "",
+    "duration": "30–60 phút",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Khám phá ẩm thực"
+      },
+      {
+        "id": "con-son",
+        "label": "Liên kết từ · Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [
+      "Chủ đề kết nối món bánh với trải nghiệm làm bánh tại Cồn Sơn. Nội dung tóm lược với nguồn tham chiếu; không phải bản ghi dữ liệu đã xác minh."
+    ],
+    "maps": null
+  },
+  {
+    "id": "ho-hoan-kiem",
+    "name": "Hồ Hoàn Kiếm",
+    "category": "Vui chơi",
+    "region": "north",
+    "description": "Không gian dạo bộ bên hồ giữa trung tâm Hà Nội.",
+    "tags": "Khám phá Dạo phố & ngoài trời Hà Nội",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực Hồ Hoàn Kiếm",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "ca-phe-giang",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/11-must-see-attractions-ha-noi"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=H%E1%BB%93%20Ho%C3%A0n%20Ki%E1%BA%BFm%20Khu%20v%E1%BB%B1c%20H%E1%BB%93%20Ho%C3%A0n%20Ki%E1%BA%BFm%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "nha-hat-mua-roi-nuoc-thang-long",
+    "name": "Nhà hát Múa rối nước Thăng Long",
+    "category": "Vui chơi",
+    "region": "north",
+    "description": "Điểm xem nghệ thuật múa rối nước gần Hồ Hoàn Kiếm.",
+    "tags": "Khám phá Biểu diễn & nghệ thuật Hà Nội",
+    "placeType": "Biểu diễn & nghệ thuật",
+    "address": "Khu vực Hồ Hoàn Kiếm",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/11-must-see-attractions-ha-noi"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Nh%C3%A0%20h%C3%A1t%20M%C3%BAa%20r%E1%BB%91i%20n%C6%B0%E1%BB%9Bc%20Th%C4%83ng%20Long%20Khu%20v%E1%BB%B1c%20H%E1%BB%93%20Ho%C3%A0n%20Ki%E1%BA%BFm%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "x-space-immersive",
+    "name": "X Space Immersive",
+    "category": "Vui chơi",
+    "region": "north",
+    "description": "Không gian nghệ thuật số tương tác tại Royal City.",
+    "tags": "Khám phá Khu vui chơi Hà Nội",
+    "placeType": "Khu vui chơi",
+    "address": "Vincom Mega Mall Royal City, 72A Nguyễn Trãi",
+    "duration": "Nửa ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/11-must-see-attractions-ha-noi"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=X%20Space%20Immersive%20Vincom%20Mega%20Mall%20Royal%20City%2C%2072A%20Nguy%E1%BB%85n%20Tr%C3%A3i%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ca-phe-giang",
+    "name": "Cà phê Giảng",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Quán cà phê được nhắc đến với thức uống cà phê trứng.",
+    "tags": "Ẩm thực Cà phê & đồ uống Hà Nội",
+    "placeType": "Cà phê & đồ uống",
+    "address": "Hà Nội",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "ca-phe-trung",
+        "label": "Gắn với món"
+      },
+      {
+        "id": "ho-hoan-kiem",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Văn hóa cà phê Hà Nội",
+        "url": "https://vietnam.travel/node/1703"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=C%C3%A0%20ph%C3%AA%20Gi%E1%BA%A3ng%20H%C3%A0%20N%E1%BB%99i%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "bun-cha-huong-lien",
+    "name": "Bún chả Hương Liên",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Một địa chỉ thưởng thức bún chả trong cẩm nang Hà Nội.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Hà Nội",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "Hà Nội",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "bun-cha-ha-noi",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ẩm thực Hà Nội",
+        "url": "https://vietnam.travel/things-to-do/famous-hanoi-food-and-international-fine-dining"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%BAn%20ch%E1%BA%A3%20H%C6%B0%C6%A1ng%20Li%C3%AAn%20H%C3%A0%20N%E1%BB%99i%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "pho-gia-truyen-bat-dan",
+    "name": "Phở Gia Truyền Bát Đàn",
+    "category": "Ăn uống",
+    "region": "north",
+    "description": "Địa chỉ phở bò được MICHELIN Guide giới thiệu.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Hà Nội",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "49 Bát Đàn, Hà Nội",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "ha-noi",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "pho-ha-noi",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "MICHELIN Guide · Phở Gia Truyền",
+        "url": "https://guide.michelin.com/vn/en/ha-noi/ha-noi_2974158/restaurant/pho-gia-truyen"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ph%E1%BB%9F%20Gia%20Truy%E1%BB%81n%20B%C3%A1t%20%C4%90%C3%A0n%2049%20B%C3%A1t%20%C4%90%C3%A0n%2C%20H%C3%A0%20N%E1%BB%99i%20H%C3%A0%20N%E1%BB%99i%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "pho-di-bo-nguyen-hue",
+    "name": "Phố đi bộ Nguyễn Huệ",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Tuyến dạo bộ kết nối trung tâm thành phố với bến Bạch Đằng.",
+    "tags": "Khám phá Dạo phố & ngoài trời TP.HCM",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Đường Nguyễn Huệ",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "pho-am-thuc-ho-thi-ky",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá TP.HCM",
+        "url": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ph%E1%BB%91%20%C4%91i%20b%E1%BB%99%20Nguy%E1%BB%85n%20Hu%E1%BB%87%20%C4%90%C6%B0%E1%BB%9Dng%20Nguy%E1%BB%85n%20Hu%E1%BB%87%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "thao-cam-vien-sai-gon",
+    "name": "Thảo Cầm Viên Sài Gòn",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Điểm tham quan kết hợp không gian cây xanh và vườn thú.",
+    "tags": "Khám phá Khu vui chơi TP.HCM",
+    "placeType": "Khu vui chơi",
+    "address": "2 Nguyễn Bỉnh Khiêm, TP.HCM",
+    "duration": "Nửa ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Thảo Cầm Viên · Đơn vị vận hành",
+        "url": "https://saigonzoo.vn/"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Th%E1%BA%A3o%20C%E1%BA%A7m%20Vi%C3%AAn%20S%C3%A0i%20G%C3%B2n%202%20Nguy%E1%BB%85n%20B%E1%BB%89nh%20Khi%C3%AAm%2C%20TP.HCM%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "buu-dien-trung-tam-sai-gon",
+    "name": "Bưu điện Trung tâm Sài Gòn",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Công trình kiến trúc và điểm tham quan trong trung tâm thành phố.",
+    "tags": "Khám phá Tham quan văn hóa TP.HCM",
+    "placeType": "Tham quan văn hóa",
+    "address": "2 Công xã Paris, TP.HCM",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá TP.HCM",
+        "url": "https://vietnam.travel/things-to-do/7-must-see-attractions-hcmc"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C6%B0u%20%C4%91i%E1%BB%87n%20Trung%20t%C3%A2m%20S%C3%A0i%20G%C3%B2n%202%20C%C3%B4ng%20x%C3%A3%20Paris%2C%20TP.HCM%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "pho-am-thuc-ho-thi-ky",
+    "name": "Phố ẩm thực Hồ Thị Kỷ",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Khu phố ăn uống nằm bên chợ hoa Hồ Thị Kỷ.",
+    "tags": "Ẩm thực Phố ăn uống TP.HCM",
+    "placeType": "Phố ăn uống",
+    "address": "Khu vực Hồ Thị Kỷ",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "pho-di-bo-nguyen-hue",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Phố ăn uống TP.HCM",
+        "url": "https://vietnam.travel/things-to-do/ho-chi-minh-city-cuisine-street-eats-fine-dining"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ph%E1%BB%91%20%E1%BA%A9m%20th%E1%BB%B1c%20H%E1%BB%93%20Th%E1%BB%8B%20K%E1%BB%B7%20Khu%20v%E1%BB%B1c%20H%E1%BB%93%20Th%E1%BB%8B%20K%E1%BB%B7%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "pho-am-thuc-vinh-khanh",
+    "name": "Phố ẩm thực Vĩnh Khánh",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Tuyến phố ăn uống được giới thiệu với các món ốc.",
+    "tags": "Ẩm thực Phố ăn uống TP.HCM",
+    "placeType": "Phố ăn uống",
+    "address": "Đường Vĩnh Khánh",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn như người địa phương",
+        "url": "https://vietnam.travel/vi/things-to-do/eating-local-ho-chi-minh-city"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ph%E1%BB%91%20%E1%BA%A9m%20th%E1%BB%B1c%20V%C4%A9nh%20Kh%C3%A1nh%20%C4%90%C6%B0%E1%BB%9Dng%20V%C4%A9nh%20Kh%C3%A1nh%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "banh-mi-huynh-hoa",
+    "name": "Bánh mì Huỳnh Hoa",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Địa chỉ bánh mì được nhắc đến trong cẩm nang ẩm thực địa phương.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng TP.HCM",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "TP.HCM",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "tp-hcm",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn như người địa phương",
+        "url": "https://vietnam.travel/vi/things-to-do/eating-local-ho-chi-minh-city"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%A1nh%20m%C3%AC%20Hu%E1%BB%B3nh%20Hoa%20TP.HCM%20TP.HCM%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "bai-bien-my-khe",
+    "name": "Bãi biển Mỹ Khê",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Bãi biển gắn với nhịp sống và hoạt động ngoài trời Đà Nẵng.",
+    "tags": "Khám phá Biển & thư giãn Đà Nẵng",
+    "placeType": "Biển & thư giãn",
+    "address": "Ven biển Mỹ Khê",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-bac-my-an",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%A3i%20bi%E1%BB%83n%20M%E1%BB%B9%20Kh%C3%AA%20Ven%20bi%E1%BB%83n%20M%E1%BB%B9%20Kh%C3%AA%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "sun-world-ba-na-hills",
+    "name": "Sun World Bà Nà Hills",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Khu du lịch trên núi với nhiều hoạt động tham quan và vui chơi.",
+    "tags": "Khám phá Khu vui chơi Đà Nẵng",
+    "placeType": "Khu vui chơi",
+    "address": "Khu vực Bà Nà",
+    "duration": "Nửa ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Bà Nà Hills",
+        "url": "https://vietnam.travel/things-to-do/10-ways-spend-day-ba-na-hills-danang"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Sun%20World%20B%C3%A0%20N%C3%A0%20Hills%20Khu%20v%E1%BB%B1c%20B%C3%A0%20N%C3%A0%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "duong-bach-dang-ven-song-han",
+    "name": "Đường Bạch Đằng ven sông Hàn",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Tuyến dạo bên sông Hàn kết nối các góc nhìn đô thị.",
+    "tags": "Khám phá Dạo phố & ngoài trời Đà Nẵng",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Đường Bạch Đằng, Đà Nẵng",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "ca-phe-long",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=%C4%90%C6%B0%E1%BB%9Dng%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%20ven%20s%C3%B4ng%20H%C3%A0n%20%C4%90%C6%B0%E1%BB%9Dng%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%2C%20%C4%90%C3%A0%20N%E1%BA%B5ng%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-con",
+    "name": "Chợ Cồn",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Một khu chợ địa phương trong hành trình khám phá Đà Nẵng.",
+    "tags": "Ẩm thực Chợ ẩm thực Đà Nẵng",
+    "placeType": "Chợ ẩm thực",
+    "address": "Khu vực chợ Cồn",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Cổng du lịch Đà Nẵng · Chợ Cồn",
+        "url": "https://danangfantasticity.com/cn/cho-con-da-nang-2"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20C%E1%BB%93n%20Khu%20v%E1%BB%B1c%20ch%E1%BB%A3%20C%E1%BB%93n%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-bac-my-an",
+    "name": "Chợ Bắc Mỹ An",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Khu chợ được cẩm nang Đà Nẵng nhắc đến với kem bơ.",
+    "tags": "Ẩm thực Chợ ẩm thực Đà Nẵng",
+    "placeType": "Chợ ẩm thực",
+    "address": "Khu vực Bắc Mỹ An",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "bai-bien-my-khe",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20B%E1%BA%AFc%20M%E1%BB%B9%20An%20Khu%20v%E1%BB%B1c%20B%E1%BA%AFc%20M%E1%BB%B9%20An%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ca-phe-long",
+    "name": "Cà phê Long",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Một quán cà phê trong gợi ý khám phá Đà Nẵng.",
+    "tags": "Ẩm thực Cà phê & đồ uống Đà Nẵng",
+    "placeType": "Cà phê & đồ uống",
+    "address": "Đà Nẵng",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-nang",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "duong-bach-dang-ven-song-han",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Nẵng",
+        "url": "https://vietnam.travel/things-to-do/must-do-da-nang-an-insider-list"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=C%C3%A0%20ph%C3%AA%20Long%20%C4%90%C3%A0%20N%E1%BA%B5ng%20%C4%90%C3%A0%20N%E1%BA%B5ng%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "bai-bien-an-bang",
+    "name": "Bãi biển An Bàng",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Điểm nghỉ bên biển trong hành trình ra khỏi phố cổ.",
+    "tags": "Khám phá Biển & thư giãn Hội An",
+    "placeType": "Biển & thư giãn",
+    "address": "Khu vực An Bàng, Hội An",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%A3i%20bi%E1%BB%83n%20An%20B%C3%A0ng%20Khu%20v%E1%BB%B1c%20An%20B%C3%A0ng%2C%20H%E1%BB%99i%20An%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "lang-rau-tra-que",
+    "name": "Làng rau Trà Quế",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Vùng trồng rau kết nối đời sống làng quê với ẩm thực Hội An.",
+    "tags": "Khám phá Làng quê & cộng đồng Hội An",
+    "placeType": "Làng quê & cộng đồng",
+    "address": "Khu vực Trà Quế",
+    "duration": "Nửa ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "com-ga-ba-buoi",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=L%C3%A0ng%20rau%20Tr%C3%A0%20Qu%E1%BA%BF%20Khu%20v%E1%BB%B1c%20Tr%C3%A0%20Qu%E1%BA%BF%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ben-thuyen-song-thu-bon",
+    "name": "Bến thuyền sông Thu Bồn",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Điểm bắt đầu khám phá Hội An từ mặt nước.",
+    "tags": "Khám phá Dạo phố & ngoài trời Hội An",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực bến thuyền phố cổ",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Hội An",
+        "url": "https://vietnam.travel/things-to-do/top-things-to-do-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%E1%BA%BFn%20thuy%E1%BB%81n%20s%C3%B4ng%20Thu%20B%E1%BB%93n%20Khu%20v%E1%BB%B1c%20b%E1%BA%BFn%20thuy%E1%BB%81n%20ph%E1%BB%91%20c%E1%BB%95%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cao-lau-thanh",
+    "name": "Cao lầu Thanh",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Địa chỉ cao lầu trong cẩm nang ẩm thực Hội An.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Hội An",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "26 Thái Phiên, Hội An",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "cao-lau",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn uống Hội An",
+        "url": "https://vietnam.travel/things-to-do/explore-food-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Cao%20l%E1%BA%A7u%20Thanh%2026%20Th%C3%A1i%20Phi%C3%AAn%2C%20H%E1%BB%99i%20An%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "com-ga-ba-buoi",
+    "name": "Cơm gà Bà Buội",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Địa chỉ cơm gà được giới thiệu trong cẩm nang Hội An.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Hội An",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "22 Phan Chu Trinh, Hội An",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "com-ga-hoi-an",
+        "label": "Gắn với món"
+      },
+      {
+        "id": "lang-rau-tra-que",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn uống Hội An",
+        "url": "https://vietnam.travel/things-to-do/explore-food-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=C%C6%A1m%20g%C3%A0%20B%C3%A0%20Bu%E1%BB%99i%2022%20Phan%20Chu%20Trinh%2C%20H%E1%BB%99i%20An%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "banh-mi-phuong",
+    "name": "Bánh mì Phượng",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Một địa chỉ bánh mì trong danh sách ẩm thực Hội An.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Hội An",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "2B Phan Chu Trinh, Hội An",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hoi-an",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Ăn uống Hội An",
+        "url": "https://vietnam.travel/things-to-do/explore-food-hoi-an"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%A1nh%20m%C3%AC%20Ph%C6%B0%E1%BB%A3ng%202B%20Phan%20Chu%20Trinh%2C%20H%E1%BB%99i%20An%20H%E1%BB%99i%20An%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cau-truong-tien",
+    "name": "Cầu Trường Tiền",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Cây cầu biểu tượng nối hai bờ sông Hương.",
+    "tags": "Khám phá Dạo phố & ngoài trời Huế",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực cầu Trường Tiền",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-dong-ba",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Visit Hue · Cầu Trường Tiền",
+        "url": "https://visithue.vn/cau-truong-tien-diem-den-khong-the-bo-qua-khi-den-hue/?pid=MjMyNTJ8Y3NkbGRs0"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=C%E1%BA%A7u%20Tr%C6%B0%E1%BB%9Dng%20Ti%E1%BB%81n%20Khu%20v%E1%BB%B1c%20c%E1%BA%A7u%20Tr%C6%B0%E1%BB%9Dng%20Ti%E1%BB%81n%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "khong-gian-ven-song-huong",
+    "name": "Không gian ven sông Hương",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Dòng sông gắn với cảnh quan và những hành trình khám phá Huế.",
+    "tags": "Khám phá Dạo phố & ngoài trời Huế",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Ven sông Hương, Huế",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Huế",
+        "url": "https://vietnam.travel/places-to-go/north-central-coast/hue"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Kh%C3%B4ng%20gian%20ven%20s%C3%B4ng%20H%C6%B0%C6%A1ng%20Ven%20s%C3%B4ng%20H%C6%B0%C6%A1ng%2C%20Hu%E1%BA%BF%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "chua-thien-mu",
+    "name": "Chùa Thiên Mụ",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Điểm tham quan văn hóa bên sông Hương.",
+    "tags": "Khám phá Tham quan văn hóa Huế",
+    "placeType": "Tham quan văn hóa",
+    "address": "Khu vực chùa Thiên Mụ",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Huế",
+        "url": "https://vietnam.travel/places-to-go/north-central-coast/hue"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%C3%B9a%20Thi%C3%AAn%20M%E1%BB%A5%20Khu%20v%E1%BB%B1c%20ch%C3%B9a%20Thi%C3%AAn%20M%E1%BB%A5%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-dong-ba",
+    "name": "Chợ Đông Ba",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Khu chợ để tìm hiểu sản vật và món ăn Huế.",
+    "tags": "Ẩm thực Chợ ẩm thực Huế",
+    "placeType": "Chợ ẩm thực",
+    "address": "Khu vực chợ Đông Ba",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "cau-truong-tien",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Huế",
+        "url": "https://vietnam.travel/places-to-go/north-central-coast/hue"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20%C4%90%C3%B4ng%20Ba%20Khu%20v%E1%BB%B1c%20ch%E1%BB%A3%20%C4%90%C3%B4ng%20Ba%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "quan-lac-thien",
+    "name": "Quán Lạc Thiện",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Địa chỉ bánh khoái được nhắc trong cẩm nang Huế năm 2019.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Huế",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "Đường Đinh Tiên Hoàng, Huế",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "banh-khoai-hue",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Quán ăn Huế (cẩm nang 2019)",
+        "url": "https://vietnam.travel/things-to-do/your-guide-hue-craft-festival-2019"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Qu%C3%A1n%20L%E1%BA%A1c%20Thi%E1%BB%87n%20%C4%90%C6%B0%E1%BB%9Dng%20%C4%90inh%20Ti%C3%AAn%20Ho%C3%A0ng%2C%20Hu%E1%BA%BF%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "quan-hanh-hue",
+    "name": "Quán Hạnh Huế",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Địa chỉ món Huế được nhắc trong cẩm nang năm 2019.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Huế",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "Đường Phó Đức Chính, Huế",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "hue",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Quán ăn Huế (cẩm nang 2019)",
+        "url": "https://vietnam.travel/things-to-do/your-guide-hue-craft-festival-2019"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Qu%C3%A1n%20H%E1%BA%A1nh%20Hu%E1%BA%BF%20%C4%90%C6%B0%E1%BB%9Dng%20Ph%C3%B3%20%C4%90%E1%BB%A9c%20Ch%C3%ADnh%2C%20Hu%E1%BA%BF%20Hu%E1%BA%BF%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ho-xuan-huong",
+    "name": "Hồ Xuân Hương",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Không gian ven hồ để cảm nhận nhịp sống Đà Lạt.",
+    "tags": "Khám phá Dạo phố & ngoài trời Đà Lạt",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực Hồ Xuân Hương",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "cafe-tung",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=H%E1%BB%93%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%20Khu%20v%E1%BB%B1c%20H%E1%BB%93%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ho-tuyen-lam",
+    "name": "Hồ Tuyền Lâm",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Cảnh quan hồ và rừng thông trong hành trình cao nguyên.",
+    "tags": "Khám phá Dạo phố & ngoài trời Đà Lạt",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực Hồ Tuyền Lâm",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=H%E1%BB%93%20Tuy%E1%BB%81n%20L%C3%A2m%20Khu%20v%E1%BB%B1c%20H%E1%BB%93%20Tuy%E1%BB%81n%20L%C3%A2m%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "thac-datanla",
+    "name": "Thác Datanla",
+    "category": "Vui chơi",
+    "region": "central",
+    "description": "Điểm khám phá thác nước và hoạt động ngoài trời.",
+    "tags": "Khám phá Dạo phố & ngoài trời Đà Lạt",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Khu vực Datanla",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Th%C3%A1c%20Datanla%20Khu%20v%E1%BB%B1c%20Datanla%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "la-viet-coffee",
+    "name": "Là Việt Coffee",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Không gian cà phê gắn với câu chuyện rang và chế biến.",
+    "tags": "Ẩm thực Cà phê & đồ uống Đà Lạt",
+    "placeType": "Cà phê & đồ uống",
+    "address": "Đà Lạt",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "ca-phe-cao-nguyen",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=L%C3%A0%20Vi%E1%BB%87t%20Coffee%20%C4%90%C3%A0%20L%E1%BA%A1t%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cafe-tung",
+    "name": "Café Tùng",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Quán cà phê được cẩm nang giới thiệu với không khí hoài niệm.",
+    "tags": "Ẩm thực Cà phê & đồ uống Đà Lạt",
+    "placeType": "Cà phê & đồ uống",
+    "address": "Khu trung tâm Đà Lạt",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "ca-phe-cao-nguyen",
+        "label": "Gắn với món"
+      },
+      {
+        "id": "ho-xuan-huong",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Caf%C3%A9%20T%C3%B9ng%20Khu%20trung%20t%C3%A2m%20%C4%90%C3%A0%20L%E1%BA%A1t%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-da-lat",
+    "name": "Chợ Đà Lạt",
+    "category": "Ăn uống",
+    "region": "central",
+    "description": "Khu chợ trung tâm có sản vật cao nguyên và hàng ăn.",
+    "tags": "Ẩm thực Chợ ẩm thực Đà Lạt",
+    "placeType": "Chợ ẩm thực",
+    "address": "Khu trung tâm Đà Lạt",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "da-lat",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Trải nghiệm Đà Lạt",
+        "url": "https://vietnam.travel/things-to-do/8-things-to-do-in-dalat"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20%C4%90%C3%A0%20L%E1%BA%A1t%20Khu%20trung%20t%C3%A2m%20%C4%90%C3%A0%20L%E1%BA%A1t%20%C4%90%C3%A0%20L%E1%BA%A1t%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "bai-sao",
+    "name": "Bãi Sao",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Bãi biển ở phía nam đảo Phú Quốc.",
+    "tags": "Khám phá Biển & thư giãn Phú Quốc",
+    "placeType": "Biển & thư giãn",
+    "address": "Khu vực Bãi Sao",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "pink-pearl-by-olivier-e",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Phú Quốc",
+        "url": "https://vietnam.travel/things-to-do/explore-phu-quoc-island-3-days-2-nights"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%C3%A3i%20Sao%20Khu%20v%E1%BB%B1c%20B%C3%A3i%20Sao%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "sun-world-hon-thom",
+    "name": "Sun World Hòn Thơm",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Tổ hợp vui chơi kết nối trải nghiệm biển đảo và cáp treo.",
+    "tags": "Khám phá Khu vui chơi Phú Quốc",
+    "placeType": "Khu vui chơi",
+    "address": "Khu vực Hòn Thơm",
+    "duration": "Nửa ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Sun World · Hòn Thơm",
+        "url": "https://sunworld.vn/vi/hon-thom"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Sun%20World%20H%C3%B2n%20Th%C6%A1m%20Khu%20v%E1%BB%B1c%20H%C3%B2n%20Th%C6%A1m%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "vinwonders-phu-quoc",
+    "name": "VinWonders Phú Quốc",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Công viên chủ đề với khu vui chơi và thủy cung.",
+    "tags": "Khám phá Khu vui chơi Phú Quốc",
+    "placeType": "Khu vui chơi",
+    "address": "Khu vực bắc đảo Phú Quốc",
+    "duration": "Nửa ngày",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "VinWonders · Phú Quốc",
+        "url": "https://vinwonders.com/vi/vinwonders-phu%20quoc/"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=VinWonders%20Ph%C3%BA%20Qu%E1%BB%91c%20Khu%20v%E1%BB%B1c%20b%E1%BA%AFc%20%C4%91%E1%BA%A3o%20Ph%C3%BA%20Qu%E1%BB%91c%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-dem-phu-quoc",
+    "name": "Chợ đêm Phú Quốc",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Khu chợ buổi tối với hàng ăn và sản phẩm địa phương.",
+    "tags": "Ẩm thực Chợ ẩm thực Phú Quốc",
+    "placeType": "Chợ ẩm thực",
+    "address": "Đường Bạch Đằng, khu vực Dương Đông",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Khám phá Phú Quốc",
+        "url": "https://vietnam.travel/things-to-do/explore-phu-quoc-island-3-days-2-nights"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20%C4%91%C3%AAm%20Ph%C3%BA%20Qu%E1%BB%91c%20%C4%90%C6%B0%E1%BB%9Dng%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%2C%20khu%20v%E1%BB%B1c%20D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ink-360",
+    "name": "INK 360",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Không gian đồ uống tại InterContinental Phú Quốc.",
+    "tags": "Ẩm thực Cà phê & đồ uống Phú Quốc",
+    "placeType": "Cà phê & đồ uống",
+    "address": "InterContinental Phu Quoc Long Beach Resort",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Phú Quốc buổi tối",
+        "url": "https://vietnam.travel/things-to-do/explore-phu-quoc-by-night"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=INK%20360%20InterContinental%20Phu%20Quoc%20Long%20Beach%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "pink-pearl-by-olivier-e",
+    "name": "Pink Pearl by Olivier E.",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Nhà hàng ẩm thực Pháp kết hợp ảnh hưởng Địa Trung Hải.",
+    "tags": "Ẩm thực Quán ăn & nhà hàng Phú Quốc",
+    "placeType": "Quán ăn & nhà hàng",
+    "address": "JW Marriott Phu Quoc Emerald Bay",
+    "duration": "1–2 giờ",
+    "budget": "Thoải mái",
+    "relations": [
+      {
+        "id": "phu-quoc",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "bai-sao",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "JW Marriott · Pink Pearl",
+        "url": "https://marriott.com/en-us/hotels/pqcjw-jw-marriott-phu-quoc-emerald-bay-resort-and-spa/overview/"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Pink%20Pearl%20by%20Olivier%20E.%20JW%20Marriott%20Phu%20Quoc%20Emerald%20Bay%20Ph%C3%BA%20Qu%E1%BB%91c%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "ben-ninh-kieu",
+    "name": "Bến Ninh Kiều",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Không gian ven sông gắn với hình ảnh Cần Thơ.",
+    "tags": "Khám phá Dạo phố & ngoài trời Cần Thơ",
+    "placeType": "Dạo phố & ngoài trời",
+    "address": "Đường Hai Bà Trưng, Cần Thơ",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "cho-dem-can-tho",
+        "label": "Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=B%E1%BA%BFn%20Ninh%20Ki%E1%BB%81u%20%C4%90%C6%B0%E1%BB%9Dng%20Hai%20B%C3%A0%20Tr%C6%B0ng%2C%20C%E1%BA%A7n%20Th%C6%A1%20C%E1%BA%A7n%20Th%C6%A1%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "nha-co-binh-thuy",
+    "name": "Nhà cổ Bình Thủy",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Điểm tham quan kiến trúc và câu chuyện gia đình vùng Tây Đô.",
+    "tags": "Khám phá Tham quan văn hóa Cần Thơ",
+    "placeType": "Tham quan văn hóa",
+    "address": "144 Bùi Hữu Nghĩa, Cần Thơ",
+    "duration": "1–2 giờ",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Nh%C3%A0%20c%E1%BB%95%20B%C3%ACnh%20Th%E1%BB%A7y%20144%20B%C3%B9i%20H%E1%BB%AFu%20Ngh%C4%A9a%2C%20C%E1%BA%A7n%20Th%C6%A1%20C%E1%BA%A7n%20Th%C6%A1%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "con-son",
+    "name": "Cồn Sơn",
+    "category": "Vui chơi",
+    "region": "south",
+    "description": "Điểm khám phá vườn cây và hoạt động cộng đồng bên sông Hậu.",
+    "tags": "Khám phá Làng quê & cộng đồng Cần Thơ",
+    "placeType": "Làng quê & cộng đồng",
+    "address": "Khu vực Cồn Sơn",
+    "duration": "Nửa ngày",
+    "budget": "Vừa phải",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có địa điểm vui chơi"
+      },
+      {
+        "id": "banh-dan-gian-mien-tay",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=C%E1%BB%93n%20S%C6%A1n%20Khu%20v%E1%BB%B1c%20C%E1%BB%93n%20S%C6%A1n%20C%E1%BA%A7n%20Th%C6%A1%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "cho-dem-can-tho",
+    "name": "Chợ đêm Cần Thơ",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Điểm khám phá ẩm thực đường phố trong cẩm nang Cần Thơ.",
+    "tags": "Ẩm thực Chợ ẩm thực Cần Thơ",
+    "placeType": "Chợ ẩm thực",
+    "address": "Khu vực trung tâm Cần Thơ",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "ben-ninh-kieu",
+        "label": "Liên kết từ · Gắn với"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=Ch%E1%BB%A3%20%C4%91%C3%AAm%20C%E1%BA%A7n%20Th%C6%A1%20Khu%20v%E1%BB%B1c%20trung%20t%C3%A2m%20C%E1%BA%A7n%20Th%C6%A1%20C%E1%BA%A7n%20Th%C6%A1%20Vi%E1%BB%87t%20Nam"
+  },
+  {
+    "id": "lang-hu-tieu-can-tho",
+    "name": "Làng hủ tiếu Cần Thơ",
+    "category": "Ăn uống",
+    "region": "south",
+    "description": "Điểm tìm hiểu nghề làm hủ tiếu và món từ sợi hủ tiếu.",
+    "tags": "Ẩm thực Làng nghề ẩm thực Cần Thơ",
+    "placeType": "Làng nghề ẩm thực",
+    "address": "Khu vực làng nghề hủ tiếu Cần Thơ",
+    "duration": "1–2 giờ",
+    "budget": "Tiết kiệm",
+    "relations": [
+      {
+        "id": "can-tho",
+        "label": "Liên kết từ · Có địa điểm ăn uống"
+      },
+      {
+        "id": "hu-tieu-tren-song",
+        "label": "Gắn với món"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vietnam Tourism · Cần Thơ sông nước",
+        "url": "https://vietnam.travel/things-to-do/can-tho-glimpse-river-and-garden"
+      }
+    ],
+    "narrative": [],
+    "maps": "https://google.com/maps/search/?api=1&query=L%C3%A0ng%20h%E1%BB%A7%20ti%E1%BA%BFu%20C%E1%BA%A7n%20Th%C6%A1%20Khu%20v%E1%BB%B1c%20l%C3%A0ng%20ngh%E1%BB%81%20h%E1%BB%A7%20ti%E1%BA%BFu%20C%E1%BA%A7n%20Th%C6%A1%20C%E1%BA%A7n%20Th%C6%A1%20Vi%E1%BB%87t%20Nam"
+  }
+]

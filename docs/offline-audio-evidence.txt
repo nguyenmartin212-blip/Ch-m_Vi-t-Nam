@@ -1,0 +1,159 @@
+Browser tab: 6, Title: "Chạm Việt — Bản đồ tri thức", URL: "http://127.0.0.1:4173/#/tools".
+1 AXWebArea Chạm Việt — Bản đồ tri thức, URL: 127.0.0.1:4173/#/tools
+	2 container root
+		3 link Description: Đến nội dung chính, Value: 127.0.0.1:4173/#cv-main
+		4 container
+			5 button V • Chạm Việt BẢN ĐỒ TRI THỨC
+				6 text V
+				7 text •
+				8 container
+					9 text Chạm Việt BẢN ĐỒ TRI THỨC
+			10 container Điều hướng chính
+				11 button ⌖ Khám phá
+					12 text ⌖
+					13 text Khám phá
+				14 button ⌘ Kết nối
+					15 text ⌘
+					16 text Kết nối
+				17 button ♡ Bộ sưu tập 1
+					18 text ♡
+					19 text Bộ sưu tập
+					20 text 1
+				21 button ✦ Gợi ý
+					22 text ✦
+					23 text Gợi ý
+				24 button ▤ Hành trình
+					25 text ▤
+					26 text Hành trình
+			27 text ĐI CHẬM MỘT CHÚT
+			28 heading Mỗi điểm đến, một điều mới., Value: 3
+				29 text Mỗi điểm đến,
+				30 text một điều mới.
+			31 text Để những câu chuyện dẫn lối cho hành trình của bạn.
+			32 button Khám phá ngẫu nhiên ↗
+			33 button ⓘ Về kho tri thức
+		34 container
+			35 text Không gian tri thức  /  Hành trình
+			36 button Hướng dẫn và thông tin
+			37 text VN
+		38 container cv-main
+			39 text TỪ CÂU CHUYỆN ĐẾN HÀNH TRÌNH
+			40 heading Đi sâu hơn. Đi theo cách của bạn., Value: 1
+				41 text Đi sâu hơn. Đi theo cách của bạn.
+			42 text Kho nội dung chuyên sâu tại Hà Nội, Huế và TP. Hồ Chí Minh, giữ trọn từ Bản đồ tri thức.
+			43 container
+				77 image Huế
+				78 link Description: Ảnh: Wikipedia ↗, Value: en.wikipedia.org/wiki/Hu%E1%BA%BF
+				44 heading Huế, Value: 2
+					45 text Huế
+				46 text 6 lớp tri thức · 4 ngôn ngữ · Thuyết minh · Lịch trình
+				47 button 6 lớp tri thức →
+				48 button ▶ Nghe kể chuyện
+				49 button ＋ Lập lịch trình
+			50 container
+				79 image Hà Nội
+				80 link Description: Ảnh: Wikipedia ↗, Value: en.wikipedia.org/wiki/Ho%C3%A0n_Ki%E1%BA%BFm_Lake
+				51 heading Hà Nội, Value: 2
+					52 text Hà Nội
+				53 text 6 lớp tri thức · 4 ngôn ngữ · Thuyết minh · Lịch trình
+				54 button 6 lớp tri thức →
+				55 button ▶ Nghe kể chuyện
+				56 button ＋ Lập lịch trình
+			57 container
+				81 image TP.HCM
+				82 link Description: Ảnh: Wikipedia ↗, Value: en.wikipedia.org/wiki/Ho_Chi_Minh_City
+				58 heading TP.HCM, Value: 2
+					59 text TP.HCM
+				60 text 6 lớp tri thức · 4 ngôn ngữ · Thuyết minh · Lịch trình
+				61 button 6 lớp tri thức →
+				62 button ▶ Nghe kể chuyện
+				63 button ＋ Lập lịch trình
+			64 button Lịch trình đã lưu (1)
+				65 text Lịch trình đã lưu (
+				66 text 1
+				67 text )
+			68 button Mở bản đồ địa lý & vệ tinh
+			69 container
+				70 heading Mang Việt Nam theo bạn., Value: 2
+					71 text Mang Việt Nam theo bạn.
+				72 text Cài ứng dụng để mở toàn màn hình. Nội dung khám phá và lịch trình đã lưu dùng được ngoại tuyến sau lần mở đầu tiên; ảnh, bản đồ vệ tinh và tỷ giá trực tuyến cần mạng. Trên iPhone: Chia sẻ → Thêm vào Màn hình chính. Trên Android: menu trình duyệt → Cài đặt ứng dụng.
+				73 button ↓ Tải 6 bản thuyết minh để nghe ngoại tuyến
+				74 button Cập nhật phiên bản mới
+		75 container
+			76 text CHẠM VIỆT Đi để thấy. Hiểu để thương. Nội dung mẫu · Kiểm tra thông tin trước chuyến đi
+		83 container Người kể chuyện
+			158 link Description: Ảnh: Wikipedia ↗, Value: en.wikipedia.org/wiki/Complex_of_Hu%E1%BA%BF_Monuments
+			85 container
+				86 text NGƯỜI KỂ CHUYỆN Huế
+				87 container language
+					88 checkbox VI, Value: 1
+					89 checkbox EN, Value: 0
+					90 checkbox 中文, Value: 0
+					91 checkbox 한국어, Value: 0
+				92 button Đóng
+			93 container
+				159 text ⌂ DI SẢN
+				160 heading Quần thể di tích Cố đô Huế, Value: 2
+					161 text Quần thể di tích Cố đô Huế
+				162 text Ngày
+				163 text 11/12/1993,
+				164 text UNESCO
+				165 text công
+				166 text nhận
+				167 text Quần
+				168 text thể
+				169 text di
+				170 text tích
+				171 text Cố
+				172 text đô
+				173 text Huế
+				174 text là
+				175 text Di
+				176 text sản
+				177 text văn
+				178 text hóa
+				179 text thế
+				180 text giới,
+				181 text di
+				182 text sản
+				183 text đầu
+				184 text tiên
+				185 text của
+				186 text Việt
+				187 text Nam.
+			124 container
+				125 container Chương
+					126 button Mở đầu
+						127 text ✦
+					128 button Lịch sử hình thành
+						129 text ◷
+					130 button Di sản
+						131 text ⌂
+					132 button Văn hóa
+						133 text ♬
+					134 button Ẩm thực
+						135 text ○
+					136 button Du lịch
+						137 text ⚑
+					138 button Câu chuyện đặc trưng
+						139 text ◈
+					140 button Lời kết
+						141 text ✦
+				142 checkbox Kể nhanh khoảng 1 phút, Value: 1
+					143 text Kể nhanh
+					144 text khoảng 1 phút
+				145 checkbox Kể đầy đủ khoảng 3 phút, Value: 0
+					146 text Kể đầy đủ
+					147 text khoảng 3 phút
+				148 button Câu trước
+				149 button Phát
+				150 button Câu sau
+				151 checkbox Description: Đang đọc thành tiếng. Bấm để tắt tiếng, Value: 1
+				152 pop up button (collapsed, settable) Description: Tốc độ, Value: 1×, Secondary Actions: Expand
+					153 menu
+						154 0.8×
+						155 (selected) 1×
+						156 1.25×
+				157 text Đang phát file thuyết minh có sẵn
+
+The focused UI element is 150 button Câu sau

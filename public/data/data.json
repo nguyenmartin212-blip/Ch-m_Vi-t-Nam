@@ -1,0 +1,145 @@
+{
+    "layers": [
+        {
+            "id": "di-san",
+            "name": "Di sản"
+        },
+        {
+            "id": "am-thuc",
+            "name": "Ẩm thực"
+        },
+        {
+            "id": "van-hoa",
+            "name": "Văn hóa"
+        },
+        {
+            "id": "thien-nhien",
+            "name": "Thiên nhiên"
+        },
+        {
+            "id": "cau-chuyen",
+            "name": "Câu chuyện"
+        }
+    ],
+    "destinations": [
+        {
+            "id": "ha-noi",
+            "name": "Hà Nội",
+            "region": "Miền Bắc",
+            "coords": [
+                21.0285,
+                105.8542
+            ],
+            "layers": [
+                "di-san"
+            ]
+        },
+        {
+            "id": "ha-long",
+            "name": "Hạ Long",
+            "region": "Miền Bắc",
+            "coords": [
+                20.9101,
+                107.1839
+            ],
+            "layers": [
+                "thien-nhien"
+            ]
+        },
+        {
+            "id": "hue",
+            "name": "Huế",
+            "region": "Miền Trung",
+            "coords": [
+                16.4637,
+                107.5909
+            ],
+            "layers": [
+                "di-san",
+                "van-hoa",
+                "am-thuc"
+            ],
+            "subtitle": "Chiều sâu văn hóa bên dòng Hương",
+            "description": "Không chỉ có cung đình, Huế còn là hệ tri thức sống về âm nhạc, ẩm thực, làng nghề và nếp sống thanh nhã.",
+            "bestTime": "Tháng 1 – 4",
+            "duration": "3–4 ngày",
+            "tags": [
+                "Cung đình",
+                "Âm nhạc",
+                "Ẩm thực"
+            ],
+            "sources": [],
+            "topics": [
+                {
+                    "id": "co-do-hue",
+                    "name": "Quần thể Cố đô Huế",
+                    "layer": "di-san",
+                    "subtitle": "Không gian kiến trúc triều Nguyễn",
+                    "description": "Nội dung mẫu. Thay bằng mô tả 40–80 từ do bạn viết lại từ nguồn đáng tin cậy.",
+                    "sources": []
+                },
+                {
+                    "id": "nha-nhac",
+                    "name": "Nhã nhạc cung đình",
+                    "layer": "van-hoa",
+                    "subtitle": "Di sản văn hóa phi vật thể",
+                    "description": "Nội dung mẫu. Thay bằng mô tả 40–80 từ do bạn viết lại từ nguồn đáng tin cậy.",
+                    "sources": []
+                },
+                {
+                    "id": "am-thuc-cung-dinh",
+                    "name": "Ẩm thực cung đình",
+                    "layer": "am-thuc",
+                    "subtitle": "Tinh tế trong cách chế biến",
+                    "description": "Nội dung mẫu. Thay bằng mô tả 40–80 từ do bạn viết lại từ nguồn đáng tin cậy.",
+                    "sources": []
+                },
+                {
+                    "id": "nha-vuon-kim-long",
+                    "name": "Nhà vườn Kim Long",
+                    "layer": "van-hoa",
+                    "subtitle": "Nếp sống hài hòa thiên nhiên",
+                    "description": "Nội dung mẫu. Thay bằng mô tả 40–80 từ do bạn viết lại từ nguồn đáng tin cậy.",
+                    "sources": []
+                }
+            ]
+        },
+        {
+            "id": "hoi-an",
+            "name": "Hội An",
+            "region": "Miền Trung",
+            "coords": [
+                15.8801,
+                108.3380
+            ],
+            "layers": [
+                "di-san"
+            ]
+        },
+        {
+            "id": "da-lat",
+            "name": "Đà Lạt",
+            "region": "Tây Nguyên",
+            "coords": [
+                11.9404,
+                108.4583
+            ],
+            "layers": [
+                "thien-nhien"
+            ]
+        },
+        {
+            "id": "can-tho",
+            "name": "Cần Thơ",
+            "region": "Miền Nam",
+            "coords": [
+                10.0452,
+                105.7469
+            ],
+            "layers": [
+                "am-thuc",
+                "van-hoa"
+            ]
+        }
+    ]
+}
