@@ -1,3 +1,6 @@
+import { useAppMotion } from "./lib/motionContext";
+import { MotionSwap, MotionDisclosure } from "./components/ui/MotionContent";
+import { Tabs } from "@animate-ui/react/primitives/base-ui/tabs";
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import LandingPage from "./components/LandingPage";
 import GlobeExplorer from "./components/GlobeExplorer";
@@ -15,8 +18,12 @@ import {
   recommendations,
   readRoute,
 } from "./lib/explore";
+import Sheet from "./components/ui/AnimatedSheet";
+import ActionButton from "./components/ui/MotionButton";
+import NavIcon from "./components/ui/NavIcon";
 import "./index.css";
 import "./atlas.css";
+import "./reference-ui.css";
 const Legacy = lazy(() => import("./App"));
 const DetailPanel = lazy(() => import("./components/DetailPanel"));
 const StoryPlayer = lazy(() => import("./components/StoryPlayer"));
@@ -24,6 +31,7 @@ const ItineraryBuilder = lazy(() => import("./components/ItineraryBuilder"));
 const SavedItineraries = lazy(() => import("./components/SavedItineraries"));
 const NAV = [
   ["explore", "⌖", "Khám phá"],
+  ["map", "⌖", "Bản đồ"],
   ["graph", "⌘", "Kết nối"],
   ["saved", "♡", "Bộ sưu tập"],
   ["suggest", "✦", "Gợi ý"],
@@ -45,10 +53,28 @@ const wiki = {
   "phu-quoc": ["Phú Quốc"],
   "can-tho": ["Cần Thơ"],
 };
+const referencePhotos = {
+  hue: "p1-3",
+  "hoi-an": "p1-1",
+  "trang-an": "p1-0",
+  "da-lat": "p1-2",
+  "ha-long": "p1-4",
+  "phu-quoc": "p5-4",
+};
 function Picture({ entity }) {
   const parent = allDest.find((d) =>
     d.relations.some((r) => r.id === entity.id),
   );
+  const photo = referencePhotos[entity.id] || referencePhotos[parent?.id];
+  if (photo)
+    return (
+      <img
+        className="cv-photo"
+        src={`/images/reference/${photo}.webp`}
+        alt={entity.name}
+        loading="lazy"
+      />
+    );
   return (
     <WikiImage
       titles={wiki[entity.id] || wiki[parent?.id] || [entity.name]}
@@ -65,71 +91,32 @@ function Picture({ entity }) {
     />
   );
 }
-function Sheet({ title, onClose, children }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current,
-      previous = document.activeElement,
-      overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    el.showModal();
-    return () => {
-      el.close();
-      document.body.style.overflow = overflow;
-      previous?.focus();
-    };
-  }, []);
-  return (
-    <dialog
-      className="cv-sheet"
-      ref={ref}
-      aria-label={title}
-      onCancel={(e) => {
-        e.preventDefault();
-        onClose();
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
-      <div className="cv-sheet-inner">
-        <header>
-          <span>CHẠM VIỆT / {title}</span>
-          <button aria-label="Đóng chi tiết" onClick={onClose}>
-            ×
-          </button>
-        </header>
-        {children}
-      </div>
-    </dialog>
-  );
-}
 function Card({ entity: e, saved, onSave, onOpen, reason }) {
   return (
-    <article className="cv-card">
+    <MotionSwap as="article" className="cv-card">
       <div className="cv-card-art">
         <Picture entity={e} />
-        <button
+        <ActionButton
           className="cv-art-open"
           aria-label={`Khám phá ${e.name}`}
           onClick={() => onOpen(e.id)}
         />
         <span className="cv-badge">{e.category}</span>
-        <button
+        <ActionButton
           className={"cv-save " + (saved ? "active" : "")}
           aria-label={`${saved ? "Bỏ lưu" : "Lưu"} ${e.name}`}
           aria-pressed={saved}
           onClick={() => onSave(e.id)}
         >
           {saved ? "♥" : "♡"}
-        </button>
+        </ActionButton>
       </div>
       <div className="cv-card-body">
         <small>{regions[e.region]}</small>
         <h3>
-          <button onClick={() => onOpen(e.id)}>
+          <ActionButton onClick={() => onOpen(e.id)}>
             {e.name} <span>↗</span>
-          </button>
+          </ActionButton>
         </h3>
         <p>{e.description}</p>
         {reason && <p className="cv-reason">✦ {reason}</p>}
@@ -142,7 +129,7 @@ function Card({ entity: e, saved, onSave, onOpen, reason }) {
           </span>
         </div>
       </div>
-    </article>
+    </MotionSwap>
   );
 }
 function VietnamMap({ onOpen }) {
@@ -171,19 +158,19 @@ function VietnamMap({ onOpen }) {
       <div className="cv-map-title">
         <strong>Việt Nam</strong>
         <div>
-          <button
+          <ActionButton
             aria-label="Thu nhỏ bản đồ"
             onClick={() => setZoom((z) => Math.max(1, z - 0.25))}
           >
             −
-          </button>
-          <button
+          </ActionButton>
+          <ActionButton
             aria-label="Phóng to bản đồ"
             onClick={() => setZoom((z) => Math.min(2, z + 0.25))}
           >
             +
-          </button>
-          <button onClick={() => setZoom(1)}>Đặt lại</button>
+          </ActionButton>
+          <ActionButton onClick={() => setZoom(1)}>Đặt lại</ActionButton>
         </div>
       </div>
       <div className="cv-map-window">
@@ -324,17 +311,17 @@ function Graph({ center, setCenter, onOpen }) {
                 strokeDasharray="4 7"
               />
             </svg>
-            <button
+            <ActionButton
               className="cv-node cv-node-center"
               onClick={() => onOpen(e.id)}
             >
               {e.name}
               <small>Mở chi tiết ↗</small>
-            </button>
+            </ActionButton>
             {e.relations.map((r, i) => {
               const a = (i * 2 * Math.PI) / e.relations.length;
               return (
-                <button
+                <ActionButton
                   className="cv-node"
                   key={r.id}
                   style={{
@@ -344,7 +331,7 @@ function Graph({ center, setCenter, onOpen }) {
                   onClick={() => setCenter(r.id)}
                 >
                   {lookup[r.id].name}
-                </button>
+                </ActionButton>
               );
             })}
           </div>
@@ -352,23 +339,26 @@ function Graph({ center, setCenter, onOpen }) {
         <aside className="cv-graph-list">
           <h2>{e.name}</h2>
           <p>{e.relations.length} kết nối · Hiển thị toàn bộ</p>
-          <button className="cv-primary" onClick={() => onOpen(e.id)}>
+          <ActionButton className="cv-primary" onClick={() => onOpen(e.id)}>
             Đọc câu chuyện ↗
-          </button>
+          </ActionButton>
           {e.relations.map((r) => (
-            <button key={r.id} onClick={() => setCenter(r.id)}>
+            <ActionButton key={r.id} onClick={() => setCenter(r.id)}>
               <strong>{lookup[r.id].name}</strong>
               <small>{r.label}</small>
               <span>→</span>
-            </button>
+            </ActionButton>
           ))}
-          <button onClick={() => setCenter("hoi-an")}>↺ Về Hội An</button>
+          <ActionButton onClick={() => setCenter("hoi-an")}>
+            ↺ Về Hội An
+          </ActionButton>
         </aside>
       </div>
     </>
   );
 }
 function OfflineTools() {
+  const { reduced, setReduced } = useAppMotion();
   const [status, setStatus] = useState(""),
     [install, setInstall] = useState(null),
     [update, setUpdate] = useState(null);
@@ -407,13 +397,21 @@ function OfflineTools() {
   return (
     <section className="cv-offline">
       <h2>Mang Việt Nam theo bạn.</h2>
+      <label className="motion-preference">
+        <input
+          type="checkbox"
+          checked={reduced}
+          onChange={(e) => setReduced(e.target.checked)}
+        />
+        Giảm chuyển động trong ứng dụng
+      </label>
       <p>
         Cài ứng dụng để mở toàn màn hình. Nội dung khám phá và lịch trình đã lưu
         dùng được ngoại tuyến sau lần mở đầu tiên; ảnh, bản đồ vệ tinh và tỷ giá
         trực tuyến cần mạng.
       </p>
       {install ? (
-        <button
+        <ActionButton
           className="cv-primary"
           onClick={async () => {
             await install.prompt();
@@ -421,18 +419,18 @@ function OfflineTools() {
           }}
         >
           Cài Chạm Việt
-        </button>
+        </ActionButton>
       ) : (
         <p className="cv-hint">
           Trên iPhone: Chia sẻ → Thêm vào Màn hình chính. Trên Android: menu
           trình duyệt → Cài đặt ứng dụng.
         </p>
       )}
-      <button onClick={download}>
+      <ActionButton onClick={download}>
         ↓ Tải 6 bản thuyết minh để nghe ngoại tuyến
-      </button>
+      </ActionButton>
       {update && (
-        <button
+        <ActionButton
           onClick={() => {
             navigator.serviceWorker.addEventListener(
               "controllerchange",
@@ -443,7 +441,7 @@ function OfflineTools() {
           }}
         >
           Cập nhật phiên bản mới
-        </button>
+        </ActionButton>
       )}
       <p role="status">{status}</p>
     </section>
@@ -468,9 +466,9 @@ export default function Atlas() {
     [source, setSource] = useState(""),
     [parent, setParent] = useState(""),
     [filters, setFilters] = useState(false),
-    [view, setView] = useState("map"),
+    [view, setView] = useState("list"),
     [sort, setSort] = useState("suggested"),
-    [limit, setLimit] = useState(6),
+    [limit, setLimit] = useState(4),
     [tab, setTab] = useState("overview"),
     [center, setCenter] = useState("hoi-an"),
     [saved, setSaved] = useLocal("cham-viet.saved", []),
@@ -481,6 +479,9 @@ export default function Atlas() {
     [online, setOnline] = useState(navigator.onLine);
   const search = useRef(null),
     safeSaved = Array.isArray(saved) ? saved : [];
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [stage, route.page]);
   useEffect(() => {
     const routeChange = () => {
       setRoute(readRoute(location.hash));
@@ -540,7 +541,7 @@ export default function Atlas() {
     setRegion("");
     setSource("");
     setParent("");
-    setLimit(6);
+    setLimit(4);
   }
   let results = filterEntities(entities, {
     query,
@@ -566,13 +567,19 @@ export default function Atlas() {
       />
     ));
   if (stage === "landing")
-    return <LandingPage onStart={() => setStage("globe")} />;
+    return (
+      <MotionSwap className="cv-motion-stage" key="landing">
+        <LandingPage onStart={() => setStage("globe")} />
+      </MotionSwap>
+    );
   if (stage === "globe")
     return (
-      <GlobeExplorer
-        onBack={() => setStage("landing")}
-        onExplore={() => setStage("flight")}
-      />
+      <MotionSwap className="cv-motion-stage" key="globe">
+        <GlobeExplorer
+          onBack={() => setStage("landing")}
+          onExplore={() => setStage("flight")}
+        />
+      </MotionSwap>
     );
   if (stage === "flight")
     return (
@@ -587,9 +594,12 @@ export default function Atlas() {
   if (legacy)
     return (
       <div className="cv-legacy">
-        <button className="cv-legacy-back" onClick={() => setLegacy(null)}>
+        <ActionButton
+          className="cv-legacy-back"
+          onClick={() => setLegacy(null)}
+        >
           ← Khám phá Chạm Việt
-        </button>
+        </ActionButton>
         <Suspense
           fallback={<p className="cv-loading">Đang mở kho tri thức…</p>}
         >
@@ -612,101 +622,155 @@ export default function Atlas() {
       >
         Đến nội dung chính
       </a>
-      <aside className="cv-sidebar">
-        <button
-          className="cv-brand"
+      <div className="cv-site-strip">
+        <span>ĐI ĐỂ HIỂU · CHẠM ĐỂ YÊU</span>
+        <span className={online ? "" : "offline"}>
+          {online ? "Việt Nam, qua từng câu chuyện" : "Bạn đang ngoại tuyến"}
+        </span>
+      </div>
+      <header className="cv-site-header">
+        <ActionButton
+          className="cv-wordmark"
           onClick={() => {
             reset();
             navigate("explore");
           }}
+          aria-label="Chạm Việt Nam, về Khám phá"
         >
-          <span>
-            V<span>•</span>
-          </span>
           <strong>
-            Chạm Việt<small>BẢN ĐỒ TRI THỨC</small>
+            Chạm Việt Nam<span>.</span>
           </strong>
-        </button>
-        <nav aria-label="Điều hướng chính">
-          {NAV.map(([id, icon, label]) => (
-            <button
+          <small>BẢN ĐỒ TRI THỨC</small>
+        </ActionButton>
+        <nav className="cv-desktop-nav" aria-label="Điều hướng chính">
+          {NAV.map(([id, , label]) => (
+            <ActionButton
               key={id}
+              aria-current={route.page === id ? "page" : undefined}
               className={route.page === id ? "active" : ""}
               onClick={() => {
                 reset();
                 navigate(id);
               }}
             >
-              <i>{icon}</i>
               {label}
-              {id === "saved" && <em>{safeSaved.length}</em>}
-            </button>
+              {id === "saved" && safeSaved.length > 0 && (
+                <span className="cv-nav-count">{safeSaved.length}</span>
+              )}
+            </ActionButton>
           ))}
         </nav>
-        <div className="cv-inspiration">
-          <span>ĐI CHẬM MỘT CHÚT</span>
-          <h3>
-            Mỗi điểm đến,
-            <br />
-            một điều mới.
-          </h3>
-          <p>Để những câu chuyện dẫn lối cho hành trình của bạn.</p>
-          <button
-            onClick={() =>
-              openDetail(
-                entities[Math.floor(Math.random() * entities.length)].id,
-              )
-            }
+        <div className="cv-header-actions">
+          <ActionButton
+            onClick={() => {
+              if (!search.current) navigate("explore");
+              window.setTimeout(() => {
+                search.current?.scrollIntoView({
+                  block: "center",
+                  behavior: "instant",
+                });
+                search.current?.focus();
+              }, 100);
+            }}
+            aria-label="Tìm kiếm điểm đến"
           >
-            Khám phá ngẫu nhiên ↗
-          </button>
+            Tìm kiếm
+          </ActionButton>
+          <ActionButton
+            onClick={() => navigate("about")}
+            aria-label="Hướng dẫn và thông tin"
+          >
+            Trợ giúp <span aria-hidden="true">↗</span>
+          </ActionButton>
         </div>
-        <button className="cv-about-link" onClick={() => navigate("about")}>
-          ⓘ Về kho tri thức
-        </button>
-      </aside>
+      </header>
       <div className="cv-workspace">
-        <header className="cv-topbar">
-          <span>
-            Không gian tri thức{" "}
-            <b>
-              / {NAV.find((n) => n[0] === route.page)?.[2] || "Về Chạm Việt"}
-            </b>
-          </span>
-          <div>
-            <span className={"cv-network " + (!online ? "offline" : "")}>
-              {online ? "● Sẵn sàng khám phá" : "● Ngoại tuyến"}
-            </span>
-            <button
-              aria-label="Hướng dẫn và thông tin"
-              onClick={() => navigate("about")}
-            >
-              ?
-            </button>
-            <span className="cv-avatar">VN</span>
-          </div>
-        </header>
-        <main id="cv-main" className="cv-main" tabIndex={-1}>
-          {(route.page === "explore" || route.page === "saved") && (
+        <MotionSwap
+          as="main"
+          key={route.page}
+          id="cv-main"
+          className={`cv-main cv-page-${route.page}`}
+          tabIndex={-1}
+        >
+          {["explore", "map", "saved"].includes(route.page) && (
             <>
-              <div className="cv-intro">
-                <p className="cv-kicker">VIỆT NAM, QUA TỪNG CÂU CHUYỆN</p>
-                <h1>
-                  {route.page === "saved" ? (
-                    "Những nơi bạn muốn chạm đến."
-                  ) : (
-                    <>
+              {route.page === "explore" ? (
+                <section className="cv-explore-hero">
+                  <img
+                    src="/images/reference/p1-4.webp"
+                    alt="Cảnh vịnh Hạ Long trong bản thiết kế tham khảo"
+                    fetchPriority="high"
+                  />
+                  <div className="cv-hero-copy">
+                    <p className="cv-kicker">
+                      CHẠM VÀO VẺ ĐẸP · KẾT NỐI NHỮNG HÀNH TRÌNH
+                    </p>
+                    <h1>
                       Khám phá Việt Nam
                       <br />
-                      qua những <em>kết nối.</em>
-                    </>
-                  )}
-                </h1>
-                <p>
-                  {route.page === "saved"
-                    ? "Lưu lại một nơi, để dành cho hành trình sắp tới."
-                    : "Từ một điểm đến, mở ra di sản, ẩm thực và những câu chuyện địa phương."}
-                </p>
+                      qua những kết nối
+                    </h1>
+                    <p>
+                      Từ một điểm đến, mở ra di sản, ẩm thực và câu chuyện của
+                      những người sống ở đó.
+                    </p>
+                    <div className="cv-hero-actions">
+                      <ActionButton
+                        className="cv-primary"
+                        onClick={() => {
+                          document
+                            .getElementById("cv-discover")
+                            .scrollIntoView({
+                              behavior: "instant",
+                              block: "start",
+                            });
+                          search.current?.focus({ preventScroll: true });
+                        }}
+                      >
+                        Bắt đầu khám phá <span>↗</span>
+                      </ActionButton>
+                      <ActionButton onClick={() => navigate("map")}>
+                        Xem bản đồ <span>↗</span>
+                      </ActionButton>
+                    </div>
+                  </div>
+                  <span className="cv-hero-location">
+                    ⌖ Vịnh Hạ Long, Quảng Ninh
+                  </span>
+                </section>
+              ) : (
+                <div className="cv-intro">
+                  <p className="cv-kicker">KHÔNG GIAN CỦA BẠN</p>
+                  <h1>
+                    {route.page === "saved"
+                      ? "Bộ sưu tập của bạn"
+                      : "Khám phá trên bản đồ"}
+                  </h1>
+                  <p>
+                    {route.page === "saved"
+                      ? "Những nơi muốn đến, những câu chuyện muốn giữ lại."
+                      : "Đi theo sự tò mò, tìm những kết nối mới trên dải đất hình chữ S."}
+                  </p>
+                </div>
+              )}
+              <div className="cv-discover-heading" id="cv-discover">
+                <div>
+                  <h2>
+                    {route.page === "saved"
+                      ? "Những điều đã lưu"
+                      : "Điểm đến đầy cảm hứng"}
+                  </h2>
+                  <p>Một Việt Nam quen mà lạ, đang chờ bạn khám phá.</p>
+                </div>
+                <ActionButton
+                  onClick={() =>
+                    openDetail(
+                      entities[Math.floor(Math.random() * entities.length)].id,
+                    )
+                  }
+                >
+                  Gợi ý một nơi <span>↗</span>
+                </ActionButton>
               </div>
               <div className="cv-search-row">
                 <label className="cv-search">
@@ -723,23 +787,24 @@ export default function Atlas() {
                   />
                   <kbd>Ctrl K</kbd>
                   {query && (
-                    <button
+                    <ActionButton
                       aria-label="Xóa tìm kiếm"
                       onClick={() => setQuery("")}
                     >
                       ×
-                    </button>
+                    </ActionButton>
                   )}
                 </label>
-                <button
+                <ActionButton
                   className={filters ? "active" : ""}
                   aria-expanded={filters}
+                  aria-controls="explore-filter-panel"
                   onClick={() => setFilters(!filters)}
                 >
                   ☷ Bộ lọc
-                </button>
+                </ActionButton>
               </div>
-              {filters && (
+              <MotionDisclosure open={filters} id="explore-filter-panel">
                 <div className="cv-filters">
                   <label>
                     Vùng miền
@@ -783,12 +848,12 @@ export default function Atlas() {
                       ))}
                     </select>
                   </label>
-                  <button onClick={reset}>Đặt lại bộ lọc</button>
+                  <ActionButton onClick={reset}>Đặt lại bộ lọc</ActionButton>
                 </div>
-              )}
+              </MotionDisclosure>
               <div className="cv-chips" aria-label="Loại tri thức">
                 {["", ...categories].map((c) => (
-                  <button
+                  <ActionButton
                     key={c}
                     aria-pressed={category === c}
                     className={category === c ? "active" : ""}
@@ -798,7 +863,7 @@ export default function Atlas() {
                     }}
                   >
                     {c || "Tất cả"}
-                  </button>
+                  </ActionButton>
                 ))}
               </div>
               <section className="cv-discovery">
@@ -842,7 +907,7 @@ export default function Atlas() {
                     ))}
                   </select>
                 </label>
-                <button
+                <ActionButton
                   onClick={() => {
                     setCategory("Vui chơi");
                     setPlaceType("");
@@ -850,8 +915,8 @@ export default function Atlas() {
                   }}
                 >
                   Vui chơi
-                </button>
-                <button
+                </ActionButton>
+                <ActionButton
                   onClick={() => {
                     setCategory("Ăn uống");
                     setPlaceType("");
@@ -859,8 +924,8 @@ export default function Atlas() {
                   }}
                 >
                   Ăn uống
-                </button>
-                <button
+                </ActionButton>
+                <ActionButton
                   onClick={() => {
                     setCategory("");
                     setPlaceType("Cà phê");
@@ -868,8 +933,8 @@ export default function Atlas() {
                   }}
                 >
                   Cà phê
-                </button>
-                <button
+                </ActionButton>
+                <ActionButton
                   onClick={() => {
                     setCategory("");
                     setPlaceType("Chợ");
@@ -877,7 +942,7 @@ export default function Atlas() {
                   }}
                 >
                   Chợ
-                </button>
+                </ActionButton>
               </section>
               <div className="cv-section-heading">
                 <div>
@@ -887,7 +952,12 @@ export default function Atlas() {
                     {parent && `quanh ${lookup[parent].name}`}
                   </p>
                 </div>
-                <div className="cv-display">
+                <div
+                  className={
+                    "cv-display " +
+                    (route.page === "map" ? "cv-map-display" : "")
+                  }
+                >
                   <select
                     aria-label="Sắp xếp"
                     value={sort}
@@ -896,24 +966,33 @@ export default function Atlas() {
                     <option value="suggested">Gợi ý</option>
                     <option value="az">Tên A–Z</option>
                   </select>
-                  <button
+                  <ActionButton
                     className={view === "map" ? "active" : ""}
                     onClick={() => setView("map")}
                   >
                     Bản đồ
-                  </button>
-                  <button
+                  </ActionButton>
+                  <ActionButton
                     className={view === "list" ? "active" : ""}
                     onClick={() => setView("list")}
                   >
                     Danh sách
-                  </button>
+                  </ActionButton>
                 </div>
               </div>
               <div
-                className={"cv-results " + (view === "list" ? "list-only" : "")}
+                className={
+                  "cv-results " +
+                  (route.page === "map"
+                    ? "map-page"
+                    : view === "list"
+                      ? "list-only"
+                      : "")
+                }
               >
-                {view === "map" && <VietnamMap onOpen={openDetail} />}
+                {(route.page === "map" || view === "map") && (
+                  <VietnamMap onOpen={openDetail} />
+                )}
                 <div>
                   <div className="cv-cards">
                     {cards(results.slice(0, limit))}
@@ -929,26 +1008,41 @@ export default function Atlas() {
                       <p>
                         Thử một từ khóa khác hoặc khám phá những câu chuyện mới.
                       </p>
-                      <button
+                      <ActionButton
                         onClick={() => {
                           reset();
                           if (route.page === "saved") navigate("explore");
                         }}
                       >
                         Khám phá tất cả
-                      </button>
+                      </ActionButton>
                     </div>
                   )}
                   {limit < results.length && (
-                    <button
+                    <ActionButton
                       className="cv-load"
                       onClick={() => setLimit(limit + 6)}
                     >
                       Xem thêm 6 mục ↓
-                    </button>
+                    </ActionButton>
                   )}
                 </div>
               </div>
+              <section className="cv-journey-banner">
+                <div>
+                  <h2>Hành trình của bạn, câu chuyện của Việt Nam.</h2>
+                  <p>
+                    Lưu nơi yêu thích, nghe thuyết minh và lên kế hoạch cho
+                    chuyến đi.
+                  </p>
+                </div>
+                <ActionButton
+                  className="cv-primary"
+                  onClick={() => openTool("plan", "hue")}
+                >
+                  Tạo hành trình riêng ↗
+                </ActionButton>
+              </section>
             </>
           )}
           {route.page === "graph" && (
@@ -967,7 +1061,7 @@ export default function Atlas() {
                   "Đi chậm",
                   "Phiêu lưu",
                 ].map((i) => (
-                  <button
+                  <ActionButton
                     key={i}
                     className={interests.includes(i) ? "active" : ""}
                     aria-pressed={interests.includes(i)}
@@ -978,7 +1072,7 @@ export default function Atlas() {
                     }
                   >
                     {i}
-                  </button>
+                  </ActionButton>
                 ))}
               </div>
               <div className="cv-filters">
@@ -1048,32 +1142,32 @@ export default function Atlas() {
                         6 lớp tri thức · 4 ngôn ngữ · Thuyết minh · Lịch trình
                       </p>
                       <div className="cv-tool-actions">
-                        <button
+                        <ActionButton
                           className="cv-primary"
                           onClick={() => openTool("layers", e.id)}
                         >
                           6 lớp tri thức →
-                        </button>
-                        <button onClick={() => openTool("story", e.id)}>
+                        </ActionButton>
+                        <ActionButton onClick={() => openTool("story", e.id)}>
                           ▶ Nghe kể chuyện
-                        </button>
-                        <button onClick={() => openTool("plan", e.id)}>
+                        </ActionButton>
+                        <ActionButton onClick={() => openTool("plan", e.id)}>
                           ＋ Lập lịch trình
-                        </button>
+                        </ActionButton>
                       </div>
                     </article>
                   ))}
               </div>
               <div className="cv-tool-actions">
-                <button
+                <ActionButton
                   className="cv-primary"
                   onClick={() => setTool({ kind: "saved" })}
                 >
                   Lịch trình đã lưu ({trips.list.length})
-                </button>
-                <button onClick={() => setLegacy("all")}>
+                </ActionButton>
+                <ActionButton onClick={() => setLegacy("all")}>
                   Mở bản đồ địa lý & vệ tinh
-                </button>
+                </ActionButton>
               </div>
               <OfflineTools />
             </>
@@ -1104,25 +1198,28 @@ export default function Atlas() {
                   đồng bộ đám mây; dữ liệu lưu cục bộ có thể mất khi xóa dữ liệu
                   trình duyệt.
                 </p>
-                <button onClick={() => setStage("landing")}>
+                <ActionButton onClick={() => setStage("landing")}>
                   Xem lại intro & chọn quốc gia
-                </button>
-                <button onClick={() => setStage("globe")}>
+                </ActionButton>
+                <ActionButton onClick={() => setStage("globe")}>
                   Mở địa cầu & công cụ đổi tiền
-                </button>
+                </ActionButton>
                 <OfflineTools />
               </div>
             </>
           )}
-        </main>
+        </MotionSwap>
         <footer className="cv-footer">
-          CHẠM VIỆT <span>Đi để thấy. Hiểu để thương.</span>
-          <small>Nội dung mẫu · Kiểm tra thông tin trước chuyến đi</small>
+          <span>Chạm Việt Nam · Mỗi hành trình, một kết nối.</span>
+          <small>Nội dung tham khảo · Kiểm tra thông tin trước chuyến đi</small>
+          <ActionButton onClick={() => navigate("about")}>
+            Về Chạm Việt ↗
+          </ActionButton>
         </footer>
       </div>
       <nav className="cv-bottomnav" aria-label="Điều hướng điện thoại">
-        {NAV.map(([id, icon, label]) => (
-          <button
+        {NAV.map(([id, , label]) => (
+          <ActionButton
             key={id}
             className={route.page === id ? "active" : ""}
             onClick={() => {
@@ -1130,9 +1227,9 @@ export default function Atlas() {
               navigate(id);
             }}
           >
-            <i>{icon}</i>
+            <NavIcon name={id} />
             <span>{label}</span>
-          </button>
+          </ActionButton>
         ))}
       </nav>
       {current && !tool && (
@@ -1146,35 +1243,33 @@ export default function Atlas() {
             </p>
             <div className="cv-section-heading">
               <h1>{current.name}</h1>
-              <button
+              <ActionButton
                 aria-label={`${safeSaved.includes(current.id) ? "Bỏ lưu" : "Lưu"} ${current.name}`}
                 aria-pressed={safeSaved.includes(current.id)}
                 onClick={() => toggle(current.id)}
               >
                 {safeSaved.includes(current.id) ? "♥ Đã lưu" : "♡ Lưu lại"}
-              </button>
+              </ActionButton>
             </div>
             <p>{current.description}</p>
             <p className="cv-tags">{current.tags}</p>
-            <div className="cv-detail-tabs" role="tablist">
-              {[
-                ["overview", "Tổng quan"],
-                ["connections", `Kết nối (${current.relations.length})`],
-                ["sources", "Nguồn tham chiếu"],
-              ].map(([id, t]) => (
-                <button
-                  key={id}
-                  role="tab"
-                  aria-selected={tab === id}
-                  onClick={() => setTab(id)}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-            <div role="tabpanel">
-              {tab === "overview" && (
-                <>
+            <Tabs.Root value={tab} onValueChange={setTab}>
+              <Tabs.List
+                className="cv-detail-tabs"
+                aria-label="Chi tiết tri thức"
+              >
+                {[
+                  ["overview", "Tổng quan"],
+                  ["connections", `Kết nối (${current.relations.length})`],
+                  ["sources", "Nguồn tham chiếu"],
+                ].map(([id, t]) => (
+                  <Tabs.Tab key={id} value={id} aria-selected={tab === id}>
+                    {t}
+                  </Tabs.Tab>
+                ))}
+              </Tabs.List>
+              <div className="cv-tab-panels">
+                <Tabs.Panel value="overview">
                   <div className="cv-stats">
                     <div>
                       Thời lượng gợi ý<strong>{current.duration}</strong>
@@ -1203,12 +1298,12 @@ export default function Atlas() {
                     <p key={i}>{p}</p>
                   ))}
                   {legacyIds[current.id] && (
-                    <button
+                    <ActionButton
                       className="cv-primary"
                       onClick={() => openTool("layers", current.id)}
                     >
                       Khám phá 6 lớp tri thức, nghe kể chuyện & lập lịch trình →
-                    </button>
+                    </ActionButton>
                   )}
                   {current.maps && (
                     <a
@@ -1222,17 +1317,17 @@ export default function Atlas() {
                   )}
                   <h2>Từ {current.name}, khám phá thêm</h2>
                   {current.relations.slice(0, 4).map((r) => (
-                    <button
+                    <ActionButton
                       className="cv-related"
                       key={r.id}
                       onClick={() => open(r.id)}
                     >
                       <strong>{lookup[r.id].name}</strong>
                       <span>{r.label} →</span>
-                    </button>
+                    </ActionButton>
                   ))}
                   {locations[current.id] && (
-                    <button
+                    <ActionButton
                       className="cv-load"
                       onClick={() => {
                         setParent(current.id);
@@ -1242,23 +1337,21 @@ export default function Atlas() {
                       }}
                     >
                       Xem các địa điểm ăn uống & vui chơi tại đây
-                    </button>
+                    </ActionButton>
                   )}
-                </>
-              )}
-              {tab === "connections" && (
-                <>
+                </Tabs.Panel>
+                <Tabs.Panel value="connections">
                   {current.relations.map((r) => (
-                    <button
+                    <ActionButton
                       className="cv-related"
                       key={r.id}
                       onClick={() => open(r.id)}
                     >
                       <strong>{lookup[r.id].name}</strong>
                       <span>{r.label} →</span>
-                    </button>
+                    </ActionButton>
                   ))}
-                  <button
+                  <ActionButton
                     className="cv-primary"
                     onClick={() => {
                       setCenter(current.id);
@@ -1266,11 +1359,9 @@ export default function Atlas() {
                     }}
                   >
                     Xem trên bản đồ kết nối
-                  </button>
-                </>
-              )}
-              {tab === "sources" && (
-                <>
+                  </ActionButton>
+                </Tabs.Panel>
+                <Tabs.Panel value="sources">
                   <p>
                     Nguồn tham chiếu công khai từ bản mẫu, chưa đối chiếu từng
                     trường dữ liệu.
@@ -1294,13 +1385,13 @@ export default function Atlas() {
                       kèm.
                     </p>
                   )}
-                </>
-              )}
-              <p className="cv-hint">
-                Thời lượng và chi tiêu là gợi ý mẫu. Kiểm tra thông tin thực tế
-                trước chuyến đi.
-              </p>
-            </div>
+                </Tabs.Panel>
+                <p className="cv-hint">
+                  Thời lượng và chi tiêu là gợi ý mẫu. Kiểm tra thông tin thực
+                  tế trước chuyến đi.
+                </p>
+              </div>
+            </Tabs.Root>
           </div>
         </Sheet>
       )}

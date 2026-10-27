@@ -1,5 +1,9 @@
 # Kết quả kiểm thử — 24/10/2026
 
+Cập nhật 25/10/2026: đã tích hợp Animate UI cho nút và sheet chi tiết; xem [kiểm thử Animate UI](ANIMATE-UI.md). 12 test hiện có, lint và build đều đạt. Đã kiểm tra lại PWA khi tắt máy chủ và mở dialog từ cache.
+
+Bản mở rộng cùng ngày: áp dụng bộ motion chung cho tất cả màn hình, dialog planner/audio/xác nhận, Tabs và Collapsible. Đã kiểm tra thao tác tạo/lưu/hủy/xóa đúng dữ liệu QA, phát/dừng/chuyển câu audio, dialog lồng nhau, tùy chọn giảm chuyển động lưu qua reload và bố cục mobile. Chi tiết/bằng chứng trong `ANIMATE-UI.md` và `screenshots/animate-ui-global-*.png`.
+
 ## Tự động
 
 - `npm test`: 12/12 test đạt.

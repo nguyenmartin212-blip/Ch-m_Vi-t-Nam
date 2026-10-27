@@ -91,7 +91,7 @@ export function recommendations(data, interests, month, budget) {
 }
 export function readRoute(hash) {
   const [path, query] = hash.replace(/^#\/?/, "").split("?");
-  const allowed = ["explore", "graph", "saved", "suggest", "tools", "about"];
+  const allowed = ["explore", "map", "graph", "saved", "suggest", "tools", "about"];
   return {
     page: allowed.includes(path) ? path : "explore",
     entity: new URLSearchParams(query).get("entity"),

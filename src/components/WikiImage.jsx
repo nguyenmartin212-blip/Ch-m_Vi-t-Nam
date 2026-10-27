@@ -24,7 +24,9 @@ function apiUrl(lang, params) {
 }
 
 function pickPage(payload) {
-  const page = payload?.query?.pages?.find?.((p) => !p.missing && (p.thumbnail?.source || p.original?.source));
+  const page = payload?.query?.pages?.find?.(
+    (p) => !p.missing && (p.thumbnail?.source || p.original?.source),
+  );
   if (!page) return null;
   return {
     thumb: page.thumbnail?.source || null,
@@ -73,7 +75,6 @@ async function fetchSearchTitle(title, lang, width) {
   }
 }
 
-
 async function fetchCommonsImage(title, width) {
   const qs = new URLSearchParams({
     action: "query",
@@ -93,7 +94,9 @@ async function fetchCommonsImage(title, width) {
     const r = await fetch(url);
     if (!r.ok) return null;
     const payload = await r.json();
-    const page = payload?.query?.pages?.find?.((p) => p.imageinfo?.[0]?.thumburl || p.imageinfo?.[0]?.url);
+    const page = payload?.query?.pages?.find?.(
+      (p) => p.imageinfo?.[0]?.thumburl || p.imageinfo?.[0]?.url,
+    );
     const image = page?.imageinfo?.[0];
     if (!image) return null;
     return {
@@ -144,7 +147,15 @@ function sizedSrc(info, width) {
   return info.orig || info.thumb || "";
 }
 
-export default function WikiImage({ titles, width = 500, alt = "", className = "", lang = "vi", fallback = null, eager = false }) {
+export default function WikiImage({
+  titles,
+  width = 500,
+  alt = "",
+  className = "",
+  lang = "vi",
+  fallback = null,
+  eager = false,
+}) {
   const list = useMemo(() => normalizeTitles(titles), [titles]);
   const key = `${width}|${list.join("|")}`;
   const [info, setInfo] = useState(undefined);
@@ -179,7 +190,12 @@ export default function WikiImage({ titles, width = 500, alt = "", className = "
         />
       )}
       {info?.page && (
-        <a className="wimg__credit" href={info.page} target="_blank" rel="noreferrer">
+        <a
+          className="wimg__credit"
+          href={info.page}
+          target="_blank"
+          rel="noreferrer"
+        >
           {tr(lang, "photo")} ↗
         </a>
       )}

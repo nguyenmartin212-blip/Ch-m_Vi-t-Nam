@@ -1,36 +1,75 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import MotionButton from "./ui/MotionButton";
+import { MotionSwap } from "./ui/MotionContent";
+import AnimatedDialog from "./ui/AnimatedDialog";
+import { useEffect, useMemo, useState } from "react";
 import WikiImage from "./WikiImage";
 import { REGIONS, KIND_ORDER } from "../data/content";
-import { tr, pick, dayWord, dayLabel, monthLabel, monthFull, placesCount, peopleWord } from "../i18n";
 import {
-  dayCapacity, MAX_PEOPLE, placeMap, totalHours, recommendedIds, autoPlan, scheduleDay, fmtTime,
-  monthScore, bestMonth, moveItem, shift, removeItem, newId,
+  tr,
+  pick,
+  dayWord,
+  dayLabel,
+  monthLabel,
+  monthFull,
+  placesCount,
+  peopleWord,
+} from "../i18n";
+import {
+  dayCapacity,
+  MAX_PEOPLE,
+  placeMap,
+  totalHours,
+  recommendedIds,
+  autoPlan,
+  scheduleDay,
+  fmtTime,
+  monthScore,
+  bestMonth,
+  moveItem,
+  shift,
+  removeItem,
+  newId,
 } from "../lib/itinerary";
 
 export function Modal({ title, onClose, children, footer, wide }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el=ref.current,previous=document.activeElement,overflow=document.body.style.overflow;
-    document.body.style.overflow='hidden'; el.showModal();
-    return () => {el.close();document.body.style.overflow=overflow;previous?.focus();};
-  }, []);
   return (
-    <dialog ref={ref} className="modal" aria-label={title} onCancel={e=>{e.preventDefault();onClose();}} onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <div className={`modal__box ${wide ? "modal__box--wide" : ""}`}>
-        <header className="modal__head">
-          <h2>{title}</h2>
-          <button className="icon-btn" onClick={onClose} aria-label="close">×</button>
-        </header>
-        <div className="modal__body">{children}</div>
-        {footer && <footer className="modal__foot">{footer}</footer>}
-      </div>
-    </dialog>
+    <AnimatedDialog
+      title={title}
+      onClose={onClose}
+      variant="modal"
+      className={`modal__box ${wide ? "modal__box--wide" : ""}`}
+    >
+      {({ close }) => (
+        <>
+          <header className="modal__head">
+            <h2>{title}</h2>
+            <MotionButton
+              className="icon-btn"
+              onClick={close}
+              aria-label="close"
+            >
+              ×
+            </MotionButton>
+          </header>
+          <div className="modal__body">{children}</div>
+          {footer && <footer className="modal__foot">{footer}</footer>}
+        </>
+      )}
+    </AnimatedDialog>
   );
 }
 
-const sameSet = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
+const sameSet = (a, b) =>
+  a.length === b.length && a.every((x) => b.includes(x));
 
-export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave, onOpenSaved }) {
+export default function ItineraryBuilder({
+  lang,
+  dests,
+  initial,
+  onClose,
+  onSave,
+  onOpenSaved,
+}) {
   const edit = initial?.itinerary || null;
   const [step, setStep] = useState(edit ? 3 : 1);
   const [destId, setDestId] = useState(edit?.destId || initial?.destId || null);
@@ -72,15 +111,20 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
 
   function goStep2() {
     if (!dest) return;
-    if (selected.length === 0 || !manual) setSelected(recommendedIds(dest, days, interests, people));
+    if (selected.length === 0 || !manual)
+      setSelected(recommendedIds(dest, days, interests, people));
     setStep(2);
   }
 
   function goStep3() {
     if (!dest || selected.length === 0) return;
     const current = plan.flat();
-    if (!(plan.length === days && sameSet(current, selected))) setPlan(autoPlan(dest, selected, days));
-    if (!name) setName(`${pick(dest.name, lang)} · ${dayWord(lang, days)} · ${monthLabel(lang, month)}`);
+    if (!(plan.length === days && sameSet(current, selected)))
+      setPlan(autoPlan(dest, selected, days));
+    if (!name)
+      setName(
+        `${pick(dest.name, lang)} · ${dayWord(lang, days)} · ${monthLabel(lang, month)}`,
+      );
     setJustSaved(false);
     setStep(3);
   }
@@ -91,7 +135,9 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
 
   function toggle(id) {
     setManual(true);
-    setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
+    setSelected((s) =>
+      s.includes(id) ? s.filter((x) => x !== id) : [...s, id],
+    );
   }
 
   function save() {
@@ -121,20 +167,38 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
   const footer = (
     <>
       {step > 1 && !justSaved && (
-        <button className="btn" onClick={() => setStep(step - 1)}>← {tr(lang, "ib_prev")}</button>
+        <MotionButton className="btn" onClick={() => setStep(step - 1)}>
+          ← {tr(lang, "ib_prev")}
+        </MotionButton>
       )}
       <span className="grow" />
       {step === 1 && (
-        <button className="btn btn--accent" disabled={!dest} onClick={goStep2}>{tr(lang, "ib_next")} →</button>
+        <MotionButton
+          className="btn btn--accent"
+          disabled={!dest}
+          onClick={goStep2}
+        >
+          {tr(lang, "ib_next")} →
+        </MotionButton>
       )}
       {step === 2 && (
-        <button className="btn btn--accent" disabled={selected.length === 0} onClick={goStep3}>{tr(lang, "ib_next")} →</button>
+        <MotionButton
+          className="btn btn--accent"
+          disabled={selected.length === 0}
+          onClick={goStep3}
+        >
+          {tr(lang, "ib_next")} →
+        </MotionButton>
       )}
       {step === 3 && !justSaved && (
-        <button className="btn btn--accent" onClick={save}>{savedId ? tr(lang, "ib_update") : tr(lang, "ib_save")}</button>
+        <MotionButton className="btn btn--accent" onClick={save}>
+          {savedId ? tr(lang, "ib_update") : tr(lang, "ib_save")}
+        </MotionButton>
       )}
       {step === 3 && justSaved && (
-        <button className="btn btn--accent" onClick={onOpenSaved}>{tr(lang, "ib_view_saved")} →</button>
+        <MotionButton className="btn btn--accent" onClick={onOpenSaved}>
+          {tr(lang, "ib_view_saved")} →
+        </MotionButton>
       )}
     </>
   );
@@ -143,7 +207,10 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
     <Modal title={tr(lang, "ib_title")} onClose={onClose} footer={footer} wide>
       <ol className="steps">
         {steps.map((s, i) => (
-          <li key={i} className={step === i + 1 ? "on" : step > i + 1 ? "done" : ""}>
+          <li
+            key={i}
+            className={step === i + 1 ? "on" : step > i + 1 ? "done" : ""}
+          >
             <b>{i + 1}</b>
             <span>{s}</span>
           </li>
@@ -152,18 +219,36 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
 
       {/* ---------------- BƯỚC 1 ---------------- */}
       {step === 1 && (
-        <section>
+        <MotionSwap as="section" key={step}>
           <h3 className="sec">{tr(lang, "ib_pick_dest")}</h3>
           <div className="dgrid">
             {dests.map((d) => (
-              <button key={d.id} className={`dcard ${d.id === destId ? "on" : ""}`} onClick={() => chooseDest(d)}>
-                <WikiImage titles={d.hero} width={500} alt="" lang={lang} className="dcard__img" fallback={<div className="dcard__img dcard__img--fb" style={{ background: REGIONS[d.region].color }} />} />
+              <MotionButton
+                key={d.id}
+                className={`dcard ${d.id === destId ? "on" : ""}`}
+                onClick={() => chooseDest(d)}
+              >
+                <WikiImage
+                  titles={d.hero}
+                  width={500}
+                  alt=""
+                  lang={lang}
+                  className="dcard__img"
+                  fallback={
+                    <div
+                      className="dcard__img dcard__img--fb"
+                      style={{ background: REGIONS[d.region].color }}
+                    />
+                  }
+                />
                 <div className="dcard__txt">
-                  <small style={{ color: REGIONS[d.region].color }}>{pick(REGIONS[d.region].name, lang)}</small>
+                  <small style={{ color: REGIONS[d.region].color }}>
+                    {pick(REGIONS[d.region].name, lang)}
+                  </small>
                   <strong>{pick(d.name, lang)}</strong>
                   <span>{pick(d.tagline, lang)}</span>
                 </div>
-              </button>
+              </MotionButton>
             ))}
           </div>
 
@@ -173,70 +258,147 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
               <p className="muted small">{tr(lang, "ib_month_hint")}</p>
               <div className="mchart" role="group">
                 {dest.bestMonths.map((s, i) => (
-                  <button key={i} className={`mbar s${s} ${month === i + 1 ? "on" : ""}`} onClick={() => setMonth(i + 1)} aria-label={monthFull(lang, i + 1)}>
+                  <MotionButton
+                    key={i}
+                    className={`mbar s${s} ${month === i + 1 ? "on" : ""}`}
+                    onClick={() => setMonth(i + 1)}
+                    aria-label={monthFull(lang, i + 1)}
+                  >
                     <span className="mbar__fill" />
                     <span className="mbar__lbl">{monthLabel(lang, i + 1)}</span>
-                  </button>
+                  </MotionButton>
                 ))}
               </div>
               <div className="legend">
-                <span><i className="s3" />{tr(lang, "lg_great")}</span>
-                <span><i className="s2" />{tr(lang, "lg_ok")}</span>
-                <span><i className="s1" />{tr(lang, "lg_poor")}</span>
+                <span>
+                  <i className="s3" />
+                  {tr(lang, "lg_great")}
+                </span>
+                <span>
+                  <i className="s2" />
+                  {tr(lang, "lg_ok")}
+                </span>
+                <span>
+                  <i className="s1" />
+                  {tr(lang, "lg_poor")}
+                </span>
               </div>
               {month && (
                 <p className={`note note--s${monthScore(dest, month)}`}>
-                  <b>{monthFull(lang, month)}:</b> {tr(lang, ["", "msg_poor", "msg_ok", "msg_great"][monthScore(dest, month)])}
+                  <b>{monthFull(lang, month)}:</b>{" "}
+                  {tr(
+                    lang,
+                    ["", "msg_poor", "msg_ok", "msg_great"][
+                      monthScore(dest, month)
+                    ],
+                  )}
                 </p>
               )}
               <p className="small">{pick(dest.bestNote, lang)}</p>
 
-              <h3 className="sec" style={{ marginTop: 18 }}>{tr(lang, "ib_days")}</h3>
+              <h3 className="sec" style={{ marginTop: 18 }}>
+                {tr(lang, "ib_days")}
+              </h3>
               <div className="stepper">
-                <button onClick={() => setDays(Math.max(1, (days || 1) - 1))} aria-label="-">−</button>
+                <MotionButton
+                  onClick={() => setDays(Math.max(1, (days || 1) - 1))}
+                  aria-label="-"
+                >
+                  −
+                </MotionButton>
                 <strong>{dayWord(lang, days || dest.suggestedDays)}</strong>
-                <button onClick={() => setDays(Math.min(7, (days || 1) + 1))} aria-label="+">+</button>
+                <MotionButton
+                  onClick={() => setDays(Math.min(7, (days || 1) + 1))}
+                  aria-label="+"
+                >
+                  +
+                </MotionButton>
                 <span className="muted small">
-                  {tr(lang, "ib_suggest")}: {dayWord(lang, dest.daysRange[0])}–{dayWord(lang, dest.daysRange[1])}
+                  {tr(lang, "ib_suggest")}: {dayWord(lang, dest.daysRange[0])}–
+                  {dayWord(lang, dest.daysRange[1])}
                 </span>
               </div>
 
-              <h3 className="sec" style={{ marginTop: 18 }}>{tr(lang, "ib_people")}</h3>
+              <h3 className="sec" style={{ marginTop: 18 }}>
+                {tr(lang, "ib_people")}
+              </h3>
               <div className="stepper">
-                <button onClick={() => setPeople(Math.max(1, people - 1))} aria-label="-" disabled={people <= 1}>−</button>
+                <MotionButton
+                  onClick={() => setPeople(Math.max(1, people - 1))}
+                  aria-label="-"
+                  disabled={people <= 1}
+                >
+                  −
+                </MotionButton>
                 <strong>{peopleWord(lang, people)}</strong>
-                <button onClick={() => setPeople(Math.min(MAX_PEOPLE, people + 1))} aria-label="+" disabled={people >= MAX_PEOPLE}>+</button>
-                <span className="muted small">{tr(lang, "ib_people_hint")}</span>
+                <MotionButton
+                  onClick={() => setPeople(Math.min(MAX_PEOPLE, people + 1))}
+                  aria-label="+"
+                  disabled={people >= MAX_PEOPLE}
+                >
+                  +
+                </MotionButton>
+                <span className="muted small">
+                  {tr(lang, "ib_people_hint")}
+                </span>
               </div>
 
-              <h3 className="sec" style={{ marginTop: 18 }}>{tr(lang, "ib_interest")}</h3>
+              <h3 className="sec" style={{ marginTop: 18 }}>
+                {tr(lang, "ib_interest")}
+              </h3>
               <p className="muted small">{tr(lang, "ib_interest_hint")}</p>
               <div className="chips" role="group">
                 {KIND_ORDER.map((k) => (
-                  <button key={k} className={`chip ${interests.includes(k) ? "on" : ""}`} onClick={() => toggleInterest(k)} aria-pressed={interests.includes(k)}>
-                    {interests.includes(k) ? "✓ " : ""}{tr(lang, `k_${k}`)}
-                  </button>
+                  <MotionButton
+                    key={k}
+                    className={`chip ${interests.includes(k) ? "on" : ""}`}
+                    onClick={() => toggleInterest(k)}
+                    aria-pressed={interests.includes(k)}
+                  >
+                    {interests.includes(k) ? "✓ " : ""}
+                    {tr(lang, `k_${k}`)}
+                  </MotionButton>
                 ))}
               </div>
             </div>
           )}
-        </section>
+        </MotionSwap>
       )}
 
       {/* ---------------- BƯỚC 2 ---------------- */}
       {step === 2 && dest && (
-        <section>
+        <MotionSwap as="section" key={step}>
           <div className="toolbar">
             <div className="chips">
               {["all", ...KIND_ORDER].map((k) => (
-                <button key={k} className={`chip ${filter === k ? "on" : ""}`} onClick={() => setFilter(k)}>
+                <MotionButton
+                  key={k}
+                  className={`chip ${filter === k ? "on" : ""}`}
+                  onClick={() => setFilter(k)}
+                >
                   {k === "all" ? tr(lang, "f_all") : tr(lang, `k_${k}`)}
-                </button>
+                </MotionButton>
               ))}
             </div>
             <div className="toolbar__btns">
-              <button className="btn btn--sm" onClick={() => { setManual(false); setSelected(recommendedIds(dest, days, interests, people)); }}>✦ {tr(lang, "ib_auto")}</button>
-              <button className="btn btn--sm" onClick={() => { setManual(true); setSelected([]); }}>{tr(lang, "ib_clear")}</button>
+              <MotionButton
+                className="btn btn--sm"
+                onClick={() => {
+                  setManual(false);
+                  setSelected(recommendedIds(dest, days, interests, people));
+                }}
+              >
+                ✦ {tr(lang, "ib_auto")}
+              </MotionButton>
+              <MotionButton
+                className="btn btn--sm"
+                onClick={() => {
+                  setManual(true);
+                  setSelected([]);
+                }}
+              >
+                {tr(lang, "ib_clear")}
+              </MotionButton>
             </div>
           </div>
 
@@ -247,17 +409,29 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
                 const on = selected.includes(p.id);
                 return (
                   <label key={p.id} className={`pcard ${on ? "on" : ""}`}>
-                    <input type="checkbox" checked={on} onChange={() => toggle(p.id)} />
+                    <input
+                      type="checkbox"
+                      checked={on}
+                      onChange={() => toggle(p.id)}
+                    />
                     <span className="pcard__box">{on ? "✓" : ""}</span>
                     <span className="pcard__txt">
                       <strong>{pick(p.name, lang)}</strong>
                       <small>{pick(p.note, lang)}</small>
                       <span className="tags">
                         <em>{tr(lang, `k_${p.kind}`)}</em>
-                        <em>⏱ {p.hours} {tr(lang, "hours")}</em>
+                        <em>
+                          ⏱ {p.hours} {tr(lang, "hours")}
+                        </em>
                         <em>{tr(lang, `slot_${p.slot}`)}</em>
-                        {p.must && <em className="must">★ {tr(lang, "ib_recommended")}</em>}
-                        {interests.includes(p.kind) && <em className="match">✓ {tr(lang, "ib_match")}</em>}
+                        {p.must && (
+                          <em className="must">
+                            ★ {tr(lang, "ib_recommended")}
+                          </em>
+                        )}
+                        {interests.includes(p.kind) && (
+                          <em className="match">✓ {tr(lang, "ib_match")}</em>
+                        )}
                       </span>
                     </span>
                   </label>
@@ -266,25 +440,56 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
           </div>
 
           <div className={`sumbar ${hours > capacity ? "over" : ""}`}>
-            <strong>{placesCount(lang, selected.length)} · {hours} {tr(lang, "hours")} / ~{capacity} {tr(lang, "hours")} ({dayWord(lang, days)})</strong>
-            <span>{selected.length === 0 ? tr(lang, "ib_need_pick") : hours > capacity ? tr(lang, "ib_over") : tr(lang, "ib_fit")}</span>
+            <strong>
+              {placesCount(lang, selected.length)} · {hours} {tr(lang, "hours")}{" "}
+              / ~{capacity} {tr(lang, "hours")} ({dayWord(lang, days)})
+            </strong>
+            <span>
+              {selected.length === 0
+                ? tr(lang, "ib_need_pick")
+                : hours > capacity
+                  ? tr(lang, "ib_over")
+                  : tr(lang, "ib_fit")}
+            </span>
           </div>
-        </section>
+        </MotionSwap>
       )}
 
       {/* ---------------- BƯỚC 3 ---------------- */}
       {step === 3 && dest && (
-        <section>
+        <MotionSwap as="section" key={step}>
           <label className="field">
             <span>{tr(lang, "ib_name")}</span>
-            <input value={name} onChange={(e) => { setName(e.target.value); setJustSaved(false); }} />
+            <input
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                setJustSaved(false);
+              }}
+            />
           </label>
           <div className="plan-head">
-            <p className="muted small">{tr(lang, "ib_time_note")} · {monthFull(lang, month)} · {peopleWord(lang, people)}{interests.length ? ` · ${interests.map((k) => tr(lang, `k_${k}`)).join(", ")}` : ""}</p>
-            <button className="btn btn--sm" onClick={() => { setPlan(autoPlan(dest, plan.flat(), days)); setJustSaved(false); }}>↻ {tr(lang, "ib_regen")}</button>
+            <p className="muted small">
+              {tr(lang, "ib_time_note")} · {monthFull(lang, month)} ·{" "}
+              {peopleWord(lang, people)}
+              {interests.length
+                ? ` · ${interests.map((k) => tr(lang, `k_${k}`)).join(", ")}`
+                : ""}
+            </p>
+            <MotionButton
+              className="btn btn--sm"
+              onClick={() => {
+                setPlan(autoPlan(dest, plan.flat(), days));
+                setJustSaved(false);
+              }}
+            >
+              ↻ {tr(lang, "ib_regen")}
+            </MotionButton>
           </div>
 
-          {people >= 6 && <p className="note note--s2">{tr(lang, "ib_group_tip")}</p>}
+          {people >= 6 && (
+            <p className="note note--s2">{tr(lang, "ib_group_tip")}</p>
+          )}
           <div className="days">
             {plan.map((ids, di) => {
               const sched = scheduleDay(ids, map);
@@ -293,24 +498,78 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
                 <div key={di} className="daycol">
                   <h4>
                     {dayLabel(lang, di + 1)}
-                    <small className={h > perDay + 1 ? "warn" : ""}>{h} {tr(lang, "hours")}</small>
+                    <small className={h > perDay + 1 ? "warn" : ""}>
+                      {h} {tr(lang, "hours")}
+                    </small>
                   </h4>
                   {ids.length === 0 && <p className="muted small">—</p>}
                   {sched.map((s, idx) => {
                     const p = map[s.id];
                     return (
                       <div key={s.id} className="plan-item">
-                        <div className="plan-time">{fmtTime(s.start)}<br /><small>{fmtTime(s.end)}</small></div>
+                        <div className="plan-time">
+                          {fmtTime(s.start)}
+                          <br />
+                          <small>{fmtTime(s.end)}</small>
+                        </div>
                         <div className="plan-main">
                           <strong>{pick(p.name, lang)}</strong>
                           <small>{pick(p.note, lang)}</small>
                           <div className="plan-ctl">
-                            <button onClick={() => { setPlan(shift(plan, di, idx, -1)); setJustSaved(false); }} disabled={idx === 0} aria-label="up">↑</button>
-                            <button onClick={() => { setPlan(shift(plan, di, idx, 1)); setJustSaved(false); }} disabled={idx === ids.length - 1} aria-label="down">↓</button>
-                            <select value={di} onChange={(e) => { setPlan(moveItem(plan, di, s.id, Number(e.target.value), map)); setJustSaved(false); }} aria-label={tr(lang, "ib_move")}>
-                              {plan.map((_, k) => <option key={k} value={k}>{tr(lang, "ib_move")} {dayLabel(lang, k + 1)}</option>)}
+                            <MotionButton
+                              onClick={() => {
+                                setPlan(shift(plan, di, idx, -1));
+                                setJustSaved(false);
+                              }}
+                              disabled={idx === 0}
+                              aria-label="up"
+                            >
+                              ↑
+                            </MotionButton>
+                            <MotionButton
+                              onClick={() => {
+                                setPlan(shift(plan, di, idx, 1));
+                                setJustSaved(false);
+                              }}
+                              disabled={idx === ids.length - 1}
+                              aria-label="down"
+                            >
+                              ↓
+                            </MotionButton>
+                            <select
+                              value={di}
+                              onChange={(e) => {
+                                setPlan(
+                                  moveItem(
+                                    plan,
+                                    di,
+                                    s.id,
+                                    Number(e.target.value),
+                                    map,
+                                  ),
+                                );
+                                setJustSaved(false);
+                              }}
+                              aria-label={tr(lang, "ib_move")}
+                            >
+                              {plan.map((_, k) => (
+                                <option key={k} value={k}>
+                                  {tr(lang, "ib_move")} {dayLabel(lang, k + 1)}
+                                </option>
+                              ))}
                             </select>
-                            <button className="danger" onClick={() => { setPlan(removeItem(plan, s.id)); setSelected((x) => x.filter((i) => i !== s.id)); setJustSaved(false); }} title={tr(lang, "ib_remove")} aria-label={tr(lang, "ib_remove")}>✕</button>
+                            <MotionButton
+                              className="danger"
+                              onClick={() => {
+                                setPlan(removeItem(plan, s.id));
+                                setSelected((x) => x.filter((i) => i !== s.id));
+                                setJustSaved(false);
+                              }}
+                              title={tr(lang, "ib_remove")}
+                              aria-label={tr(lang, "ib_remove")}
+                            >
+                              ✕
+                            </MotionButton>
                           </div>
                         </div>
                       </div>
@@ -323,10 +582,20 @@ export default function ItineraryBuilder({ lang, dests, initial, onClose, onSave
 
           <label className="field">
             <span>{tr(lang, "ib_notes")}</span>
-            <textarea rows={3} value={notes} placeholder={tr(lang, "ib_notes_ph")} onChange={(e) => { setNotes(e.target.value); setJustSaved(false); }} />
+            <textarea
+              rows={3}
+              value={notes}
+              placeholder={tr(lang, "ib_notes_ph")}
+              onChange={(e) => {
+                setNotes(e.target.value);
+                setJustSaved(false);
+              }}
+            />
           </label>
-          {justSaved && <p className="note note--s3">✓ {tr(lang, "ib_saved")}</p>}
-        </section>
+          {justSaved && (
+            <p className="note note--s3">✓ {tr(lang, "ib_saved")}</p>
+          )}
+        </MotionSwap>
       )}
     </Modal>
   );

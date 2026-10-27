@@ -1,0 +1,2220 @@
+{
+  "schemaVersion": 1,
+  "documentDate": "2026-10-25",
+  "scope": "Current implementation, source-reviewed; not a claim that every scenario is browser-tested",
+  "featureCount": 122,
+  "modules": [
+    {
+      "code": "INTRO",
+      "name": "Landing và mở sản phẩm",
+      "businessRequirement": "BR-01",
+      "screens": "S01,S03",
+      "sources": [
+        "src/components/LandingPage.jsx",
+        "src/components/TravelTransition.jsx",
+        "src/Atlas.jsx"
+      ],
+      "features": [
+        {
+          "id": "FR-INTRO-01",
+          "title": "Landing giới thiệu",
+          "behavior": "Hero, định vị sản phẩm, phần giới thiệu, sáu lớp, minh họa hành trình và CTA cuối trang.",
+          "states": "Đầu trang; cuộn; màn hình hẹp.",
+          "acceptance": "Đọc và đi tới mọi phần trên desktop/mobile.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-INTRO-02",
+          "title": "Điều hướng landing",
+          "behavior": "Trang chủ, Về dự án, Lớp tri thức và nút cuộn; cuộn có kiểm soát khi giảm motion.",
+          "states": "Đúng anchor; giảm chuyển động.",
+          "acceptance": "Nút đến đúng phần, không che nội dung bởi header.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-INTRO-03",
+          "title": "CTA vào trải nghiệm",
+          "behavior": "Các CTA thật mở bước chọn quốc gia; nút trong minh họa điện thoại cũng có lối bắt đầu.",
+          "states": "Chuột; bàn phím; touch.",
+          "acceptance": "CTA không thành ảnh hoặc text vô tác dụng sau redesign.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-INTRO-04",
+          "title": "Chuyển cảnh",
+          "behavior": "Máy bay, mây, địa cầu dùng transform/opacity; bình thường khoảng 2.7 giây, giảm motion khoảng 150 ms.",
+          "states": "Đang bay; hoàn tất; reduced motion.",
+          "acceptance": "Kết thúc đúng một luồng vào Khám phá, không kẹt màn hình.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-INTRO-05",
+          "title": "Bỏ qua và phát lại intro",
+          "behavior": "Nút Vào khám phá bỏ qua chuyển cảnh; Về kho tri thức có đường xem lại landing/chọn quốc gia.",
+          "states": "Bỏ qua giữa hiệu ứng; vào lại.",
+          "acceptance": "Có thể vào nhanh và xem lại intro mà không xóa dữ liệu lưu.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "COUNTRY",
+      "name": "Địa cầu và chọn quốc gia",
+      "businessRequirement": "BR-01",
+      "screens": "S02",
+      "sources": [
+        "src/components/GlobeExplorer.jsx"
+      ],
+      "features": [
+        {
+          "id": "FR-COUNTRY-01",
+          "title": "Bốn quốc gia",
+          "behavior": "Hiển thị Việt Nam, Hoa Kỳ, Nhật Bản, Hàn Quốc với cờ, khu vực và tiền tệ.",
+          "states": "Đang chọn; sắp ra mắt.",
+          "acceptance": "Không mở dữ liệu du lịch giả của quốc gia chưa hỗ trợ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COUNTRY-02",
+          "title": "Tìm quốc gia",
+          "behavior": "Tìm theo tên Việt/Anh, không phân biệt hoa thường; hiện danh sách khi focus/gõ, xóa được.",
+          "states": "Danh sách có/rỗng; Enter; Escape.",
+          "acceptance": "Enter chọn kết quả đầu; Escape đóng danh sách; không nhầm với tìm không dấu ở kho chính.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COUNTRY-03",
+          "title": "Chọn và xoay địa cầu",
+          "behavior": "Chọn quốc gia đổi thông tin, vị trí góc nhìn địa cầu và tiền tệ mặc định.",
+          "states": "Chọn từng quốc gia; quay về Việt Nam.",
+          "acceptance": "Thông tin tên/cờ/tiền tệ/địa cầu nhất quán với quốc gia vừa chọn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COUNTRY-04",
+          "title": "Khả dụng CTA",
+          "behavior": "Việt Nam cho Khám phá; ba quốc gia khác giữ nút vô hiệu/sắp ra mắt.",
+          "states": "Enabled; disabled.",
+          "acceptance": "Không thể dùng bàn phím để vượt qua trạng thái chưa hỗ trợ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COUNTRY-05",
+          "title": "Quay lại giới thiệu",
+          "behavior": "Brand hoặc nút quay lại đưa về landing.",
+          "states": "Từ đầu hoặc đang mở đổi tiền.",
+          "acceptance": "Đường quay lại luôn dùng được, không mất bộ sưu tập/lịch trình.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "FX",
+      "name": "Đổi tiền tham khảo",
+      "businessRequirement": "BR-01",
+      "screens": "S02",
+      "sources": [
+        "src/components/GlobeExplorer.jsx",
+        "src/lib/currency.js"
+      ],
+      "features": [
+        {
+          "id": "FR-FX-01",
+          "title": "Mở/đóng đổi tiền",
+          "behavior": "Khối tiền tệ mở Collapsible trong bước chọn quốc gia; có nút đóng.",
+          "states": "Mở; đóng.",
+          "acceptance": "Mở được lại sau khi đóng, aria-expanded phản ánh đúng.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-FX-02",
+          "title": "Nhập số tiền",
+          "behavior": "Input số, min 0, inputMode decimal; rỗng/không hợp lệ/âm được logic quy đổi xử lý về 0.",
+          "states": "Rỗng; 0; số dương; giá trị không hợp lệ.",
+          "acceptance": "Không crash hoặc hiện NaN; không bỏ quyền nhập trên mobile.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-FX-03",
+          "title": "Chọn đơn vị",
+          "behavior": "Từ/Sang hỗ trợ VND, USD, JPY, KRW; khởi tạo theo quốc gia đã chọn.",
+          "states": "Mỗi cặp; cùng đơn vị.",
+          "acceptance": "Kết quả theo đúng base/target đang hiển thị.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-FX-04",
+          "title": "Đảo chiều",
+          "behavior": "Đổi chỗ tiền nguồn và đích, tính lại kết quả.",
+          "states": "Đang tải; đã có tỷ giá.",
+          "acceptance": "Tên hai đơn vị và kết quả đổi đồng thời, không chỉ đảo icon.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-FX-05",
+          "title": "Nguồn và fallback",
+          "behavior": "Fetch tỷ giá, cache theo base 30 phút; lỗi mạng dùng tỷ giá mẫu. USD làm tròn 2 số; VND/JPY/KRW 0 số.",
+          "states": "Loading; live; cache; fallback.",
+          "acceptance": "Giữ nhãn tham khảo/ngày và thông báo mẫu offline; không mô tả tỷ giá mẫu như dữ liệu mới xác minh.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "NAV",
+      "name": "Shell và điều hướng",
+      "businessRequirement": "BR-08",
+      "screens": "S04–S09",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/lib/explore.js",
+        "public/manifest.webmanifest"
+      ],
+      "features": [
+        {
+          "id": "FR-NAV-01",
+          "title": "Sáu route chính",
+          "behavior": "explore, graph, saved, suggest, tools, about; fallback route không nhận dạng về explore.",
+          "states": "Route hợp lệ/không hợp lệ.",
+          "acceptance": "Mỗi route có đường vào và nội dung đúng; không cần URL server riêng cho từng view.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-02",
+          "title": "Desktop sidebar",
+          "behavior": "Khám phá, Kết nối, Bộ sưu tập có số đếm, Gợi ý, Hành trình; brand về Khám phá.",
+          "states": "Mục đang chọn; số đếm thay đổi.",
+          "acceptance": "Không mất menu hoặc số đếm khi thu hẹp vùng làm việc.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-03",
+          "title": "Mobile navigation",
+          "behavior": "Thanh dưới chứa cùng 5 đích chính; hướng dẫn/about vào qua header.",
+          "states": "Safe-area; view hẹp.",
+          "acceptance": "Mọi đích nghiệp vụ có đường tới trên mobile, không chỉ desktop.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-04",
+          "title": "Deep link và khởi động",
+          "behavior": "URL không hash mở landing; URL có hash vào app. Chi tiết dùng ?entity=ID; hash cũ #explore/#graph còn đọc được.",
+          "states": "Link trực tiếp; reload; ID không tồn tại.",
+          "acceptance": "Link thực thể hợp lệ mở đúng chi tiết; ID lạ không gây crash.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-05",
+          "title": "Back và đóng chi tiết",
+          "behavior": "Mở chi tiết tạo lịch sử; đóng/Back về route thích hợp; đi sang quan hệ cập nhật thực thể.",
+          "states": "Close; Back; Forward; related item.",
+          "acceptance": "Không rời site ngoài ý muốn trong luồng chi tiết; không hứa lịch sử đổi tâm graph khi chưa có.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-06",
+          "title": "Ngẫu nhiên và trợ giúp",
+          "behavior": "Sidebar có Khám phá ngẫu nhiên trong 89 mục; header/about có hướng dẫn.",
+          "states": "Chọn lại; mở chi tiết.",
+          "acceptance": "Ngẫu nhiên mở chi tiết thật, không luôn mở thuyết minh chỉ có ở 3 nơi.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-NAV-07",
+          "title": "Chuyển trang và filter state",
+          "behavior": "Menu chính gọi reset bộ lọc/limit; scroll đầu trang khi đổi stage/page. Reset không xóa bộ sưu tập.",
+          "states": "Đang lọc; đang cuộn.",
+          "acceptance": "Ngữ cảnh không kẹt ở đáy trang; không biến reset filter thành xóa dữ liệu.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "EXPLORE",
+      "name": "Tìm kiếm và danh sách khám phá",
+      "businessRequirement": "BR-02",
+      "screens": "S04,S07",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/lib/explore.js",
+        "src/data/explore.json"
+      ],
+      "features": [
+        {
+          "id": "FR-EXPLORE-01",
+          "title": "Tìm không dấu",
+          "behavior": "Tìm trên tên, mô tả và tags; chuẩn hóa hoa thường, dấu và đ/Đ.",
+          "states": "Có kết quả; không kết quả; rỗng.",
+          "acceptance": "ha noi tìm được Hà Nội; xóa từ khóa trả lại kết quả theo filter còn lại.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-02",
+          "title": "Ô tìm kiếm và shortcut",
+          "behavior": "Xóa từ khóa; Ctrl/Cmd+K focus vào ô tìm ở màn hình có ô đó.",
+          "states": "Focus; clear; bàn phím.",
+          "acceptance": "Không bỏ nút xóa/shortcut hoặc tạo shortcut nuốt thao tác form khác.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-03",
+          "title": "Tám nhóm tri thức",
+          "behavior": "Tất cả và 8 nhóm; chọn một nhóm tại một thời điểm.",
+          "states": "Active; inactive.",
+          "acceptance": "Không nhầm nhóm khám phá với 6 lớp chuyên sâu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-04",
+          "title": "Bộ lọc mở rộng",
+          "behavior": "Mở/đóng khối filter, lọc Bắc/Trung & Tây Nguyên/Nam.",
+          "states": "Collapsed; expanded; từng vùng.",
+          "acceptance": "Đóng khối không vô tình xóa lựa chọn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-05",
+          "title": "Filter nguồn",
+          "behavior": "Tất cả, có nguồn tham chiếu, biên tập mẫu không có nguồn URL.",
+          "states": "Có nguồn; không nguồn.",
+          "acceptance": "Không phân loại có URL thành đã được thẩm định.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-06",
+          "title": "Filter tháng",
+          "behavior": "Tất cả tháng hoặc 1–12 theo tập mùa tham khảo từng vùng.",
+          "states": "Tháng hợp/không hợp vùng.",
+          "acceptance": "Đổi tháng thực sự thay tập kết quả; ghi rõ tính chất tham khảo.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-07",
+          "title": "Filter điểm đến cha",
+          "behavior": "Dropdown 11 điểm; chỉ lấy quan hệ có nhãn địa điểm của điểm đến đó.",
+          "states": "Tất cả; một cha; tập rỗng.",
+          "acceptance": "Đúng địa điểm ăn/chơi liên quan, không chỉ tìm tên bằng chuỗi.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-08",
+          "title": "Filter loại địa điểm",
+          "behavior": "11 loại hiện có sinh từ dữ liệu, ví dụ cà phê, chợ, ngoài trời, nghệ thuật.",
+          "states": "Tất cả; một loại; giao nhiều filter.",
+          "acceptance": "Danh sách không hardcode bỏ sót loại; filter kết hợp theo giao.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-09",
+          "title": "Quick filters",
+          "behavior": "Vui chơi/Ăn uống chọn category và xóa type; Cà phê/Chợ xóa category và chọn type.",
+          "states": "Từng shortcut; filter khác còn giữ.",
+          "acceptance": "Bốn nút có logic riêng và không chỉ thay trạng thái tô màu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-10",
+          "title": "Map và list",
+          "behavior": "Chuyển bố cục map+thẻ hoặc chỉ danh sách.",
+          "states": "Map; list; mobile.",
+          "acceptance": "Cả hai vẫn mở chi tiết và lưu được.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-11",
+          "title": "Đếm và sắp xếp",
+          "behavior": "Hiện số mục sau lọc; mặc định theo thứ tự dữ liệu, hoặc A–Z theo locale vi.",
+          "states": "Suggested; A–Z.",
+          "acceptance": "Không gọi sort mặc định là thuật toán cá nhân hóa của trang Gợi ý.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-12",
+          "title": "Tải thêm và rỗng",
+          "behavior": "Khởi tạo tối đa 6 mục; Xem thêm tăng 6; empty state và reset.",
+          "states": "Còn mục; đã hết; không kết quả.",
+          "acceptance": "Không làm mất các mục ngoài 6 mục đầu; nút tải thêm hết thì ẩn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-EXPLORE-13",
+          "title": "Thẻ kết quả",
+          "behavior": "Ảnh/fallback, nhóm, vùng, tên, mô tả, số kết nối/nguồn; vùng ảnh/tên mở chi tiết.",
+          "states": "Ảnh tải/lỗi; nội dung dài.",
+          "acceptance": "Không thay dữ liệu thật bằng card trang trí; mọi entry vẫn có đường mở.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "MAP",
+      "name": "Bản đồ tổng quan SVG",
+      "businessRequirement": "BR-02",
+      "screens": "S04,S07",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/lib/explore.js",
+        "public/data/vietnam.geojson"
+      ],
+      "features": [
+        {
+          "id": "FR-MAP-01",
+          "title": "11 marker",
+          "behavior": "Hội An, Hà Giang, Tràng An, Huế, Cần Thơ, Hạ Long, Hà Nội, Đà Lạt, TP.HCM, Đà Nẵng, Phú Quốc.",
+          "states": "Click; Enter/Space trên marker.",
+          "acceptance": "Mọi marker mở đúng thực thể; miền Nam không bị ghi chú che.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MAP-02",
+          "title": "Zoom và reset",
+          "behavior": "Tăng/giảm hệ số 1–2, bước 0.25; đặt lại 1.",
+          "states": "Min; max; reset.",
+          "acceptance": "Nút hoạt động và không zoom vô hạn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MAP-03",
+          "title": "Ngữ cảnh địa lý",
+          "behavior": "Giữ nền Việt Nam, Biển Đông và chú thích quần đảo minh họa.",
+          "states": "Có/không tải được geoJSON.",
+          "acceptance": "Không trình bày sơ đồ thành GPS hoặc vị trí đảo chính xác đã khảo sát.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MAP-04",
+          "title": "Độc lập filter",
+          "behavior": "Hiện tại map luôn là 11 điểm tổng quan; bộ lọc tác động danh sách.",
+          "states": "Lọc rỗng nhưng map vẫn có điểm.",
+          "acceptance": "Nếu đổi sang marker đồng bộ filter, phải ghi thay đổi nghiệp vụ và có test riêng.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "DETAIL",
+      "name": "Chi tiết thực thể",
+      "businessRequirement": "BR-03",
+      "screens": "S10",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/data/explore.json",
+        "src/components/ui/AnimatedSheet.jsx"
+      ],
+      "features": [
+        {
+          "id": "FR-DETAIL-01",
+          "title": "Header và nội dung chung",
+          "behavior": "Tên, nhóm/vùng, mô tả, tags, ảnh minh họa/nguồn ảnh; lưu/bỏ lưu.",
+          "states": "Nội dung ngắn/dài; ảnh lỗi.",
+          "acceptance": "Mở đúng ID từ thẻ, map, graph và gợi ý.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-02",
+          "title": "Tab Tổng quan",
+          "behavior": "Thời lượng, chi tiêu, số quan hệ, narrative và liên kết liên quan.",
+          "states": "Có/không narrative hoặc địa chỉ.",
+          "acceptance": "Không tạo dữ liệu bịa cho trường rỗng; giữ chú thích dữ liệu mẫu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-03",
+          "title": "Thông tin POI",
+          "behavior": "47 mục có địa chỉ/type/Google Maps; giờ mở cửa và giá chưa xác minh được nêu rõ.",
+          "states": "Có/không Maps.",
+          "acceptance": "Maps mở đúng URL; không thêm giờ/giá xác thực giả.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-04",
+          "title": "Tab Kết nối",
+          "behavior": "Toàn bộ quan hệ của thực thể, tên đích và nhãn có hướng/ngược.",
+          "states": "Không/ít/nhiều quan hệ.",
+          "acceptance": "Chọn một quan hệ mở đúng ID đích, không giới hạn 4 gợi ý thành toàn bộ quan hệ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-05",
+          "title": "Tab Nguồn",
+          "behavior": "Danh sách label+URL; trạng thái không có nguồn và thông tin biên tập.",
+          "states": "Có URL; không nguồn; nguồn ngoài lỗi.",
+          "acceptance": "Giữ đường mở gốc và các chú thích về thẩm định.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-06",
+          "title": "Các lối đi tiếp",
+          "behavior": "Tổng quan có gợi ý liên quan đầu tiên; xem mọi địa điểm ăn/chơi của điểm đến; xem trên graph.",
+          "states": "Điểm đến/POI; chuyển route.",
+          "acceptance": "CTA cập nhật đúng filter cha hoặc tâm graph trước khi điều hướng.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-07",
+          "title": "Công cụ chuyên sâu đúng phạm vi",
+          "behavior": "Chỉ Hà Nội/Huế/TP.HCM có CTA 6 lớp, audio và planner.",
+          "states": "Có/không nội dung chuyên sâu.",
+          "acceptance": "Không hứa tính năng chuyên sâu cho 86 mục còn lại.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-DETAIL-08",
+          "title": "Tương tác dialog/tab",
+          "behavior": "Đóng, Escape, click ngoài, focus trap/trả focus; tab liên kết ARIA, Arrow chuyển focus, Enter/Space chọn.",
+          "states": "Desktop dialog; mobile sheet; lồng dialog.",
+          "acceptance": "Dùng được bằng keyboard và không cho focus lạc ra lớp nền.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "GRAPH",
+      "name": "Bản đồ kết nối",
+      "businessRequirement": "BR-03",
+      "screens": "S05",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/data/explore.json"
+      ],
+      "features": [
+        {
+          "id": "FR-GRAPH-01",
+          "title": "Chọn tâm",
+          "behavior": "Dropdown chọn trong toàn bộ 89 mục, mặc định Hội An.",
+          "states": "Chọn trực tiếp; giữ state trong phiên.",
+          "acceptance": "Không giới hạn dropdown còn 11 marker/3 điểm chuyên sâu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-GRAPH-02",
+          "title": "Đủ quan hệ",
+          "behavior": "Đồ thị hiển thị các nút và đường nối; list cung cấp đủ hàng và nhãn.",
+          "states": "Tâm ít/nhiều quan hệ.",
+          "acceptance": "Hội An có 15 quan hệ; không chỉ render 8 nút rồi bỏ các mục còn lại.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-GRAPH-03",
+          "title": "Đổi tâm bằng quan hệ",
+          "behavior": "Click nút đồ thị hoặc dòng liên quan đổi tâm.",
+          "states": "Đi qua nhiều thực thể.",
+          "acceptance": "Tên tâm, số lượng, nodes và danh sách cùng cập nhật.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-GRAPH-04",
+          "title": "Mở chi tiết và đặt lại",
+          "behavior": "Nút tâm/Đọc câu chuyện mở chi tiết; đặt lại về Hội An.",
+          "states": "Reset; detail; close.",
+          "acceptance": "Mở đúng thực thể đang làm tâm, không nhầm điểm đầu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-GRAPH-05",
+          "title": "Mobile và vị trí nút",
+          "behavior": "Vùng sơ đồ cuộn ngang, tự căn giữa; list bên dưới. Nút dùng translate để không lệch khi scale.",
+          "states": "Viewport hẹp; nhấn nút; scroll.",
+          "acceptance": "Không tràn ngang cả trang; giữ đường tới mọi quan hệ bằng danh sách.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "COLLECTION",
+      "name": "Bộ sưu tập",
+      "businessRequirement": "BR-04",
+      "screens": "S04,S07,S10",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/hooks/useLocal.js",
+        "src/hooks/useCollection.js"
+      ],
+      "features": [
+        {
+          "id": "FR-COLLECTION-01",
+          "title": "Lưu/bỏ lưu",
+          "behavior": "Toggle từ card/chi tiết/gợi ý; thể hiện trái tim và aria-pressed.",
+          "states": "Chưa lưu; đã lưu; toggle lại.",
+          "acceptance": "Cùng thực thể phản ánh trạng thái trong shell chính.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COLLECTION-02",
+          "title": "Danh sách và số đếm",
+          "behavior": "Bộ sưu tập chính hiện các ID đã lưu, sidebar có tổng.",
+          "states": "0; 1; nhiều; sau reload.",
+          "acceptance": "Số đếm và danh sách dùng cùng tập ID, không chỉ đếm card đang render.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COLLECTION-03",
+          "title": "Lọc và empty state",
+          "behavior": "Dùng tìm/filter/sort/map/list trong phần đã lưu; chưa lưu hoặc lọc rỗng có lối khám phá lại.",
+          "states": "Bộ sưu tập rỗng; filter không khớp.",
+          "acceptance": "Không đánh đồng hai trường hợp và không xóa dữ liệu khi reset.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-COLLECTION-04",
+          "title": "Phân biệt bản đồ cũ",
+          "behavior": "Bộ sưu tập cũ hiện có key riêng; đánh dấu GAP-01, không tự coi là đã đồng bộ.",
+          "states": "Mở công cụ cũ; trở về chính.",
+          "acceptance": "Prompt phải giữ cả chức năng hoặc quy định migration trước khi hợp nhất.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "RECOMMEND",
+      "name": "Gợi ý cá nhân",
+      "businessRequirement": "BR-04",
+      "screens": "S08",
+      "sources": [
+        "src/Atlas.jsx",
+        "src/lib/explore.js"
+      ],
+      "features": [
+        {
+          "id": "FR-RECOMMEND-01",
+          "title": "Sở thích nhiều lựa chọn",
+          "behavior": "Văn hóa, Ẩm thực, Thiên nhiên, Đi chậm, Phiêu lưu; mặc định Văn hóa, có thể bỏ hết.",
+          "states": "0/1/nhiều lựa chọn.",
+          "acceptance": "Nút chọn thực sự đổi input của gợi ý.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-RECOMMEND-02",
+          "title": "Tháng khởi hành",
+          "behavior": "Tháng 1–12; ban đầu tháng hiện tại.",
+          "states": "Đổi tháng.",
+          "acceptance": "Tính điểm mùa theo dữ liệu tham khảo, không giả dữ liệu thời tiết.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-RECOMMEND-03",
+          "title": "Ngân sách",
+          "behavior": "Linh hoạt, Tiết kiệm, Vừa phải, Thoải mái.",
+          "states": "Mỗi mức.",
+          "acceptance": "So khớp mức chi tiêu trong dữ liệu, không tính giá chuyến đi.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-RECOMMEND-04",
+          "title": "Top 4 có giải thích",
+          "behavior": "Chấm trên 11 điểm: mỗi sở thích khớp tags/mô tả +3, hợp mùa +1, ngân sách trống/khớp +1; lấy 4 đầu.",
+          "states": "Không khớp sở thích; hòa điểm.",
+          "acceptance": "Không trùng ID; có lý do hoặc câu gợi ý dự phòng.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-RECOMMEND-05",
+          "title": "Hành động từ kết quả",
+          "behavior": "Dùng card thật để mở chi tiết/lưu; giữ thông báo dữ liệu mẫu.",
+          "states": "Save; detail; return.",
+          "acceptance": "Không biến kết quả thành slide tĩnh không tương tác.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "KNOWLEDGE",
+      "name": "Kho chuyên sâu sáu lớp",
+      "businessRequirement": "BR-06",
+      "screens": "S09,S11",
+      "sources": [
+        "src/components/DetailPanel.jsx",
+        "src/data/content.js",
+        "src/Atlas.jsx"
+      ],
+      "features": [
+        {
+          "id": "FR-KNOWLEDGE-01",
+          "title": "Ba điểm đến",
+          "behavior": "Hà Nội, Huế, TP.HCM mở từ Hành trình hoặc CTA chi tiết tương ứng.",
+          "states": "Chọn từng nơi.",
+          "acceptance": "Không trộn nội dung hoặc ID giữa ba điểm.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-KNOWLEDGE-02",
+          "title": "Bốn ngôn ngữ nội dung",
+          "behavior": "vi/en/zh/ko cho dữ liệu chuyên sâu; chọn ngôn ngữ được lưu.",
+          "states": "Đổi ngôn ngữ; thiếu bản dịch UI riêng.",
+          "acceptance": "Nội dung theo lựa chọn; không quảng bá UI 89 mục đã dịch toàn bộ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-KNOWLEDGE-03",
+          "title": "Tổng quan chuyên sâu",
+          "behavior": "Ảnh, vùng, tagline/intro, snapshot di sản/văn hóa/ẩm thực, tháng đẹp, gợi ý ngày, điểm nổi bật.",
+          "states": "Dữ liệu/ảnh có hoặc lỗi.",
+          "acceptance": "Giữ thông tin giúp chọn chuyến đi, không chỉ còn ảnh hero.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-KNOWLEDGE-04",
+          "title": "Sáu lớp và xem tất cả",
+          "behavior": "history, heritage, culture, food, tourism, story; mỗi nơi 12 mục, có số đếm và lối xem tất cả.",
+          "states": "Một lớp; tất cả; quay lại overview.",
+          "acceptance": "Không thay 6 lớp bằng 8 nhóm khám phá.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-KNOWLEDGE-05",
+          "title": "Đọc mục và nguồn",
+          "behavior": "Entry có title/body/ảnh wiki, nguồn điểm đến; mục mở từ search được highlight/scroll tới.",
+          "states": "Highlight; nội dung dài; ảnh không có.",
+          "acceptance": "Không bỏ phần body hoặc nguồn khi chuyển thành layout mới.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-KNOWLEDGE-06",
+          "title": "Đi tiếp sang công cụ",
+          "behavior": "Nút lập lịch trình, nghe MP3 ngắn/đầy đủ và kể theo chủ đề.",
+          "states": "Mở/đóng công cụ con.",
+          "acceptance": "Truyền đúng destId và lang; đóng dialog con còn đường về cha.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "STORY",
+      "name": "Kể chuyện theo chủ đề",
+      "businessRequirement": "BR-06",
+      "screens": "S12",
+      "sources": [
+        "src/components/AIStoryteller.jsx",
+        "src/lib/storyteller.js"
+      ],
+      "features": [
+        {
+          "id": "FR-STORY-01",
+          "title": "Bốn chủ đề",
+          "behavior": "Kể nhanh 1 phút, Dòng chảy lịch sử, Hồn văn hóa, Chuyện người bản địa.",
+          "states": "Chọn từng mode; thay điểm/ngôn ngữ.",
+          "acceptance": "Mỗi mode lấy đúng nội dung của điểm đang mở.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STORY-02",
+          "title": "Tạo lại và trạng thái",
+          "behavior": "Tạo lại cùng chủ đề; loading/success/error; mặc định ghép nội dung tại máy.",
+          "states": "Đang tạo; xong; API lỗi nếu cấu hình.",
+          "acceptance": "Giữ nút retry/rebuild và nhãn phân biệt demo/local với AI qua backend tùy chọn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STORY-03",
+          "title": "Đọc và dừng TTS",
+          "behavior": "Nghe/Dừng câu chuyện qua SpeechSynthesis; chọn mode/đóng phải dừng giọng cũ.",
+          "states": "Không có API giọng; đang nói; đã dừng.",
+          "acceptance": "Không chồng nhiều giọng hoặc gọi đây là MP3 đã tải offline.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STORY-04",
+          "title": "Dialog lồng nhau",
+          "behavior": "Mở từ kho chuyên sâu; đóng/Escape quay về cha; phân lớp backdrop và focus.",
+          "states": "Dialog cha + con.",
+          "acceptance": "Lớp con không bị clipping trong panel và không làm mất đường quay lại.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "AUDIO",
+      "name": "Trình phát thuyết minh",
+      "businessRequirement": "BR-06",
+      "screens": "S13",
+      "sources": [
+        "src/components/StoryPlayer.jsx",
+        "src/hooks/useStoryEngine.js",
+        "src/lib/story.js",
+        "public/audio/manifest.json"
+      ],
+      "features": [
+        {
+          "id": "FR-AUDIO-01",
+          "title": "Mở player đầy đủ",
+          "behavior": "Trình phát toàn màn hình với ảnh nền/nguồn ảnh, tên nơi, lớp, tiêu đề và caption.",
+          "states": "Đang phát; ảnh lỗi.",
+          "acceptance": "Không thay player bằng nút phát audio không còn nội dung dẫn chuyện.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-02",
+          "title": "Bản ngắn/đầy đủ",
+          "behavior": "Hai mode short/full; thời lượng ước tính; đổi mode kể lại từ đầu.",
+          "states": "Mỗi mode; đang nghe đổi mode.",
+          "acceptance": "Đúng track/script và không giữ sai vị trí mode trước.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-03",
+          "title": "Ngôn ngữ player",
+          "behavior": "vi/en/zh/ko; đổi ngôn ngữ cố giữ đoạn/chương tương ứng.",
+          "states": "Có MP3; chỉ TTS/chữ.",
+          "acceptance": "Giữ ngữ cảnh đoạn, thể hiện nguồn phát đúng.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-04",
+          "title": "Phát/dừng/phát lại",
+          "behavior": "Play/pause, ended state và nghe lại từ đầu.",
+          "states": "Autoplay bị chặn; pause; ended.",
+          "acceptance": "Người dùng có thể bấm phát lại; không tự giả báo đang phát khi lệnh play bị từ chối.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-05",
+          "title": "Câu trước/sau",
+          "behavior": "Đi theo từng câu; disabled ở biên; caption cập nhật.",
+          "states": "Đầu/cuối; giữa bản kể.",
+          "acceptance": "Không vượt index hoặc tiếp tục phát câu cũ sau khi chuyển.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-06",
+          "title": "Chương và tiến độ",
+          "behavior": "Mở đầu, sáu lớp và lời kết theo dữ liệu; bấm nhảy chương, thanh tiến độ.",
+          "states": "Đã qua; hiện tại; sắp tới.",
+          "acceptance": "Tiến độ biểu thị trạng thái thật; không bỏ các nút nhảy chương.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-07",
+          "title": "Âm lượng và tốc độ",
+          "behavior": "Bật/tắt tiếng, 0.8×/1×/1.25×; ghi nhớ preference.",
+          "states": "Muted; có tiếng; đổi tốc độ.",
+          "acceptance": "Tốc độ ảnh hưởng phát/timing; mute vẫn cho đọc chữ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-08",
+          "title": "Ba engine dự phòng",
+          "behavior": "Ưu tiên file hợp lệ → TTS nếu có giọng và bật tiếng → text theo thời gian. Thiếu giọng/lỗi file có fallback.",
+          "states": "MP3 lỗi; thiếu giọng; chưa sẵn voices.",
+          "acceptance": "Không kẹt player khi thiếu tiếng; MP3 chỉ có sẵn 6 bản vi.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-09",
+          "title": "Kết thúc và hành động tiếp",
+          "behavior": "Nghe lại, lập lịch trình, về các lớp và nguồn tham khảo.",
+          "states": "Ended.",
+          "acceptance": "Cả ba CTA và nguồn đều tiếp tục dùng được.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-AUDIO-10",
+          "title": "Keyboard và đóng",
+          "behavior": "Space/Left/Right ở ngữ cảnh không tương tác; Escape đóng; dừng tiếng/timer khi đóng.",
+          "states": "Focus button/select; focus nền player.",
+          "acceptance": "Không double-handle phím trên input/button; đóng không để audio còn chạy.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "PLAN",
+      "name": "Lập lịch trình ba bước",
+      "businessRequirement": "BR-05",
+      "screens": "S14",
+      "sources": [
+        "src/components/ItineraryBuilder.jsx",
+        "src/lib/itinerary.js",
+        "src/data/content.js"
+      ],
+      "features": [
+        {
+          "id": "FR-PLAN-01",
+          "title": "Chọn điểm đến",
+          "behavior": "Chỉ 3 nơi có dữ liệu POI; tự chọn nơi nếu mở từ chi tiết.",
+          "states": "Chưa chọn; đổi điểm.",
+          "acceptance": "Bước 1 chưa chọn nơi thì không tiếp tục; đổi nơi không giữ POI của nơi cũ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-02",
+          "title": "Tháng và gợi ý mùa",
+          "behavior": "12 tháng có mức thuận lợi 1/2/3, chú giải và bestNote; tự chọn tháng tốt mặc định.",
+          "states": "Từng tháng; đổi nơi.",
+          "acceptance": "Tháng được lưu vào lịch trình, không chỉ tô biểu đồ.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-03",
+          "title": "Số ngày",
+          "behavior": "Stepper 1–7, gợi ý số ngày và daysRange của điểm đến.",
+          "states": "Min/max.",
+          "acceptance": "Không chọn 0 hoặc quá 7 bằng nút; đổi số ngày tác động kế hoạch.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-04",
+          "title": "Số người",
+          "behavior": "Stepper 1–30; nhóm đông có cảnh báo và capacity thấp hơn.",
+          "states": "1; 6; 10; 30.",
+          "acceptance": "Số người tham gia gợi ý và metadata sau lưu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-05",
+          "title": "Sở thích planner",
+          "behavior": "Di sản, Văn hóa, Ẩm thực, Vui chơi & trải nghiệm; chọn nhiều hoặc để cân bằng.",
+          "states": "Không/chọn nhiều.",
+          "acceptance": "Không nhầm với 5 sở thích ở trang Gợi ý.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-06",
+          "title": "Chọn POI bước 2",
+          "behavior": "Filter tất cả/4 kind, checkbox, title/note, số giờ, buổi, nên đi/hợp sở thích.",
+          "states": "Đã/chưa chọn; filter.",
+          "acceptance": "Lọc không tự làm mất các POI đã chọn ngoài filter.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-07",
+          "title": "Chọn gợi ý và bỏ hết",
+          "behavior": "Khởi tạo gợi ý theo ngày/nhóm/sở thích; nút chọn lại hệ thống; bỏ chọn tất cả.",
+          "states": "Đã sửa tay; khôi phục gợi ý; rỗng.",
+          "acceptance": "Rỗng thì không sang bước 3; chọn lại là hành động thật.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-08",
+          "title": "Khối lượng thời gian",
+          "behavior": "Đếm POI, tổng giờ, capacity; cảnh báo quá tải hoặc phù hợp.",
+          "states": "Trong/vượt mức.",
+          "acceptance": "Cảnh báo hiện nhưng không tự xóa lựa chọn hay biến thành chặn lưu chưa có trong sản phẩm.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-09",
+          "title": "Sinh ngày và lịch giờ",
+          "behavior": "Nhóm theo zone/slot, chia ngày, thời gian bắt đầu/kết thúc gợi ý, ngày trống và tổng giờ.",
+          "states": "Một/nhiều ngày; ngày rỗng.",
+          "acceptance": "Không mất hoặc nhân đôi POI; không mô tả lịch gợi ý là tuyến đường tối ưu thời gian thực.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-10",
+          "title": "Chỉnh từng POI",
+          "behavior": "Tăng/giảm vị trí, chuyển ngày, xóa khỏi kế hoạch, sắp tự động lại.",
+          "states": "Đầu/cuối ngày; chuyển sang ngày khác.",
+          "acceptance": "Điều khiển biên disabled đúng; xóa cũng cập nhật tập selected.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-11",
+          "title": "Tên, ghi chú và lưu",
+          "behavior": "Tên gợi ý, chỉnh tên/notes; lưu mới hoặc cập nhật ID cũ; success và Xem lịch trình của tôi.",
+          "states": "Chưa lưu; đã lưu; sửa sau lưu.",
+          "acceptance": "Tên trống fallback về tên điểm đến; không tạo trùng ID khi cập nhật.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PLAN-12",
+          "title": "Quay lại và trạng thái bước",
+          "behavior": "Bước 1–2–3, quay lại bước trước; giữ manual selection hợp lệ khi có thể.",
+          "states": "Prev; Next; chỉnh lại đầu vào.",
+          "acceptance": "Không mất form chỉ vì animation chuyển bước; chưa có bảo đảm giữ draft sau đóng/reload.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "TRIP",
+      "name": "Quản lý lịch trình đã lưu",
+      "businessRequirement": "BR-05",
+      "screens": "S15,S18",
+      "sources": [
+        "src/components/SavedItineraries.jsx",
+        "src/hooks/useItineraries.js",
+        "src/Atlas.jsx",
+        "src/App.jsx"
+      ],
+      "features": [
+        {
+          "id": "FR-TRIP-01",
+          "title": "Danh sách/empty/read view",
+          "behavior": "Chọn lịch trình, tên/điểm/tháng/ngày/nhóm/ngày tạo/rating, xem từng ngày/giờ/POI.",
+          "states": "Rỗng; nhiều bản; đổi lựa chọn.",
+          "acceptance": "Không chỉ hiển thị thẻ tên mà mất chi tiết kế hoạch.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-TRIP-02",
+          "title": "Tạo mới và chỉnh sửa",
+          "behavior": "Tạo mới từ bộ quản lý; sửa bản cũ mở bước 3, giữ ID/createdAt/rating liên quan.",
+          "states": "Create; edit/update.",
+          "acceptance": "Sửa cập nhật bản chọn, không tạo bản sao ngoài ý muốn.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-TRIP-03",
+          "title": "Nhân bản để cải tiến",
+          "behavior": "Mở planner với bản sao, id/createdAt mới khi lưu, rating reset, có hậu tố tên.",
+          "states": "Copy draft; save copy.",
+          "acceptance": "Bản gốc không bị sửa và không nhầm thành copy clipboard/export.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-TRIP-04",
+          "title": "Xóa có xác nhận",
+          "behavior": "AlertDialog Hủy/Xóa, không xóa ngay; cập nhật mục chọn sau xóa.",
+          "states": "Hủy; xác nhận; xóa bản cuối.",
+          "acceptance": "Hủy giữ nguyên dữ liệu; xác nhận chỉ xóa đúng ID. Chưa có undo/thùng rác.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-TRIP-05",
+          "title": "Ghi chú tự lưu",
+          "behavior": "Sửa notes trực tiếp trong read view và lưu cục bộ theo thay đổi.",
+          "states": "Gõ; đóng/mở; reload.",
+          "acceptance": "Notes thuộc đúng itinerary, không chỉ giữ trong ô input.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-TRIP-06",
+          "title": "Đánh giá cá nhân",
+          "behavior": "1–5 sao, bấm lại mức đang chọn để xóa rating.",
+          "states": "0–5; đổi sao.",
+          "acceptance": "Chỉ là đánh giá cục bộ chuyến đi, không phải review công khai điểm đến.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "LEGACY",
+      "name": "Bản đồ địa lý và công cụ cũ",
+      "businessRequirement": "BR-08",
+      "screens": "S16",
+      "sources": [
+        "src/App.jsx",
+        "src/components/MapView.jsx",
+        "src/components/Sidebar.jsx",
+        "src/hooks/useCollection.js"
+      ],
+      "features": [
+        {
+          "id": "FR-LEGACY-01",
+          "title": "Đường vào/ra rõ ràng",
+          "behavior": "Hành trình mở bản đồ cũ; có nút về Khám phá Chạm Việt và brand quay lại.",
+          "states": "Đang tải module; đã mở.",
+          "acceptance": "Không bỏ công cụ này chỉ vì đã có bản đồ SVG chính.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-LEGACY-02",
+          "title": "Leaflet và vệ tinh",
+          "behavior": "Map/Esri imagery, zoom/drag của Leaflet, marker 3 điểm, geoJSON/nhãn/credit.",
+          "states": "Map; vệ tinh; tile/geo lỗi.",
+          "acceptance": "Chọn marker mở đúng nơi; giảm motion không fly/zoom hoạt ảnh.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-LEGACY-03",
+          "title": "Sidebar và nhóm vùng",
+          "behavior": "Danh sách điểm theo Bắc/Trung/Nam, tên/tagline, chọn điểm; empty panel có câu chuyện ngẫu nhiên.",
+          "states": "Chưa chọn; đã chọn.",
+          "acceptance": "Có đường vào nội dung và ngẫu nhiên thuyết minh của 3 điểm.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-LEGACY-04",
+          "title": "Search chuyên sâu",
+          "behavior": "Tìm trong tên/tagline/vùng, tên entry và POI ở các ngôn ngữ; tối đa 4 entry và 3 POI cho mỗi nhóm kết quả.",
+          "states": "Query; clear; no match; Ctrl/Cmd+K.",
+          "acceptance": "Entry search mở đúng lớp và highlight; không thay bằng tìm 89 thực thể rồi mất search chuyên sâu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-LEGACY-05",
+          "title": "Yêu thích cũ và các CTA",
+          "behavior": "Lọc chỉ đã lưu, toggle favorite key riêng; planner, lịch trình của tôi, ngôn ngữ, kể chuyện.",
+          "states": "Saved filter; mở công cụ.",
+          "acceptance": "Giữ chức năng và công khai GAP-01/02 nếu hợp nhất shell.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "PWA",
+      "name": "Cài đặt và ngoại tuyến",
+      "businessRequirement": "BR-07",
+      "screens": "S09,S17",
+      "sources": [
+        "public/manifest.webmanifest",
+        "scripts/sw-template.js",
+        "public/range.js",
+        "src/main.jsx",
+        "src/Atlas.jsx",
+        "vite.config.js"
+      ],
+      "features": [
+        {
+          "id": "FR-PWA-01",
+          "title": "Install và standalone",
+          "behavior": "Manifest, icon 192/512/maskable, start_url explore, shortcuts saved/tools; install prompt khi khả dụng.",
+          "states": "Có/không beforeinstallprompt.",
+          "acceptance": "Không yêu cầu mọi browser đều có nút cài; giữ hướng dẫn iPhone/Android.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-02",
+          "title": "Khởi tạo cache production",
+          "behavior": "Service worker chỉ đăng ký production trên localhost/HTTPS; precache app, lazy modules, geoJSON, manifest audio.",
+          "states": "Lần đầu; cache sẵn; dev.",
+          "acceptance": "Không hứa lần đầu mở không mạng vẫn chạy; kiểm tra bằng build/preview.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-03",
+          "title": "Ngoại tuyến đúng phạm vi",
+          "behavior": "Dữ liệu đã bundle/cached và local itinerary đọc được; ảnh/font/tile/tỷ giá/nguồn ngoài có giới hạn.",
+          "states": "Online; offline; tài nguyên thiếu.",
+          "acceptance": "Không cam kết đã cache toàn bộ ảnh hoặc dữ liệu dịch vụ ngoài.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-04",
+          "title": "Tải sáu MP3",
+          "behavior": "Nút tải chủ động, thông báo đang tải/thành công/thất bại; cache audio riêng.",
+          "states": "Chưa tải; đang tải; đã lưu 6; lỗi.",
+          "acceptance": "Sau tải thành công vẫn nghe file khi máy chủ local tắt.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-05",
+          "title": "Tua audio và fallback",
+          "behavior": "Service worker hỗ trợ byte-range đơn, trả 206 hợp lệ/416 không hợp lệ; không chặn engine fallback.",
+          "states": "Range; suffix; ngoài biên.",
+          "acceptance": "Tua/phát không hỏng chỉ vì audio lấy từ cache.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-06",
+          "title": "Cập nhật chủ động",
+          "behavior": "Khi có worker waiting, nút cập nhật gửi SKIP_WAITING rồi reload khi controller đổi.",
+          "states": "Không bản mới; có bản mới; đang áp dụng.",
+          "acceptance": "Không tự refresh để làm mất phiên nghe/chỉnh sửa; lưu ý GAP-08 về version audio.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-PWA-07",
+          "title": "Trạng thái kết nối",
+          "behavior": "Theo dõi online/offline, status trên shell và phản hồi tải; cài đặt giảm motion ở tools/about.",
+          "states": "Mất/phục hồi kết nối.",
+          "acceptance": "Nhãn kết nối không bị hiểu thành bằng chứng tất cả request ngoài đã thành công.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "MOTION",
+      "name": "Hệ motion, responsive và accessibility",
+      "businessRequirement": "BR-09",
+      "screens": "Mọi màn hình",
+      "sources": [
+        "src/components/ui/MotionButton.jsx",
+        "src/components/ui/AnimatedDialog.jsx",
+        "src/components/ui/AnimatedSheet.jsx",
+        "src/components/ui/MotionContent.jsx",
+        "src/components/ui/AppMotionProvider.jsx",
+        "src/components/ui/motion.css",
+        "src/atlas.css"
+      ],
+      "features": [
+        {
+          "id": "FR-MOTION-01",
+          "title": "Nút toàn dự án",
+          "behavior": "MotionButton dùng chung; tương tác nhấn nhanh, giữ type/handler/disabled/label/pressed.",
+          "states": "Default; focus; pressed; disabled.",
+          "acceptance": "Không mất click, keyboard hoặc vị trí node vì thêm transform.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MOTION-02",
+          "title": "Dialog theo ngữ cảnh",
+          "behavior": "Sheet, modal rộng, full-screen story, storyteller và alert; quản lý lớp phủ, đóng và focus.",
+          "states": "Lồng cha/con; thoát; return focus.",
+          "acceptance": "Dialog con che đúng cha, không kẹt focus hay để audio phát sau khi đóng.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MOTION-03",
+          "title": "Chuyển nội dung có mục đích",
+          "behavior": "Fade/translate ngắn khi đổi trang/bước/lớp; landing reveal; không animate left/top của plane hoặc width progress.",
+          "states": "Đổi nhanh nhiều lần; nội dung dài.",
+          "acceptance": "Không giấu tiêu đề lâu, không chặn thao tác chờ animation.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MOTION-04",
+          "title": "Giảm chuyển động",
+          "behavior": "Tôn trọng OS và checkbox cục bộ; persist key; hạn chế JS/CSS, intro, caption và Leaflet.",
+          "states": "OS reduce; user reduce; reload.",
+          "acceptance": "Nội dung vẫn đọc được ngay, không còn delay từng từ khi giảm chuyển động.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MOTION-05",
+          "title": "Responsive",
+          "behavior": "Sidebar thành tab dưới, sheet mobile, safe-area, text/input đọc được; tháng planner 2 hàng trên mobile.",
+          "states": "360/390/768/desktop; orientation.",
+          "acceptance": "Không bỏ chức năng khỏi mobile; không tràn ngang toàn trang.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-MOTION-06",
+          "title": "Keyboard và ngữ nghĩa",
+          "behavior": "Skip link, label, focus visible, thứ tự focus, dialog trap; Native select/input giữ thao tác chuẩn.",
+          "states": "Tab/Shift+Tab; Enter/Space; Escape.",
+          "acceptance": "Không dùng hover làm lối vào duy nhất; không giả nút bằng div không keyboard.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    },
+    {
+      "code": "STATE",
+      "name": "Dữ liệu, phản hồi và giới hạn",
+      "businessRequirement": "BR-10",
+      "screens": "Mọi màn hình",
+      "sources": [
+        "src/hooks/useLocal.js",
+        "src/data/explore.json",
+        "src/data/content.js",
+        "src/components/WikiImage.jsx",
+        "src/lib/storyteller.js",
+        "src/lib/explore.js"
+      ],
+      "features": [
+        {
+          "id": "FR-STATE-01",
+          "title": "Giữ dữ liệu và schema",
+          "behavior": "Entity/POI ID, quan hệ, nguồn, itinerary, preferences có danh tính ổn định.",
+          "states": "Sau refactor; sau deploy; migration.",
+          "acceptance": "Không dùng nhãn hiển thị hoặc index làm ID thay cho ID dữ liệu.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STATE-02",
+          "title": "Lưu cục bộ và lỗi lưu",
+          "behavior": "Read/parse có fallback sai kiểu; write bắt lỗi. Chưa có báo lỗi write đầy đủ.",
+          "states": "JSON hỏng; storage bị chặn/quota.",
+          "acceptance": "App không crash; không gọi việc bắt lỗi im lặng là đồng bộ đã thành công.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STATE-03",
+          "title": "Loading/empty/error",
+          "behavior": "Suspense cho module, empty cho search/saved, lỗi tạo story/tải audio và thiếu ảnh có phản hồi hiện có.",
+          "states": "Chậm; rỗng; thiếu dữ liệu; lỗi mạng.",
+          "acceptance": "UI mới phải thể hiện cùng trạng thái, không chỉ thiết kế happy path.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STATE-04",
+          "title": "Ảnh và attribution",
+          "behavior": "Wikipedia/Wikimedia resolve động, ảnh điểm đến có thể minh họa POI con; giữ credit/alt/fallback.",
+          "states": "Placeholder; ảnh tải xong; lỗi.",
+          "acceptance": "Không bỏ nguồn hoặc gọi ảnh minh họa là ảnh địa điểm đã xác minh.",
+          "status": "implemented-source-reviewed"
+        },
+        {
+          "id": "FR-STATE-05",
+          "title": "Nguồn và extension",
+          "behavior": "Giữ URL công khai, link Maps; API kể chuyện là extension tùy cấu hình; thông tin mẫu rõ ràng.",
+          "states": "Không API; API lỗi; link ngoài.",
+          "acceptance": "Không nhúng secret client hoặc tạo AI/GPS/booking giả vào mockup.",
+          "status": "implemented-source-reviewed"
+        }
+      ]
+    }
+  ],
+  "snapshot": {
+    "date": "2026-10-25",
+    "entities": 89,
+    "relations": 105,
+    "categories": {
+      "Điểm đến": 10,
+      "Thiên nhiên": 5,
+      "Di sản": 4,
+      "Ăn uống": 35,
+      "Làng nghề": 3,
+      "Văn hóa": 3,
+      "Trải nghiệm": 5,
+      "Vui chơi": 24
+    },
+    "placeTypes": [
+      "Dạo phố & ngoài trời",
+      "Biểu diễn & nghệ thuật",
+      "Khu vui chơi",
+      "Cà phê & đồ uống",
+      "Quán ăn & nhà hàng",
+      "Tham quan văn hóa",
+      "Phố ăn uống",
+      "Biển & thư giãn",
+      "Chợ ẩm thực",
+      "Làng quê & cộng đồng",
+      "Làng nghề ẩm thực"
+    ],
+    "maps": 47,
+    "noSources": 8,
+    "deep": [
+      {
+        "id": "ha-noi",
+        "name": "Hà Nội",
+        "entries": 12,
+        "plannerPOIs": 9,
+        "bestMonths": [
+          2,
+          2,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          3,
+          3,
+          3,
+          2
+        ],
+        "suggestedDays": 3,
+        "daysRange": [
+          3,
+          4
+        ]
+      },
+      {
+        "id": "hue",
+        "name": "Huế",
+        "entries": 12,
+        "plannerPOIs": 9,
+        "bestMonths": [
+          2,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "suggestedDays": 3,
+        "daysRange": [
+          2,
+          3
+        ]
+      },
+      {
+        "id": "tp-hcm",
+        "name": "TP. Hồ Chí Minh",
+        "entries": 12,
+        "plannerPOIs": 10,
+        "bestMonths": [
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          3
+        ],
+        "suggestedDays": 3,
+        "daysRange": [
+          3,
+          4
+        ]
+      }
+    ],
+    "layers": [
+      {
+        "id": "history",
+        "name": "Lịch sử hình thành"
+      },
+      {
+        "id": "heritage",
+        "name": "Di sản"
+      },
+      {
+        "id": "culture",
+        "name": "Văn hóa"
+      },
+      {
+        "id": "food",
+        "name": "Ẩm thực"
+      },
+      {
+        "id": "tourism",
+        "name": "Du lịch"
+      },
+      {
+        "id": "story",
+        "name": "Câu chuyện đặc trưng"
+      }
+    ],
+    "plannerKinds": [
+      "heritage",
+      "culture",
+      "food",
+      "fun"
+    ],
+    "entitiesIndex": [
+      {
+        "id": "hoi-an",
+        "name": "Hội An",
+        "category": "Điểm đến",
+        "region": "central",
+        "relationCount": 15,
+        "sourceCount": 2,
+        "hasMaps": false
+      },
+      {
+        "id": "ha-giang",
+        "name": "Hà Giang",
+        "category": "Điểm đến",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "trang-an",
+        "name": "Tràng An",
+        "category": "Thiên nhiên",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "hue",
+        "name": "Huế",
+        "category": "Điểm đến",
+        "region": "central",
+        "relationCount": 11,
+        "sourceCount": 2,
+        "hasMaps": false
+      },
+      {
+        "id": "can-tho",
+        "name": "Cần Thơ",
+        "category": "Điểm đến",
+        "region": "south",
+        "relationCount": 9,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ha-long",
+        "name": "Hạ Long",
+        "category": "Điểm đến",
+        "region": "north",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ha-noi",
+        "name": "Hà Nội",
+        "category": "Điểm đến",
+        "region": "north",
+        "relationCount": 11,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "da-lat",
+        "name": "Đà Lạt",
+        "category": "Điểm đến",
+        "region": "central",
+        "relationCount": 7,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "pho-co-hoi-an",
+        "name": "Phố cổ Hội An",
+        "category": "Di sản",
+        "region": "central",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "thanh-dia-my-son",
+        "name": "Thánh địa Mỹ Sơn",
+        "category": "Di sản",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "dai-noi-hue",
+        "name": "Đại Nội Huế",
+        "category": "Di sản",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "hoang-thanh-thang-long",
+        "name": "Hoàng thành Thăng Long",
+        "category": "Di sản",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ma-pi-leng",
+        "name": "Mã Pí Lèng",
+        "category": "Thiên nhiên",
+        "region": "north",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "cao-nguyen-da-dong-van",
+        "name": "Cao nguyên đá Đồng Văn",
+        "category": "Thiên nhiên",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "song-nho-que",
+        "name": "Sông Nho Quế",
+        "category": "Thiên nhiên",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "cat-ba",
+        "name": "Cát Bà",
+        "category": "Thiên nhiên",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "cao-lau",
+        "name": "Cao lầu",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "bun-bo-hue",
+        "name": "Bún bò Huế",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "pho-ha-noi",
+        "name": "Phở Hà Nội",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "hu-tieu-tren-song",
+        "name": "Hủ tiếu trên sông",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ca-phe-cao-nguyen",
+        "name": "Cà phê cao nguyên",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 3,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "lang-gom-thanh-ha",
+        "name": "Làng gốm Thanh Hà",
+        "category": "Làng nghề",
+        "region": "central",
+        "relationCount": 4,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "lang-gom-bat-trang",
+        "name": "Làng gốm Bát Tràng",
+        "category": "Làng nghề",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "lang-moc-kim-bong",
+        "name": "Làng mộc Kim Bồng",
+        "category": "Làng nghề",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "den-long-hoi-an",
+        "name": "Đèn lồng Hội An",
+        "category": "Văn hóa",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "nha-nhac-cung-dinh",
+        "name": "Nhã nhạc cung đình",
+        "category": "Văn hóa",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "don-ca-tai-tu",
+        "name": "Đờn ca tài tử",
+        "category": "Văn hóa",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "cho-noi-cai-rang",
+        "name": "Chợ nổi Cái Răng",
+        "category": "Trải nghiệm",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "di-thuyen-trang-an",
+        "name": "Đi thuyền Tràng An",
+        "category": "Trải nghiệm",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "dap-xe-vung-ven-hoi-an",
+        "name": "Đạp xe vùng ven Hội An",
+        "category": "Trải nghiệm",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "thu-lam-gom",
+        "name": "Thử làm gốm",
+        "category": "Trải nghiệm",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "cheo-kayak-tren-vinh",
+        "name": "Chèo kayak trên vịnh",
+        "category": "Trải nghiệm",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 0,
+        "hasMaps": false
+      },
+      {
+        "id": "tp-hcm",
+        "name": "TP.HCM",
+        "category": "Điểm đến",
+        "region": "south",
+        "relationCount": 7,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "da-nang",
+        "name": "Đà Nẵng",
+        "category": "Điểm đến",
+        "region": "central",
+        "relationCount": 7,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "phu-quoc",
+        "name": "Phú Quốc",
+        "category": "Điểm đến",
+        "region": "south",
+        "relationCount": 6,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "bun-cha-ha-noi",
+        "name": "Bún chả Hà Nội",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ca-phe-trung",
+        "name": "Cà phê trứng",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "com-tam-sai-gon",
+        "name": "Cơm tấm Sài Gòn",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "mi-quang",
+        "name": "Mì Quảng",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "com-ga-hoi-an",
+        "name": "Cơm gà Hội An",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "banh-khoai-hue",
+        "name": "Bánh khoái Huế",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "banh-dan-gian-mien-tay",
+        "name": "Bánh dân gian miền Tây",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": false
+      },
+      {
+        "id": "ho-hoan-kiem",
+        "name": "Hồ Hoàn Kiếm",
+        "category": "Vui chơi",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "nha-hat-mua-roi-nuoc-thang-long",
+        "name": "Nhà hát Múa rối nước Thăng Long",
+        "category": "Vui chơi",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "x-space-immersive",
+        "name": "X Space Immersive",
+        "category": "Vui chơi",
+        "region": "north",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ca-phe-giang",
+        "name": "Cà phê Giảng",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "bun-cha-huong-lien",
+        "name": "Bún chả Hương Liên",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "pho-gia-truyen-bat-dan",
+        "name": "Phở Gia Truyền Bát Đàn",
+        "category": "Ăn uống",
+        "region": "north",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "pho-di-bo-nguyen-hue",
+        "name": "Phố đi bộ Nguyễn Huệ",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "thao-cam-vien-sai-gon",
+        "name": "Thảo Cầm Viên Sài Gòn",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "buu-dien-trung-tam-sai-gon",
+        "name": "Bưu điện Trung tâm Sài Gòn",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "pho-am-thuc-ho-thi-ky",
+        "name": "Phố ẩm thực Hồ Thị Kỷ",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "pho-am-thuc-vinh-khanh",
+        "name": "Phố ẩm thực Vĩnh Khánh",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "banh-mi-huynh-hoa",
+        "name": "Bánh mì Huỳnh Hoa",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "bai-bien-my-khe",
+        "name": "Bãi biển Mỹ Khê",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "sun-world-ba-na-hills",
+        "name": "Sun World Bà Nà Hills",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "duong-bach-dang-ven-song-han",
+        "name": "Đường Bạch Đằng ven sông Hàn",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-con",
+        "name": "Chợ Cồn",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-bac-my-an",
+        "name": "Chợ Bắc Mỹ An",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ca-phe-long",
+        "name": "Cà phê Long",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "bai-bien-an-bang",
+        "name": "Bãi biển An Bàng",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "lang-rau-tra-que",
+        "name": "Làng rau Trà Quế",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ben-thuyen-song-thu-bon",
+        "name": "Bến thuyền sông Thu Bồn",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cao-lau-thanh",
+        "name": "Cao lầu Thanh",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "com-ga-ba-buoi",
+        "name": "Cơm gà Bà Buội",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "banh-mi-phuong",
+        "name": "Bánh mì Phượng",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cau-truong-tien",
+        "name": "Cầu Trường Tiền",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "khong-gian-ven-song-huong",
+        "name": "Không gian ven sông Hương",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "chua-thien-mu",
+        "name": "Chùa Thiên Mụ",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-dong-ba",
+        "name": "Chợ Đông Ba",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "quan-lac-thien",
+        "name": "Quán Lạc Thiện",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "quan-hanh-hue",
+        "name": "Quán Hạnh Huế",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ho-xuan-huong",
+        "name": "Hồ Xuân Hương",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ho-tuyen-lam",
+        "name": "Hồ Tuyền Lâm",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "thac-datanla",
+        "name": "Thác Datanla",
+        "category": "Vui chơi",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "la-viet-coffee",
+        "name": "Là Việt Coffee",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cafe-tung",
+        "name": "Café Tùng",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 3,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-da-lat",
+        "name": "Chợ Đà Lạt",
+        "category": "Ăn uống",
+        "region": "central",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "bai-sao",
+        "name": "Bãi Sao",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "sun-world-hon-thom",
+        "name": "Sun World Hòn Thơm",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "vinwonders-phu-quoc",
+        "name": "VinWonders Phú Quốc",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-dem-phu-quoc",
+        "name": "Chợ đêm Phú Quốc",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ink-360",
+        "name": "INK 360",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "pink-pearl-by-olivier-e",
+        "name": "Pink Pearl by Olivier E.",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "ben-ninh-kieu",
+        "name": "Bến Ninh Kiều",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "nha-co-binh-thuy",
+        "name": "Nhà cổ Bình Thủy",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 1,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "con-son",
+        "name": "Cồn Sơn",
+        "category": "Vui chơi",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "cho-dem-can-tho",
+        "name": "Chợ đêm Cần Thơ",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      },
+      {
+        "id": "lang-hu-tieu-can-tho",
+        "name": "Làng hủ tiếu Cần Thơ",
+        "category": "Ăn uống",
+        "region": "south",
+        "relationCount": 2,
+        "sourceCount": 1,
+        "hasMaps": true
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "src/components/LandingPage.jsx": "d04d361367082700d60c7d3e629c69782c8096f7634797a3ed58a06862fdb52c",
+    "src/components/TravelTransition.jsx": "2a40275286729b6d75cf8f868f6bc4e1ad21590d735641a10807c590fad0f2d4",
+    "src/Atlas.jsx": "dd5ebf41525afd3e8ee73af8c77cf4b465833c29beead7eaf816992a37b67e33",
+    "src/components/GlobeExplorer.jsx": "1871dc0d473d9b6fad6a431bb42fc4a3f1f7f02eb334d8053992d326b265ccc6",
+    "src/lib/currency.js": "3632897b9d77ecee2a1c2d68e4b5cb68912886ed29038818a931b9b477b7d843",
+    "src/lib/explore.js": "7eb439e5171a79fa16850fd5c4c21ea7a4c98b0a55f97db8d670ecaa38cb522c",
+    "public/manifest.webmanifest": "fe066539f482fc0cea02c24a296b405789bc085de5db55333a866345d06da167",
+    "src/data/explore.json": "da07cec24c653f7d3bc8d70de4b0fc43764d4f2f62802e7f0417c47ed19166c0",
+    "public/data/vietnam.geojson": "3eaefea9e1802c8d398a0b6eda4950703afe9f413f1543904ad840cde4dcda70",
+    "src/components/ui/AnimatedSheet.jsx": "07b8d4e0003d2af26a0b57ea82f4b8097ef5a713bcb3b1b7b9e31727057cb6df",
+    "src/hooks/useLocal.js": "6de39f009de3e1be704d79429173e0957dd120baae38715b1017d2e1467767be",
+    "src/hooks/useCollection.js": "dbd51163977e31bce3f95bf9da8bb4912b8a0fae12243eb0816873d7bbc163fd",
+    "src/components/DetailPanel.jsx": "1a26f5fbbc6a1f13102689598bb4580185238cf441f9c82a89e7f7487abc3ac1",
+    "src/data/content.js": "6bde9fc41a7fa4d237a4e75b6f6bed33354553cbac3588b7438b7b37e6afa0eb",
+    "src/components/AIStoryteller.jsx": "69565d4cd9e9403c82bf5808c2554f88012a1f97144f5f4f3d347afaba837813",
+    "src/lib/storyteller.js": "ef32d82c6d4a88092565fdc3e7560f99efc1f47276d5ae92f8dd7eaeac129a0b",
+    "src/components/StoryPlayer.jsx": "c759d4f76cdb6bf8052936e57a42015b2989e7786ab1d28f427cfae5abfb0eef",
+    "src/hooks/useStoryEngine.js": "19a32f1d48b16db7e3eab670b551825b6b0e84182fd60e66288d7c56e6c88bc0",
+    "src/lib/story.js": "a858717d33f8222e49d347d8e522fca9c54f408a0c7e961a2814410f2aef1727",
+    "public/audio/manifest.json": "6d2d8b3a47de1a9f5cd70799ec6e0fbaf3dcf8af08fea7d11d36d9e5d1e3d205",
+    "src/components/ItineraryBuilder.jsx": "a7e2869d022b6c2c17837d26fa567912784263e4b82e2c89559a2bfb1f2fd0bc",
+    "src/lib/itinerary.js": "215c313e21b6c72ee3823b8b7aa0532afacf7cdf9ecdda68fe34c4e63cfccd41",
+    "src/components/SavedItineraries.jsx": "670344faa8cbe47ad2df65e74ac7929496625eb50694d70f95a3e12b33e8a984",
+    "src/hooks/useItineraries.js": "e93ef98c2a0129cc762e141d1ccbe98a8327c3c6a4649cf5f8d038defea03464",
+    "src/App.jsx": "cb00a216d6bd2af8476f8557a3594034ed33f3f2a8bc889b2ef865ef790eb07d",
+    "src/components/MapView.jsx": "f33e4fdf354c85666392e27b9113eab6dd2d8f66c20a74db91249647d4f5e996",
+    "src/components/Sidebar.jsx": "6e510528713238b0ebf777888197502e45084954fee9447b43ef084720376e51",
+    "scripts/sw-template.js": "516d51dded087779eac4bbe482b25d3b37ba3819e57f9b01bb9ef10b4b755297",
+    "public/range.js": "2e0d9573b2bdf5d487f6e6de907baa96b71f123ee2f3fd8e002628558529ff73",
+    "src/main.jsx": "7e4fbeaad09cd6ddc5182c87d2341cb2f997d2f6ee846fc05a03cb4f7a1f29be",
+    "vite.config.js": "c29bdf6edeeec16f4ac8facb5ea8f01282195d35f82da0be287f7d330231db6e",
+    "src/components/ui/MotionButton.jsx": "1ffdcab50fe9418117234f80a4b16612b4402ab4d807ffe29a443123b10f3c51",
+    "src/components/ui/AnimatedDialog.jsx": "94253069b0e6efe423fa275739ea6a8ff8929747fb4d625f424c89010db9eadb",
+    "src/components/ui/MotionContent.jsx": "ca085dd7d9c3d31096e283a7b9dcf98fda8615e3d9a03bda89cfcd7885f68c10",
+    "src/components/ui/AppMotionProvider.jsx": "e97e142cd83b5aa5f5f6b80d0e993837226c9701cdcdc0a2463f93992f045b7b",
+    "src/components/ui/motion.css": "2b17489ec76998c3dc64a81ec7e4e3ebe409bfb433a256d4c431e6c2c4a0634a",
+    "src/atlas.css": "28a409cadcaa4c28aee72743163610d38ffc438f4d84f390605dc7cecd002e70",
+    "src/components/WikiImage.jsx": "69b53198831cd485c663560e84af1c2ee737ab5b487bf0c55dc9ede927a7570d"
+  }
+}

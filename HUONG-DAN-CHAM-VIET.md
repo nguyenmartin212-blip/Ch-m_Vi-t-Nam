@@ -36,6 +36,8 @@ Mở URL Vite in ra, preview mặc định `http://127.0.0.1:4173/`. Không mở
 
 ## PWA
 
+Animate UI đã áp dụng trên các màn hình và công cụ; xem `docs/ANIMATE-UI.md`. Muốn giảm hiệu ứng, vào Hành trình hoặc Về kho tri thức, bật **Giảm chuyển động trong ứng dụng**. Tùy chọn này lưu riêng trên từng thiết bị.
+
 Manifest, icon 192/512 maskable, standalone, safe-area, tab dưới, dialog khóa cuộn/focus, reduced motion. Cache ứng dụng, module lazy, dữ liệu bản đồ và manifest audio sau lần mở đầu có mạng. Nút **Tải 6 bản thuyết minh** cache MP3 riêng, hỗ trợ byte-range để tua offline.
 
 Ảnh/font mạng, vệ tinh và tỷ giá trực tuyến cần mạng; có nền/chữ dự phòng. Không tải sẵn toàn bộ tile. Phiên bản mới chờ nút **Cập nhật phiên bản mới** trong Hành trình/Về kho tri thức, tránh tự ngắt audio.

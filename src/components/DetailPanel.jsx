@@ -1,3 +1,5 @@
+import MotionButton from "./ui/MotionButton";
+import { MotionSwap } from "./ui/MotionContent";
 import { useEffect, useRef, useState } from "react";
 import WikiImage from "./WikiImage";
 import AIStoryteller from "./AIStoryteller";
@@ -7,15 +9,24 @@ import { tr, pick, monthLabel, dayWord, itemsCount } from "../i18n";
 function formatRanges(lang, months) {
   if (!months.length) return "";
   const groups = [];
-  let start = months[0], prev = months[0];
+  let start = months[0],
+    prev = months[0];
   for (let i = 1; i <= months.length; i++) {
     const m = months[i];
-    if (m === prev + 1) { prev = m; continue; }
+    if (m === prev + 1) {
+      prev = m;
+      continue;
+    }
     groups.push([start, prev]);
-    start = m; prev = m;
+    start = m;
+    prev = m;
   }
   return groups
-    .map(([a, b]) => (a === b ? monthLabel(lang, a) : `${monthLabel(lang, a)}–${monthLabel(lang, b)}`))
+    .map(([a, b]) =>
+      a === b
+        ? monthLabel(lang, a)
+        : `${monthLabel(lang, a)}–${monthLabel(lang, b)}`,
+    )
     .join(", ");
 }
 
@@ -25,7 +36,8 @@ const COPY = {
     visualHint: "Chạm vào một lớp tri thức để đi sâu hơn",
     knowledge: "mẩu tri thức",
     highlights: "Điểm nổi bật",
-    highlightsHint: "Một vài trải nghiệm giúp bạn hình dung nơi này trước khi đọc sâu.",
+    highlightsHint:
+      "Một vài trải nghiệm giúp bạn hình dung nơi này trước khi đọc sâu.",
     why: "Vì sao nên khám phá?",
     exploreByLayer: "Khám phá theo lớp tri thức",
   },
@@ -34,7 +46,8 @@ const COPY = {
     visualHint: "Choose a knowledge layer to go deeper",
     knowledge: "knowledge items",
     highlights: "Highlights",
-    highlightsHint: "A few experiences to picture the place before reading deeper.",
+    highlightsHint:
+      "A few experiences to picture the place before reading deeper.",
     why: "Why explore it?",
     exploreByLayer: "Explore by knowledge layer",
   },
@@ -52,21 +65,29 @@ const COPY = {
     visualHint: "지식 레이어를 선택해 더 깊이 알아보세요",
     knowledge: "개의 지식",
     highlights: "주요 하이라이트",
-    highlightsHint: "긴 글을 읽기 전에 대표 경험으로 장소의 분위기를 먼저 느껴보세요.",
+    highlightsHint:
+      "긴 글을 읽기 전에 대표 경험으로 장소의 분위기를 먼저 느껴보세요.",
     why: "왜 가볼 만할까요?",
     exploreByLayer: "지식 레이어별 탐색",
   },
 };
 
-
 const VISUAL_WIKI_TITLES = {
   // Hà Nội
-  "hn-d1": ["Imperial Citadel of Thăng Long", "Imperial Citadel of Thang Long", "Hoàng thành Thăng Long"],
+  "hn-d1": [
+    "Imperial Citadel of Thăng Long",
+    "Imperial Citadel of Thang Long",
+    "Hoàng thành Thăng Long",
+  ],
   "hn-c1": ["Ca trù", "Ca tru", "Ca trù singing"],
   "hn-f1": ["Pho", "Phở", "Vietnamese pho"],
 
   // Huế
-  "hue-d1": ["Complex of Huế Monuments", "Imperial City, Huế", "Huế Imperial City"],
+  "hue-d1": [
+    "Complex of Huế Monuments",
+    "Imperial City, Huế",
+    "Huế Imperial City",
+  ],
   "hue-c1": ["Nhã nhạc", "Nha nhac", "Hue royal court music"],
   "hue-f1": ["Bún bò Huế", "Bun bo Hue", "Bún bò"],
 
@@ -78,7 +99,10 @@ const VISUAL_WIKI_TITLES = {
 
 function visualTitles(entry) {
   const preferred = VISUAL_WIKI_TITLES[entry.id] || [];
-  return [...preferred, ...(Array.isArray(entry.wiki) ? entry.wiki : [entry.wiki]).filter(Boolean)];
+  return [
+    ...preferred,
+    ...(Array.isArray(entry.wiki) ? entry.wiki : [entry.wiki]).filter(Boolean),
+  ];
 }
 
 function copy(lang, key) {
@@ -90,7 +114,9 @@ function Sources({ dest, lang }) {
     <div className="sources">
       <p className="eyebrow">{tr(lang, "sources")}</p>
       {dest.sources.map((s) => (
-        <a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}</a>
+        <a key={s.url} href={s.url} target="_blank" rel="noreferrer">
+          {s.label}
+        </a>
       ))}
       <p className="muted small">{tr(lang, "sources_note")}</p>
     </div>
@@ -100,13 +126,22 @@ function Sources({ dest, lang }) {
 function Entry({ e, lang, highlight }) {
   const ref = useRef(null);
   useEffect(() => {
-    if (highlight && ref.current) ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (highlight && ref.current)
+      ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [highlight]);
   const layer = LAYERS.find((l) => l.id === e.layer);
   return (
     <article ref={ref} className={`entry ${highlight ? "entry--hl" : ""}`}>
-      <WikiImage titles={e.wiki} width={500} alt={pick(e.title, lang)} lang={lang} className="entry__img" />
-      <div className="entry__tag" style={{ color: layer.color }}>{layer.icon} {pick(layer.name, lang)}</div>
+      <WikiImage
+        titles={e.wiki}
+        width={500}
+        alt={pick(e.title, lang)}
+        lang={lang}
+        className="entry__img"
+      />
+      <div className="entry__tag" style={{ color: layer.color }}>
+        {layer.icon} {pick(layer.name, lang)}
+      </div>
       <h4>{pick(e.title, lang)}</h4>
       <p>{pick(e.body, lang)}</p>
     </article>
@@ -118,7 +153,9 @@ function VisualSnapshot({ dest, lang, great, counts, setPanel }) {
   const selected = [];
 
   priorities.forEach((layerId) => {
-    const entry = dest.entries.find((e) => e.layer === layerId && !selected.some((x) => x.id === e.id));
+    const entry = dest.entries.find(
+      (e) => e.layer === layerId && !selected.some((x) => x.id === e.id),
+    );
     if (entry) selected.push(entry);
   });
 
@@ -158,7 +195,9 @@ function VisualSnapshot({ dest, lang, great, counts, setPanel }) {
                 />
                 <div className="detail-gallery__shade" />
                 <div className="detail-gallery__copy">
-                  <span>{layer?.icon} {layer ? pick(layer.name, lang) : ""}</span>
+                  <span>
+                    {layer?.icon} {layer ? pick(layer.name, lang) : ""}
+                  </span>
                   <strong>{pick(e.title, lang)}</strong>
                 </div>
               </article>
@@ -175,18 +214,26 @@ function VisualSnapshot({ dest, lang, great, counts, setPanel }) {
           <div className="detail-fact-card">
             <span>⌁</span>
             <small>{tr(lang, "suggested")}</small>
-            <strong>{dayWord(lang, dest.daysRange[0])}–{dayWord(lang, dest.daysRange[1])}</strong>
+            <strong>
+              {dayWord(lang, dest.daysRange[0])}–
+              {dayWord(lang, dest.daysRange[1])}
+            </strong>
           </div>
           <div className="detail-fact-card">
             <span>◈</span>
             <small>{tr(lang, "layers_title")}</small>
-            <strong>{dest.entries.length} {copy(lang, "knowledge")}</strong>
+            <strong>
+              {dest.entries.length} {copy(lang, "knowledge")}
+            </strong>
           </div>
         </div>
 
-        <div className="detail-layer-rail" aria-label={copy(lang, "exploreByLayer")}>
+        <div
+          className="detail-layer-rail"
+          aria-label={copy(lang, "exploreByLayer")}
+        >
           {LAYERS.map((l) => (
-            <button
+            <MotionButton
               key={l.id}
               type="button"
               style={{ "--rail-color": l.color }}
@@ -195,7 +242,7 @@ function VisualSnapshot({ dest, lang, great, counts, setPanel }) {
               <i>{l.icon}</i>
               <span>{pick(l.name, lang)}</span>
               <em>{counts[l.id] || 0}</em>
-            </button>
+            </MotionButton>
           ))}
         </div>
       </section>
@@ -225,13 +272,24 @@ function VisualSnapshot({ dest, lang, great, counts, setPanel }) {
   );
 }
 
-export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave, onClose, onPlan, onStory }) {
+export default function DetailPanel({
+  dest,
+  lang,
+  panel,
+  setPanel,
+  saved,
+  onSave,
+  onClose,
+  onPlan,
+  onStory,
+}) {
   const region = REGIONS[dest.region];
   const scrollRef = useRef(null);
   const [storyOpen, setStoryOpen] = useState(false);
 
   useEffect(() => {
-    if (scrollRef.current && !panel.highlight) scrollRef.current.scrollTo({ top: 0 });
+    if (scrollRef.current && !panel.highlight)
+      scrollRef.current.scrollTo({ top: 0 });
   }, [panel.view, panel.layerId, dest.id, panel.highlight]);
 
   useEffect(() => {
@@ -242,7 +300,9 @@ export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave
   const counts = {};
   dest.entries.forEach((e) => (counts[e.layer] = (counts[e.layer] || 0) + 1));
 
-  const great = dest.bestMonths.map((s, i) => (s === 3 ? i + 1 : null)).filter(Boolean);
+  const great = dest.bestMonths
+    .map((s, i) => (s === 3 ? i + 1 : null))
+    .filter(Boolean);
 
   // ---------------- Màn hình 2: nội dung của một lớp (hoặc tất cả)
   if (panel.view === "layer") {
@@ -250,16 +310,35 @@ export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave
     const layer = LAYERS.find((l) => l.id === panel.layerId);
     const groups = isAll ? LAYERS : [layer];
     return (
-      <aside className="panel" ref={scrollRef}>
+      <MotionSwap
+        as="aside"
+        key={panel.layerId}
+        className="panel"
+        ref={scrollRef}
+      >
         <div className="panel__bar">
-          <button className="back-btn" onClick={() => setPanel({ view: "layers" })} aria-label={tr(lang, "back_layers")}>
+          <MotionButton
+            className="back-btn"
+            onClick={() => setPanel({ view: "layers" })}
+            aria-label={tr(lang, "back_layers")}
+          >
             ← <span>{tr(lang, "back_layers")}</span>
-          </button>
+          </MotionButton>
           <div className="panel__bar-title">
             <strong>{pick(dest.name, lang)}</strong>
-            <span>{isAll ? tr(lang, "all_layers") : `${layer.icon} ${pick(layer.name, lang)}`}</span>
+            <span>
+              {isAll
+                ? tr(lang, "all_layers")
+                : `${layer.icon} ${pick(layer.name, lang)}`}
+            </span>
           </div>
-          <button className="icon-btn" onClick={onClose} aria-label={tr(lang, "close")}>×</button>
+          <MotionButton
+            className="icon-btn"
+            onClick={onClose}
+            aria-label={tr(lang, "close")}
+          >
+            ×
+          </MotionButton>
         </div>
         <div className="panel__body">
           {groups.map((g) => {
@@ -273,32 +352,66 @@ export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave
                   </h3>
                 )}
                 {list.map((e) => (
-                  <Entry key={e.id} e={e} lang={lang} highlight={panel.highlight === e.id} />
+                  <Entry
+                    key={e.id}
+                    e={e}
+                    lang={lang}
+                    highlight={panel.highlight === e.id}
+                  />
                 ))}
               </section>
             );
           })}
           <Sources dest={dest} lang={lang} />
         </div>
-      </aside>
+      </MotionSwap>
     );
   }
 
   // ---------------- Màn hình 1: tổng quan điểm đến + visual snapshot + danh mục lớp tri thức
   return (
-    <aside className="panel panel--visual" ref={scrollRef}>
+    <MotionSwap
+      as="aside"
+      key="overview"
+      className="panel panel--visual"
+      ref={scrollRef}
+    >
       <div className="panel__hero" style={{ "--c": region.color }}>
-        <WikiImage titles={dest.hero} width={960} alt={pick(dest.name, lang)} lang={lang} className="panel__hero-img" />
+        <WikiImage
+          titles={dest.hero}
+          width={960}
+          alt={pick(dest.name, lang)}
+          lang={lang}
+          className="panel__hero-img"
+        />
         <span className="badge">{pick(region.name, lang)}</span>
         <div className="acts">
-          <button onClick={onSave} title={tr(lang, "save_fav")} aria-label={tr(lang, "save_fav")}>{saved ? "♥" : "♡"}</button>
-          <button onClick={onClose} title={tr(lang, "close")} aria-label={tr(lang, "close")}>×</button>
+          <MotionButton
+            onClick={onSave}
+            title={tr(lang, "save_fav")}
+            aria-label={tr(lang, "save_fav")}
+          >
+            {saved ? "♥" : "♡"}
+          </MotionButton>
+          <MotionButton
+            onClick={onClose}
+            title={tr(lang, "close")}
+            aria-label={tr(lang, "close")}
+          >
+            ×
+          </MotionButton>
         </div>
         <h2>{pick(dest.name, lang)}</h2>
       </div>
 
       <div className="panel__body panel__body--visual">
-        <VisualSnapshot dest={dest} lang={lang} great={great} counts={counts} setPanel={setPanel} />
+        <VisualSnapshot
+          dest={dest}
+          lang={lang}
+          great={great}
+          counts={counts}
+          setPanel={setPanel}
+        />
 
         <section className="detail-story-intro">
           <span className="detail-kicker">{copy(lang, "why")}</span>
@@ -306,22 +419,47 @@ export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave
           <p>{pick(dest.intro, lang)}</p>
         </section>
 
-        <button className="btn btn--accent btn--block detail-plan-btn" onClick={() => onPlan(dest.id)}>✦ {tr(lang, "plan_here")}</button>
-        <button className="btn btn--block" onClick={() => onStory(dest.id)}>▶ {lang === 'vi' ? 'Nghe thuyết minh · Bản ngắn / đầy đủ' : 'Audio tour · Short / full'}</button>
+        <MotionButton
+          className="btn btn--accent btn--block detail-plan-btn"
+          onClick={() => onPlan(dest.id)}
+        >
+          ✦ {tr(lang, "plan_here")}
+        </MotionButton>
+        <MotionButton
+          className="btn btn--block"
+          onClick={() => onStory(dest.id)}
+        >
+          ▶{" "}
+          {lang === "vi"
+            ? "Nghe thuyết minh · Bản ngắn / đầy đủ"
+            : "Audio tour · Short / full"}
+        </MotionButton>
 
-        <button
+        <MotionButton
           type="button"
           className="story-launch story-launch--contextual"
           onClick={() => setStoryOpen(true)}
-          aria-label={lang === "vi" ? `Kể chuyện về ${pick(dest.name, lang)}` : `Story about ${pick(dest.name, lang)}`}
+          aria-label={
+            lang === "vi"
+              ? `Kể chuyện về ${pick(dest.name, lang)}`
+              : `Story about ${pick(dest.name, lang)}`
+          }
         >
           <span className="story-launch__icon">▶</span>
           <span>
-            <strong>{lang === "vi" ? `Kể chuyện về ${pick(dest.name, lang)}` : `Story about ${pick(dest.name, lang)}`}</strong>
-            <small>{lang === "vi" ? "Nội dung được chọn theo đúng điểm đến hiện tại" : "Story content follows the selected destination"}</small>
+            <strong>
+              {lang === "vi"
+                ? `Kể chuyện về ${pick(dest.name, lang)}`
+                : `Story about ${pick(dest.name, lang)}`}
+            </strong>
+            <small>
+              {lang === "vi"
+                ? "Nội dung được chọn theo đúng điểm đến hiện tại"
+                : "Story content follows the selected destination"}
+            </small>
           </span>
           <em>→</em>
-        </button>
+        </MotionButton>
 
         {storyOpen && (
           <AIStoryteller
@@ -333,27 +471,37 @@ export default function DetailPanel({ dest, lang, panel, setPanel, saved, onSave
 
         <div className="detail-section-heading detail-section-heading--layers">
           <div>
-            <span className="detail-kicker">{copy(lang, "exploreByLayer")}</span>
+            <span className="detail-kicker">
+              {copy(lang, "exploreByLayer")}
+            </span>
             <small>{tr(lang, "layers_hint")}</small>
           </div>
         </div>
 
         <div className="layer-grid layer-grid--visual">
           {LAYERS.map((l) => (
-            <button key={l.id} className="lcard" style={{ "--lc": l.color }} onClick={() => setPanel({ view: "layer", layerId: l.id })}>
+            <MotionButton
+              key={l.id}
+              className="lcard"
+              style={{ "--lc": l.color }}
+              onClick={() => setPanel({ view: "layer", layerId: l.id })}
+            >
               <i>{l.icon}</i>
               <strong>{pick(l.name, lang)}</strong>
               <span>{pick(l.desc, lang)}</span>
               <em>{itemsCount(lang, counts[l.id] || 0)} →</em>
-            </button>
+            </MotionButton>
           ))}
-          <button className="lcard lcard--all" onClick={() => setPanel({ view: "layer", layerId: "all" })}>
+          <MotionButton
+            className="lcard lcard--all"
+            onClick={() => setPanel({ view: "layer", layerId: "all" })}
+          >
             <i>✦</i>
             <strong>{tr(lang, "all_layers")}</strong>
             <em>{itemsCount(lang, dest.entries.length)} →</em>
-          </button>
+          </MotionButton>
         </div>
       </div>
-    </aside>
+    </MotionSwap>
   );
 }

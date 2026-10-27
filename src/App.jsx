@@ -1,3 +1,4 @@
+import MotionButton from "./components/ui/MotionButton";
 import { useEffect, useState } from "react";
 import MapView from "./components/MapView";
 import Sidebar from "./components/Sidebar";
@@ -17,7 +18,10 @@ import "./index.css";
 
 export default function App({ initialId = null, onExit }) {
   const [screen, setScreen] = useState("explore");
-  const [travelCountry, setTravelCountry] = useState({ id: "vn", name: "Việt Nam" });
+  const [travelCountry, setTravelCountry] = useState({
+    id: "vn",
+    name: "Việt Nam",
+  });
   const [lang, setLang] = useLocal("bdtt.lang", "vi");
   const [geo, setGeo] = useState(null);
   const [selectedId, setSelectedId] = useState(initialId);
@@ -42,7 +46,9 @@ export default function App({ initialId = null, onExit }) {
       .catch(() => setGeo(null));
   }, []);
 
-  const list = onlySaved ? DESTINATIONS.filter((d) => col.ids.includes(d.id)) : DESTINATIONS;
+  const list = onlySaved
+    ? DESTINATIONS.filter((d) => col.ids.includes(d.id))
+    : DESTINATIONS;
   const selected = DESTINATIONS.find((d) => d.id === selectedId) || null;
 
   const select = (id) => {
@@ -69,36 +75,74 @@ export default function App({ initialId = null, onExit }) {
     openStory(pool[Math.floor(Math.random() * pool.length)].id);
   };
 
-  if (screen === "landing") return <LandingPage onStart={() => setScreen("globe")} />;
-  if (screen === "globe") return (
-    <GlobeExplorer
-      onBack={() => setScreen("landing")}
-      onExplore={(country) => { setTravelCountry(country); setScreen("transition"); }}
-    />
-  );
-  if (screen === "transition") return <TravelTransition countryName={travelCountry.name} onComplete={() => setScreen("explore")} />;
+  if (screen === "landing")
+    return <LandingPage onStart={() => setScreen("globe")} />;
+  if (screen === "globe")
+    return (
+      <GlobeExplorer
+        onBack={() => setScreen("landing")}
+        onExplore={(country) => {
+          setTravelCountry(country);
+          setScreen("transition");
+        }}
+      />
+    );
+  if (screen === "transition")
+    return (
+      <TravelTransition
+        countryName={travelCountry.name}
+        onComplete={() => setScreen("explore")}
+      />
+    );
 
   return (
     <div className="app">
       <header className="top">
-        <button className="logo logo--button" onClick={() => onExit ? onExit() : setScreen("landing")} title="Về trang khám phá">
+        <MotionButton
+          className="logo logo--button"
+          onClick={() => (onExit ? onExit() : setScreen("landing"))}
+          title="Về trang khám phá"
+        >
           <b>V</b>
-          <div>VIỆT NAM<small>TRAVEL KNOWLEDGE</small></div>
-        </button>
+          <div>
+            VIỆT NAM<small>TRAVEL KNOWLEDGE</small>
+          </div>
+        </MotionButton>
         <nav className="nav">
-          <button className="on">{tr(lang, "nav_explore")}</button>
-          <button onClick={() => openBuilder()}>{tr(lang, "nav_plan")}</button>
-          <button onClick={() => { setBuilder(null); setShowSaved(true); }}>
-            {tr(lang, "nav_mine")}{trips.list.length ? ` (${trips.list.length})` : ""}
-          </button>
+          <MotionButton className="on">{tr(lang, "nav_explore")}</MotionButton>
+          <MotionButton onClick={() => openBuilder()}>
+            {tr(lang, "nav_plan")}
+          </MotionButton>
+          <MotionButton
+            onClick={() => {
+              setBuilder(null);
+              setShowSaved(true);
+            }}
+          >
+            {tr(lang, "nav_mine")}
+            {trips.list.length ? ` (${trips.list.length})` : ""}
+          </MotionButton>
         </nav>
         <div className="right">
-          <select className="lang" value={lang} onChange={(e) => setLang(e.target.value)} aria-label="language">
-            {LANGS.map((l) => <option key={l.id} value={l.id}>{l.label}</option>)}
+          <select
+            className="lang"
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+            aria-label="language"
+          >
+            {LANGS.map((l) => (
+              <option key={l.id} value={l.id}>
+                {l.label}
+              </option>
+            ))}
           </select>
-          <button className="link" onClick={() => setOnlySaved(!onlySaved)} title={tr(lang, "only_saved")}>
+          <MotionButton
+            className="link"
+            onClick={() => setOnlySaved(!onlySaved)}
+            title={tr(lang, "only_saved")}
+          >
             {onlySaved ? "♥" : "♡"} {tr(lang, "collection")} ({col.ids.length})
-          </button>
+          </MotionButton>
         </div>
       </header>
 
@@ -130,11 +174,31 @@ export default function App({ initialId = null, onExit }) {
 
         <main className={`map-area ${sat ? "sat" : ""}`}>
           <div className="seg">
-            <button className={!sat ? "on" : ""} onClick={() => setSat(false)}>{tr(lang, "map_mode_map")}</button>
-            <button className={sat ? "on" : ""} onClick={() => setSat(true)}>{tr(lang, "map_mode_sat")}</button>
+            <MotionButton
+              className={!sat ? "on" : ""}
+              onClick={() => setSat(false)}
+            >
+              {tr(lang, "map_mode_map")}
+            </MotionButton>
+            <MotionButton
+              className={sat ? "on" : ""}
+              onClick={() => setSat(true)}
+            >
+              {tr(lang, "map_mode_sat")}
+            </MotionButton>
           </div>
-          <MapView geo={geo} destinations={list} selected={selected} onSelect={select} sat={sat} lang={lang} />
-          <div className="map-credit">{tr(lang, "map_credit")}{sat ? " · Imagery © Esri" : ""}</div>
+          <MapView
+            geo={geo}
+            destinations={list}
+            selected={selected}
+            onSelect={select}
+            sat={sat}
+            lang={lang}
+          />
+          <div className="map-credit">
+            {tr(lang, "map_credit")}
+            {sat ? " · Imagery © Esri" : ""}
+          </div>
         </main>
 
         {selected ? (
@@ -156,10 +220,13 @@ export default function App({ initialId = null, onExit }) {
               <div className="empty-state__ic">⌖</div>
               <h3>{tr(lang, "panel_empty_title")}</h3>
               <p>{tr(lang, "panel_empty_text")}</p>
-              <button className="btn btn--accent story-cta" onClick={randomStory}>
+              <MotionButton
+                className="btn btn--accent story-cta"
+                onClick={randomStory}
+              >
                 ✦ {tr(lang, "story_random")}
                 <small>{tr(lang, "story_random_hint")}</small>
-              </button>
+              </MotionButton>
             </div>
           </aside>
         )}
@@ -179,13 +246,21 @@ export default function App({ initialId = null, onExit }) {
 
       {builder && (
         <ItineraryBuilder
-          key={builder.itinerary?.id || builder.itinerary?.name || builder.destId || "new"}
+          key={
+            builder.itinerary?.id ||
+            builder.itinerary?.name ||
+            builder.destId ||
+            "new"
+          }
           lang={lang}
           dests={DESTINATIONS}
           initial={builder}
           onClose={() => setBuilder(null)}
           onSave={trips.save}
-          onOpenSaved={() => { setBuilder(null); setShowSaved(true); }}
+          onOpenSaved={() => {
+            setBuilder(null);
+            setShowSaved(true);
+          }}
         />
       )}
 
@@ -197,10 +272,21 @@ export default function App({ initialId = null, onExit }) {
           onPatch={trips.patch}
           onRemove={trips.remove}
           onNew={() => openBuilder()}
-          onEdit={(it) => { setShowSaved(false); setBuilder({ itinerary: it }); }}
+          onEdit={(it) => {
+            setShowSaved(false);
+            setBuilder({ itinerary: it });
+          }}
           onCopy={(it) => {
             setShowSaved(false);
-            setBuilder({ itinerary: { ...it, id: null, name: `${it.name} ${tr(lang, "sv_copy_suffix")}`, createdAt: null, rating: 0 } });
+            setBuilder({
+              itinerary: {
+                ...it,
+                id: null,
+                name: `${it.name} ${tr(lang, "sv_copy_suffix")}`,
+                createdAt: null,
+                rating: 0,
+              },
+            });
           }}
         />
       )}

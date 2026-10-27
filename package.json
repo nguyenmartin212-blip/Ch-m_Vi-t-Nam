@@ -13,7 +13,10 @@
     "format": "prettier --write src/Atlas.jsx src/atlas.css src/lib/explore.js tests/*.mjs"
   },
   "dependencies": {
+    "@animate-ui/react": "^2.2.1",
+    "@base-ui/react": "^1.9.0",
     "leaflet": "^1.9.4",
+    "motion": "^14.6.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-leaflet": "^5.0.0"

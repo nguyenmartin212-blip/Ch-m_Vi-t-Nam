@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-25",
+  "featureCount": 122,
+  "moduleCount": 19,
+  "entities": 89,
+  "relations": 105,
+  "files": [
+    "BRD-CHAM-VIET.md",
+    "PRD-CHAM-VIET.md",
+    "UI-REDESIGN-PROMPT.md",
+    "FEATURE-INVENTORY-CHAM-VIET.json",
+    "CHAM-VIET-PRD-BRD-VA-PROMPT.md"
+  ]
+}

@@ -99,6 +99,7 @@ test("deep links, legacy hashes and invalid routes", () => {
     entity: "hoi-an",
   });
   assert.equal(readRoute("#graph").page, "graph");
+  assert.deepEqual(readRoute("#/map?entity=hue"), { page: "map", entity: "hue" });
   assert.equal(readRoute("#bad").page, "explore");
 });
 test("all six knowledge layers and four languages preserved", () => {

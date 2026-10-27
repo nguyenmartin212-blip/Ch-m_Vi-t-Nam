@@ -660,7 +660,7 @@ button {
 }
 .cv-graph .cv-node {
   position: absolute;
-  transform: translate(-50%, -50%);
+  translate: -50% -50%;
   border-radius: 9px;
   width: 105px;
   padding: 8px 5px;
@@ -790,6 +790,35 @@ button {
   color: var(--ink);
   background: #fffefa;
   box-shadow: 0 24px 100px #122e3555;
+}
+.cv-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: oklch(24% 0.035 160 / 0.66);
+}
+.cv-sheet-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.cv-animated-sheet {
+  position: relative;
+  margin: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: none;
+  isolation: isolate;
+}
+.cv-sheet-inner > header .cv-sheet-title {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
 }
 .cv-sheet::backdrop {
   background: #102e28a8;
@@ -1248,6 +1277,13 @@ button {
     border-radius: 18px 18px 0 0;
     padding-bottom: env(safe-area-inset-bottom);
   }
+  .cv-sheet-viewport {
+    align-items: end;
+    padding: 0;
+  }
+  .cv-animated-sheet {
+    margin: 0;
+  }
   .cv-sheet-inner > header {
     padding: 8px 18px;
   }
@@ -1500,7 +1536,9 @@ button {
 .cv-graph-hint {
   display: none;
 }
-.cv-graph-layout > div { min-width: 0; }
+.cv-graph-layout > div {
+  min-width: 0;
+}
 @media (max-width: 800px) {
   .cv-graph {
     min-width: 600px;
