@@ -21,6 +21,7 @@ import {
 import Sheet from "./components/ui/AnimatedSheet";
 import ActionButton from "./components/ui/MotionButton";
 import NavIcon from "./components/ui/NavIcon";
+import ShareAccess from "./components/ShareAccess";
 import "./index.css";
 import "./atlas.css";
 import "./reference-ui.css";
@@ -623,7 +624,7 @@ export default function Atlas() {
         Đến nội dung chính
       </a>
       <div className="cv-site-strip">
-        <span>ĐI ĐỂ HIỂU · CHẠM ĐỂ YÊU</span>
+        <span>CHẠM ĐẾN BẢN SẮC VIỆT</span>
         <span className={online ? "" : "offline"}>
           {online ? "Việt Nam, qua từng câu chuyện" : "Bạn đang ngoại tuyến"}
         </span>
@@ -661,6 +662,7 @@ export default function Atlas() {
           ))}
         </nav>
         <div className="cv-header-actions">
+          <ShareAccess />
           <ActionButton
             onClick={() => {
               if (!search.current) navigate("explore");

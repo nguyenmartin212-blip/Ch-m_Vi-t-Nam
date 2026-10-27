@@ -1,0 +1,130 @@
+.cv-share-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.cv-site-header .cv-header-actions .cv-share-trigger {
+  display: inline-flex;
+}
+.cv-sheet:has(.cv-share-panel) {
+  width: min(560px, calc(100% - 24px));
+}
+.cv-share-panel {
+  padding: 28px 32px;
+}
+.cv-share-panel h1 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+.cv-share-panel > p:not(.cv-kicker) {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.cv-share-code {
+  width: min(280px, 100%);
+  margin: 24px auto 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+  background: oklch(100% 0 0);
+}
+.cv-share-code svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cv-share-link {
+  overflow-wrap: anywhere;
+  text-align: center;
+  color: var(--muted);
+}
+.cv-share-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0 0;
+}
+.cv-share-setup {
+  background: var(--cv-light);
+  padding: 20px;
+  margin-top: 24px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.cv-share-setup p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+.cv-share-form {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+.cv-share-form label {
+  font-weight: 600;
+  font-size: 12px;
+}
+.cv-share-form input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 10px 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.cv-share-form button {
+  justify-self: start;
+}
+.cv-share-error {
+  color: oklch(43% 0.16 30);
+  margin: 0;
+  font-size: 12px;
+}
+.cv-share-status {
+  min-height: 20px;
+  color: var(--cv-green);
+  text-align: center;
+  margin: 12px 0;
+}
+.cv-share-note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.cv-share-notice {
+  padding: 12px;
+  background: var(--cv-light);
+}
+.cv-sheet .cv-share-change {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 12px;
+}
+@media (max-width: 800px) {
+  .cv-share-panel {
+    padding: 24px;
+  }
+  .cv-share-panel h1 {
+    font-size: 25px;
+  }
+  .cv-share-form input {
+    font-size: 16px;
+  }
+  .cv-header-actions > button[aria-label="Tìm kiếm điểm đến"] {
+    display: none !important;
+  }
+  .landing-nav nav .cv-share-trigger {
+    display: inline-flex;
+  }
+}

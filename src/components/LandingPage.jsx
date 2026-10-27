@@ -1,4 +1,5 @@
 import MotionButton from "./ui/MotionButton";
+import ShareAccess from "./ShareAccess";
 import { useAppMotion } from "../lib/motionContext";
 import { Reveal } from "./ui/MotionContent";
 import { LAYERS } from "../data/content";
@@ -46,10 +47,11 @@ export default function LandingPage({ onStart }) {
           <div className="landing-brand">
             <b>V</b>
             <span>
-              CHẠM VIỆT NAM<small>ĐI ĐỂ HIỂU · CHẠM ĐỂ YÊU</small>
+              CHẠM VIỆT NAM<small>CHẠM ĐẾN BẢN SẮC VIỆT</small>
             </span>
           </div>
           <nav>
+            <ShareAccess />
             <MotionButton
               onClick={() =>
                 window.scrollTo({
@@ -63,11 +65,9 @@ export default function LandingPage({ onStart }) {
             <MotionButton onClick={scrollToAbout}>Về dự án</MotionButton>
             <MotionButton
               onClick={() =>
-                document
-                  .getElementById("landing-layers")
-                  ?.scrollIntoView({
-                    behavior: shouldReduce ? "auto" : "smooth",
-                  })
+                document.getElementById("landing-layers")?.scrollIntoView({
+                  behavior: shouldReduce ? "auto" : "smooth",
+                })
               }
             >
               Lớp tri thức
